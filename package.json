@@ -1,0 +1,17 @@
+{
+  "name": "qlik-elastic-tutorial",
+  "private": true,
+  "version": "0.0.1",
+  "author": "QlikTech International AB",
+  "description": "Repository containing examples for Qlik Elastic.",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "eslint": "3.18.0",
+    "eslint-config-airbnb-base": "11.1.0",
+    "eslint-plugin-import": "2.2.0"
+  }
+}

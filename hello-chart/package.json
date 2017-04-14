@@ -1,0 +1,29 @@
+{
+  "name": "hello-chart",
+  "private": true,
+  "version": "0.0.1",
+  "author": "QlikTech International AB",
+  "description": "Loads data into the QIX Engine, and visualizes the data in a simple UI.",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --display-error-details",
+    "build": "webpack -p"
+  },
+  "dependencies": {
+    "angular": "1.5.8",
+    "d3": "4.2.2",
+    "enigma.js": "1.0.0",
+    "halyard.js": "1.0.1",
+    "ws": "1.1.1"
+  },
+  "devDependencies": {
+    "babel-core": "6.24.0",
+    "babel-loader": "6.4.1",
+    "babel-preset-es2015": "6.24.0",
+    "json-loader": "0.5.4",
+    "raw-loader": "0.5.1",
+    "webpack": "1.13.2",
+    "webpack-dev-server": "1.15.1",
+    "copy-webpack-plugin": "4.0.1"
+  }
+}
