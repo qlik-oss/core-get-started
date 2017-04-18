@@ -19,16 +19,16 @@
 ### Environment
 
 ##### Library
-
-* [ ] Node.js
-* [ ] Browser
-
+```
+[ ] Node.js
+[ ] Browser
+```
 ##### Operating system
-
-* [ ] Windows
-* [ ] OSX
-* [ ] Linux
-
+```
+[ ] Windows
+[ ] OSX
+[ ] Linux
+```
 ### Versions
 
 * Node.js: 

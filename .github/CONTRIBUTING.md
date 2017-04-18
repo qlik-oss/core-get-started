@@ -42,7 +42,7 @@ Generally, development should be done directly towards the `master` branch.
 1\. Fork and clone the repository
 
 ```sh
-git clone git@github.com:YOUR-USERNAME/qlik-ea/qlik-elastic-tutorial.git
+git clone git@github.com:YOUR-USERNAME/qlik-elastic-tutorial.git
 ```
 2\. Create a branch in the fork
 
