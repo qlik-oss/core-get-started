@@ -22,3 +22,6 @@ $ git clone https://github.com/qlik-ea/qlik-elastic-tutorial.git
 ## Examples
 -   [Hello World](hello-world/README.md)
 -   [Hello Chart](hello-chart/README.md)
+
+## Contributing
+Please follow the instructions in [CONTRIBUTING.md](.github/CONTRIBUTING.md).
