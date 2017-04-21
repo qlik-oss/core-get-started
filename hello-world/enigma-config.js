@@ -1,11 +1,11 @@
 const WebSocket = require('ws');
-const schema = require('enigma.js/schemas/qix/3.1/schema');
+const schema = require('enigma.js/schemas/qix/3.2/schema');
 
 const config = {
   schema,
   session: {
     port: '9076',
-    unsecure: true,
+    secure: false,
   },
   createSocket(url) {
     return new WebSocket(url);

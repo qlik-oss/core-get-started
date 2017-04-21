@@ -6,7 +6,7 @@ import Halyard from 'halyard.js';
 import angular from 'angular';
 import enigma from 'enigma.js';
 import enigmaMixin from 'halyard.js/dist/halyard-enigma-mixin';
-import qixSchema from 'json!../node_modules/enigma.js/schemas/qix/3.1/schema.json';
+import qixSchema from 'json!../node_modules/enigma.js/schemas/qix/3.2/schema.json';
 import template from 'raw!./app.html';
 import Scatterplot from './scatterplot';
 
@@ -65,7 +65,7 @@ angular.module('app', []).component('app', {
         mixins: enigmaMixin,
         session: {
           port: '9076',
-          unsecure: true,
+          secure: false,
           identity: this.generateGUID(),
         },
       };

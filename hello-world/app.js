@@ -6,10 +6,10 @@ console.log('Connecting to QIX Engine');
 
 enigma.getService('qix', enigmaConfig).then((qix) => {
   console.log('Connection established');
-  return qix.global.productVersion();
+  return qix.global.engineVersion();
 })
 .then((version) => {
-  console.log(`Hello, I am QIX Engine! I am running version: ${version}`);
+  console.log(`Hello, I am QIX Engine! I am running version: ${version.qComponentVersion}`);
   process.exit(0);
 })
 .catch((err) => {
