@@ -10,7 +10,7 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "enigma.js": "1.0.0",
+    "enigma.js": "1.1.1",
     "ws": "1.1.1"
   }
 }
