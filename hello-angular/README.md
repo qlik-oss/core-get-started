@@ -6,7 +6,7 @@ how to setup a simple communication.
 In the first step we focus on getting the QIX Engine up and running. Run the `docker-compose up` command.
 
 ```bash
-$ cd hello-world
+$ cd hello-angular
 $ docker-compose up
 ```
 The QIX Engine is now running on Linux!
