@@ -1,6 +1,4 @@
-//import * as WebSocket from 'ws';
-
-//3.2 schema embedded for now, should really parse off of http but there are some typescript quirks....
+// 3.2 schema embedded for now, should really parse off of http but there are some typescript quirks....
 export var enigmaConfig = {
     schema: {
         structs: {
@@ -15,20 +13,20 @@ export var enigmaConfig = {
                 },
                 SelectValues: {
                     In: [{
-                            Name: "qFieldValues",
+                            Name: 'qFieldValues',
                             DefaultValue: [{
-                                qText: "",
+                                qText: '',
                                 qIsNumeric: false,
                                 qNumber: 0
                             }]
                         },
                         {
-                            Name: "qToggleMode",
+                            Name: 'qToggleMode',
                             DefaultValue: false,
                             Optional: true
                         },
                         {
-                            Name: "qSoftLock",
+                            Name: 'qSoftLock',
                             DefaultValue: false,
                             Optional: true
                         }
@@ -37,16 +35,16 @@ export var enigmaConfig = {
                 },
                 Select: {
                     In: [{
-                            Name: "qMatch",
-                            DefaultValue: ""
+                            Name: 'qMatch',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qSoftLock",
+                            Name: 'qSoftLock',
                             DefaultValue: false,
                             Optional: true
                         },
                         {
-                            Name: "qExcludedValuesMode",
+                            Name: 'qExcludedValuesMode',
                             DefaultValue: 0,
                             Optional: true
                         }
@@ -55,16 +53,16 @@ export var enigmaConfig = {
                 },
                 ToggleSelect: {
                     In: [{
-                            Name: "qMatch",
-                            DefaultValue: ""
+                            Name: 'qMatch',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qSoftLock",
+                            Name: 'qSoftLock',
                             DefaultValue: false,
                             Optional: true
                         },
                         {
-                            Name: "qExcludedValuesMode",
+                            Name: 'qExcludedValuesMode',
                             DefaultValue: 0,
                             Optional: true
                         }
@@ -73,7 +71,7 @@ export var enigmaConfig = {
                 },
                 ClearAllButThis: {
                     In: [{
-                        Name: "qSoftLock",
+                        Name: 'qSoftLock',
                         DefaultValue: false,
                         Optional: true
                     }],
@@ -81,7 +79,7 @@ export var enigmaConfig = {
                 },
                 SelectPossible: {
                     In: [{
-                        Name: "qSoftLock",
+                        Name: 'qSoftLock',
                         DefaultValue: false,
                         Optional: true
                     }],
@@ -89,7 +87,7 @@ export var enigmaConfig = {
                 },
                 SelectExcluded: {
                     In: [{
-                        Name: "qSoftLock",
+                        Name: 'qSoftLock',
                         DefaultValue: false,
                         Optional: true
                     }],
@@ -97,7 +95,7 @@ export var enigmaConfig = {
                 },
                 SelectAll: {
                     In: [{
-                        Name: "qSoftLock",
+                        Name: 'qSoftLock',
                         DefaultValue: false,
                         Optional: true
                     }],
@@ -114,12 +112,12 @@ export var enigmaConfig = {
                 GetNxProperties: {
                     In: [],
                     Out: [{
-                        Name: "qProperties"
+                        Name: 'qProperties'
                     }]
                 },
                 SetNxProperties: {
                     In: [{
-                        Name: "qProperties",
+                        Name: 'qProperties',
                         DefaultValue: {
                             qOneAndOnlyOne: false
                         }
@@ -128,14 +126,14 @@ export var enigmaConfig = {
                 },
                 SetAndMode: {
                     In: [{
-                        Name: "qAndMode",
+                        Name: 'qAndMode',
                         DefaultValue: false
                     }],
                     Out: []
                 },
                 SelectAlternative: {
                     In: [{
-                        Name: "qSoftLock",
+                        Name: 'qSoftLock',
                         DefaultValue: false,
                         Optional: true
                     }],
@@ -143,17 +141,17 @@ export var enigmaConfig = {
                 },
                 LowLevelSelect: {
                     In: [{
-                            Name: "qValues",
+                            Name: 'qValues',
                             DefaultValue: [
                                 0
                             ]
                         },
                         {
-                            Name: "qToggleMode",
+                            Name: 'qToggleMode',
                             DefaultValue: false
                         },
                         {
-                            Name: "qSoftLock",
+                            Name: 'qSoftLock',
                             DefaultValue: false,
                             Optional: true
                         }
@@ -169,7 +167,7 @@ export var enigmaConfig = {
                 GetContent: {
                     In: [],
                     Out: [{
-                        Name: "qContent"
+                        Name: 'qContent'
                     }]
                 },
                 GetRawContent: {
@@ -178,11 +176,11 @@ export var enigmaConfig = {
                 },
                 SetContent: {
                     In: [{
-                            Name: "qContent",
-                            DefaultValue: ""
+                            Name: 'qContent',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qUpdateMRU",
+                            Name: 'qUpdateMRU',
                             DefaultValue: false
                         }
                     ],
@@ -190,11 +188,11 @@ export var enigmaConfig = {
                 },
                 ForceContent: {
                     In: [{
-                            Name: "qs",
-                            DefaultValue: ""
+                            Name: 'qs',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qd",
+                            Name: 'qd',
                             DefaultValue: 0
                         }
                     ],
@@ -203,26 +201,26 @@ export var enigmaConfig = {
                 GetNxProperties: {
                     In: [],
                     Out: [{
-                        Name: "qProperties"
+                        Name: 'qProperties'
                     }]
                 },
                 SetNxProperties: {
                     In: [{
-                        Name: "qProperties",
+                        Name: 'qProperties',
                         DefaultValue: {
-                            qName: "",
+                            qName: '',
                             qNumberPresentation: {
                                 qType: 0,
                                 qnDec: 0,
                                 qUseThou: 0,
-                                qFmt: "",
-                                qDec: "",
-                                qThou: ""
+                                qFmt: '',
+                                qDec: '',
+                                qThou: ''
                             },
                             qIncludeInBookmark: false,
                             qUsePredefListedValues: false,
                             qPreDefinedList: [
-                                ""
+                                ''
                             ]
                         }
                     }],
@@ -233,16 +231,16 @@ export var enigmaConfig = {
                 GetLayout: {
                     In: [],
                     Out: [{
-                        Name: "qLayout"
+                        Name: 'qLayout'
                     }]
                 },
                 GetListObjectData: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qPages",
+                            Name: 'qPages',
                             DefaultValue: [{
                                 qLeft: 0,
                                 qTop: 0,
@@ -252,16 +250,16 @@ export var enigmaConfig = {
                         }
                     ],
                     Out: [{
-                        Name: "qDataPages"
+                        Name: 'qDataPages'
                     }]
                 },
                 GetHyperCubeData: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qPages",
+                            Name: 'qPages',
                             DefaultValue: [{
                                 qLeft: 0,
                                 qTop: 0,
@@ -271,16 +269,16 @@ export var enigmaConfig = {
                         }
                     ],
                     Out: [{
-                        Name: "qDataPages"
+                        Name: 'qDataPages'
                     }]
                 },
                 GetHyperCubeReducedData: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qPages",
+                            Name: 'qPages',
                             DefaultValue: [{
                                 qLeft: 0,
                                 qTop: 0,
@@ -289,25 +287,25 @@ export var enigmaConfig = {
                             }]
                         },
                         {
-                            Name: "qZoomFactor",
+                            Name: 'qZoomFactor',
                             DefaultValue: 0
                         },
                         {
-                            Name: "qReductionMode",
+                            Name: 'qReductionMode',
                             DefaultValue: 0
                         }
                     ],
                     Out: [{
-                        Name: "qDataPages"
+                        Name: 'qDataPages'
                     }]
                 },
                 GetHyperCubePivotData: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qPages",
+                            Name: 'qPages',
                             DefaultValue: [{
                                 qLeft: 0,
                                 qTop: 0,
@@ -317,16 +315,16 @@ export var enigmaConfig = {
                         }
                     ],
                     Out: [{
-                        Name: "qDataPages"
+                        Name: 'qDataPages'
                     }]
                 },
                 GetHyperCubeStackData: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qPages",
+                            Name: 'qPages',
                             DefaultValue: [{
                                 qLeft: 0,
                                 qTop: 0,
@@ -335,22 +333,22 @@ export var enigmaConfig = {
                             }]
                         },
                         {
-                            Name: "qMaxNbrCells",
+                            Name: 'qMaxNbrCells',
                             DefaultValue: 0,
                             Optional: true
                         }
                     ],
                     Out: [{
-                        Name: "qDataPages"
+                        Name: 'qDataPages'
                     }]
                 },
                 GetHyperCubeContinuousData: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qOptions",
+                            Name: 'qOptions',
                             DefaultValue: {
                                 qStart: 0,
                                 qEnd: 0,
@@ -360,26 +358,26 @@ export var enigmaConfig = {
                             }
                         },
                         {
-                            Name: "qReverseSort",
+                            Name: 'qReverseSort',
                             DefaultValue: false,
                             Optional: true
                         }
                     ],
                     Out: [{
-                            Name: "qDataPages"
+                            Name: 'qDataPages'
                         },
                         {
-                            Name: "qAxisData"
+                            Name: 'qAxisData'
                         }
                     ]
                 },
                 GetHyperCubeBinnedData: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qPages",
+                            Name: 'qPages',
                             DefaultValue: [{
                                 qLeft: 0,
                                 qTop: 0,
@@ -388,7 +386,7 @@ export var enigmaConfig = {
                             }]
                         },
                         {
-                            Name: "qViewport",
+                            Name: 'qViewport',
                             DefaultValue: {
                                 qWidth: 0,
                                 qHeight: 0,
@@ -396,7 +394,7 @@ export var enigmaConfig = {
                             }
                         },
                         {
-                            Name: "qDataRanges",
+                            Name: 'qDataRanges',
                             DefaultValue: [{
                                 qLeft: 0,
                                 qTop: 0,
@@ -405,33 +403,33 @@ export var enigmaConfig = {
                             }]
                         },
                         {
-                            Name: "qMaxNbrCells",
+                            Name: 'qMaxNbrCells',
                             DefaultValue: 0
                         },
                         {
-                            Name: "qQueryLevel",
+                            Name: 'qQueryLevel',
                             DefaultValue: 0
                         },
                         {
-                            Name: "qBinningMethod",
+                            Name: 'qBinningMethod',
                             DefaultValue: 0
                         }
                     ],
                     Out: [{
-                        Name: "qDataPages"
+                        Name: 'qDataPages'
                     }]
                 },
                 ApplyPatches: {
                     In: [{
-                            Name: "qPatches",
+                            Name: 'qPatches',
                             DefaultValue: [{
                                 qOp: 0,
-                                qPath: "",
-                                qValue: ""
+                                qPath: '',
+                                qValue: ''
                             }]
                         },
                         {
-                            Name: "qSoftPatch",
+                            Name: 'qSoftPatch',
                             DefaultValue: false,
                             Optional: true
                         }
@@ -444,13 +442,13 @@ export var enigmaConfig = {
                 },
                 SetProperties: {
                     In: [{
-                        Name: "qProp",
+                        Name: 'qProp',
                         DefaultValue: {
                             qInfo: {
-                                qId: "",
-                                qType: ""
+                                qId: '',
+                                qType: ''
                             },
-                            qExtendsId: "",
+                            qExtendsId: '',
                             qMetaDef: {}
                         }
                     }],
@@ -459,25 +457,25 @@ export var enigmaConfig = {
                 GetProperties: {
                     In: [],
                     Out: [{
-                        Name: "qProp"
+                        Name: 'qProp'
                     }]
                 },
                 GetEffectiveProperties: {
                     In: [],
                     Out: [{
-                        Name: "qProp"
+                        Name: 'qProp'
                     }]
                 },
                 SetFullPropertyTree: {
                     In: [{
-                        Name: "qPropEntry",
+                        Name: 'qPropEntry',
                         DefaultValue: {
                             qProperty: {
                                 qInfo: {
-                                    qId: "",
-                                    qType: ""
+                                    qId: '',
+                                    qType: ''
                                 },
-                                qExtendsId: "",
+                                qExtendsId: '',
                                 qMetaDef: {}
                             },
                             qChildren: [],
@@ -489,22 +487,22 @@ export var enigmaConfig = {
                 GetFullPropertyTree: {
                     In: [],
                     Out: [{
-                        Name: "qPropEntry"
+                        Name: 'qPropEntry'
                     }]
                 },
                 GetInfo: {
                     In: [],
                     Out: [{
-                        Name: "qInfo"
+                        Name: 'qInfo'
                     }]
                 },
                 ClearSelections: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qColIndices",
+                            Name: 'qColIndices',
                             DefaultValue: [
                                 0
                             ],
@@ -515,125 +513,125 @@ export var enigmaConfig = {
                 },
                 ExportData: {
                     In: [{
-                            Name: "qFileType",
+                            Name: 'qFileType',
                             DefaultValue: 0
                         },
                         {
-                            Name: "qPath",
-                            DefaultValue: "",
+                            Name: 'qPath',
+                            DefaultValue: '',
                             Optional: true
                         },
                         {
-                            Name: "qFileName",
-                            DefaultValue: "",
+                            Name: 'qFileName',
+                            DefaultValue: '',
                             Optional: true
                         },
                         {
-                            Name: "qExportState",
+                            Name: 'qExportState',
                             DefaultValue: 0,
                             Optional: true
                         }
                     ],
                     Out: [{
-                            Name: "qUrl"
+                            Name: 'qUrl'
                         },
                         {
-                            Name: "qWarnings"
+                            Name: 'qWarnings'
                         }
                     ]
                 },
                 SelectListObjectValues: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qValues",
+                            Name: 'qValues',
                             DefaultValue: [
                                 0
                             ]
                         },
                         {
-                            Name: "qToggleMode",
+                            Name: 'qToggleMode',
                             DefaultValue: false
                         },
                         {
-                            Name: "qSoftLock",
+                            Name: 'qSoftLock',
                             DefaultValue: false,
                             Optional: true
                         }
                     ],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 SelectListObjectPossible: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qSoftLock",
+                            Name: 'qSoftLock',
                             DefaultValue: false,
                             Optional: true
                         }
                     ],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 SelectListObjectExcluded: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qSoftLock",
+                            Name: 'qSoftLock',
                             DefaultValue: false,
                             Optional: true
                         }
                     ],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 SelectListObjectAlternative: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qSoftLock",
+                            Name: 'qSoftLock',
                             DefaultValue: false,
                             Optional: true
                         }
                     ],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 SelectListObjectAll: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qSoftLock",
+                            Name: 'qSoftLock',
                             DefaultValue: false,
                             Optional: true
                         }
                     ],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 SelectListObjectContinuousRange: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qRanges",
+                            Name: 'qRanges',
                             DefaultValue: [{
                                 qMin: 0,
                                 qMax: 0,
@@ -642,47 +640,47 @@ export var enigmaConfig = {
                             }]
                         },
                         {
-                            Name: "qSoftLock",
+                            Name: 'qSoftLock',
                             DefaultValue: false,
                             Optional: true
                         }
                     ],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 SearchListObjectFor: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qMatch",
-                            DefaultValue: ""
+                            Name: 'qMatch',
+                            DefaultValue: ''
                         }
                     ],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 AbortListObjectSearch: {
                     In: [{
-                        Name: "qPath",
-                        DefaultValue: ""
+                        Name: 'qPath',
+                        DefaultValue: ''
                     }],
                     Out: []
                 },
                 AcceptListObjectSearch: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qToggleMode",
+                            Name: 'qToggleMode',
                             DefaultValue: false
                         },
                         {
-                            Name: "qSoftLock",
+                            Name: 'qSoftLock',
                             DefaultValue: false,
                             Optional: true
                         }
@@ -691,19 +689,19 @@ export var enigmaConfig = {
                 },
                 ExpandLeft: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qRow",
+                            Name: 'qRow',
                             DefaultValue: 0
                         },
                         {
-                            Name: "qCol",
+                            Name: 'qCol',
                             DefaultValue: 0
                         },
                         {
-                            Name: "qAll",
+                            Name: 'qAll',
                             DefaultValue: false
                         }
                     ],
@@ -711,19 +709,19 @@ export var enigmaConfig = {
                 },
                 ExpandTop: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qRow",
+                            Name: 'qRow',
                             DefaultValue: 0
                         },
                         {
-                            Name: "qCol",
+                            Name: 'qCol',
                             DefaultValue: 0
                         },
                         {
-                            Name: "qAll",
+                            Name: 'qAll',
                             DefaultValue: false
                         }
                     ],
@@ -731,19 +729,19 @@ export var enigmaConfig = {
                 },
                 CollapseLeft: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qRow",
+                            Name: 'qRow',
                             DefaultValue: 0
                         },
                         {
-                            Name: "qCol",
+                            Name: 'qCol',
                             DefaultValue: 0
                         },
                         {
-                            Name: "qAll",
+                            Name: 'qAll',
                             DefaultValue: false
                         }
                     ],
@@ -751,19 +749,19 @@ export var enigmaConfig = {
                 },
                 CollapseTop: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qRow",
+                            Name: 'qRow',
                             DefaultValue: 0
                         },
                         {
-                            Name: "qCol",
+                            Name: 'qCol',
                             DefaultValue: 0
                         },
                         {
-                            Name: "qAll",
+                            Name: 'qAll',
                             DefaultValue: false
                         }
                     ],
@@ -771,15 +769,15 @@ export var enigmaConfig = {
                 },
                 DrillUp: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qDimNo",
+                            Name: 'qDimNo',
                             DefaultValue: 0
                         },
                         {
-                            Name: "qNbrSteps",
+                            Name: 'qNbrSteps',
                             DefaultValue: 0
                         }
                     ],
@@ -787,11 +785,11 @@ export var enigmaConfig = {
                 },
                 Lock: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qColIndices",
+                            Name: 'qColIndices',
                             DefaultValue: [
                                 0
                             ],
@@ -802,11 +800,11 @@ export var enigmaConfig = {
                 },
                 Unlock: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qColIndices",
+                            Name: 'qColIndices',
                             DefaultValue: [
                                 0
                             ],
@@ -817,67 +815,67 @@ export var enigmaConfig = {
                 },
                 SelectHyperCubeValues: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qDimNo",
+                            Name: 'qDimNo',
                             DefaultValue: 0
                         },
                         {
-                            Name: "qValues",
+                            Name: 'qValues',
                             DefaultValue: [
                                 0
                             ]
                         },
                         {
-                            Name: "qToggleMode",
+                            Name: 'qToggleMode',
                             DefaultValue: false
                         }
                     ],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 SelectHyperCubeCells: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qRowIndices",
+                            Name: 'qRowIndices',
                             DefaultValue: [
                                 0
                             ]
                         },
                         {
-                            Name: "qColIndices",
+                            Name: 'qColIndices',
                             DefaultValue: [
                                 0
                             ]
                         },
                         {
-                            Name: "qSoftLock",
+                            Name: 'qSoftLock',
                             DefaultValue: false,
                             Optional: true
                         },
                         {
-                            Name: "qDeselectOnlyOneSelected",
+                            Name: 'qDeselectOnlyOneSelected',
                             DefaultValue: false,
                             Optional: true
                         }
                     ],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 SelectPivotCells: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qSelections",
+                            Name: 'qSelections',
                             DefaultValue: [{
                                 qType: 0,
                                 qCol: 0,
@@ -885,27 +883,27 @@ export var enigmaConfig = {
                             }]
                         },
                         {
-                            Name: "qSoftLock",
+                            Name: 'qSoftLock',
                             DefaultValue: false,
                             Optional: true
                         },
                         {
-                            Name: "qDeselectOnlyOneSelected",
+                            Name: 'qDeselectOnlyOneSelected',
                             DefaultValue: false,
                             Optional: true
                         }
                     ],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 RangeSelectHyperCubeValues: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qRanges",
+                            Name: 'qRanges',
                             DefaultValue: [{
                                 qRange: {
                                     qMin: 0,
@@ -917,34 +915,34 @@ export var enigmaConfig = {
                             }]
                         },
                         {
-                            Name: "qColumnsToSelect",
+                            Name: 'qColumnsToSelect',
                             DefaultValue: [
                                 0
                             ],
                             Optional: true
                         },
                         {
-                            Name: "qOrMode",
+                            Name: 'qOrMode',
                             DefaultValue: false,
                             Optional: true
                         },
                         {
-                            Name: "qDeselectOnlyOneSelected",
+                            Name: 'qDeselectOnlyOneSelected',
                             DefaultValue: false,
                             Optional: true
                         }
                     ],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 MultiRangeSelectHyperCubeValues: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qRanges",
+                            Name: 'qRanges',
                             DefaultValue: [{
                                 qRanges: [{
                                     qRange: {
@@ -961,27 +959,27 @@ export var enigmaConfig = {
                             }]
                         },
                         {
-                            Name: "qOrMode",
+                            Name: 'qOrMode',
                             DefaultValue: false,
                             Optional: true
                         },
                         {
-                            Name: "qDeselectOnlyOneSelected",
+                            Name: 'qDeselectOnlyOneSelected',
                             DefaultValue: false,
                             Optional: true
                         }
                     ],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 SelectHyperCubeContinuousRange: {
                     In: [{
-                            Name: "qPath",
-                            DefaultValue: ""
+                            Name: 'qPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qRanges",
+                            Name: 'qRanges',
                             DefaultValue: [{
                                 qRange: {
                                     qMin: 0,
@@ -993,68 +991,68 @@ export var enigmaConfig = {
                             }]
                         },
                         {
-                            Name: "qSoftLock",
+                            Name: 'qSoftLock',
                             DefaultValue: false,
                             Optional: true
                         }
                     ],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 GetChild: {
                     In: [{
-                        Name: "qId",
-                        DefaultValue: ""
+                        Name: 'qId',
+                        DefaultValue: ''
                     }],
                     Out: []
                 },
                 GetChildInfos: {
                     In: [],
                     Out: [{
-                        Name: "qInfos"
+                        Name: 'qInfos'
                     }]
                 },
                 CreateChild: {
                     In: [{
-                            Name: "qProp",
+                            Name: 'qProp',
                             DefaultValue: {
                                 qInfo: {
-                                    qId: "",
-                                    qType: ""
+                                    qId: '',
+                                    qType: ''
                                 },
-                                qExtendsId: "",
+                                qExtendsId: '',
                                 qMetaDef: {}
                             }
                         },
                         {
-                            Name: "qPropForThis",
+                            Name: 'qPropForThis',
                             DefaultValue: null,
                             Optional: true
                         }
                     ],
                     Out: [{
-                        Name: "qInfo"
+                        Name: 'qInfo'
                     }]
                 },
                 DestroyChild: {
                     In: [{
-                            Name: "qId",
-                            DefaultValue: ""
+                            Name: 'qId',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qPropForThis",
+                            Name: 'qPropForThis',
                             DefaultValue: null,
                             Optional: true
                         }
                     ],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 DestroyAllChildren: {
                     In: [{
-                        Name: "qPropForThis",
+                        Name: 'qPropForThis',
                         DefaultValue: null,
                         Optional: true
                     }],
@@ -1062,9 +1060,9 @@ export var enigmaConfig = {
                 },
                 SetChildArrayOrder: {
                     In: [{
-                        Name: "qIds",
+                        Name: 'qIds',
                         DefaultValue: [
-                            ""
+                            ''
                         ]
                     }],
                     Out: []
@@ -1072,28 +1070,28 @@ export var enigmaConfig = {
                 GetLinkedObjects: {
                     In: [],
                     Out: [{
-                        Name: "qItems"
+                        Name: 'qItems'
                     }]
                 },
                 CopyFrom: {
                     In: [{
-                        Name: "qFromId",
-                        DefaultValue: ""
+                        Name: 'qFromId',
+                        DefaultValue: ''
                     }],
                     Out: []
                 },
                 BeginSelections: {
                     In: [{
-                        Name: "qPaths",
+                        Name: 'qPaths',
                         DefaultValue: [
-                            ""
+                            ''
                         ]
                     }],
                     Out: []
                 },
                 EndSelections: {
                     In: [{
-                        Name: "qAccept",
+                        Name: 'qAccept',
                         DefaultValue: false
                     }],
                     Out: []
@@ -1104,8 +1102,8 @@ export var enigmaConfig = {
                 },
                 EmbedSnapshotObject: {
                     In: [{
-                        Name: "qId",
-                        DefaultValue: ""
+                        Name: 'qId',
+                        DefaultValue: ''
                     }],
                     Out: []
                 },
@@ -1126,35 +1124,35 @@ export var enigmaConfig = {
                 GetLayout: {
                     In: [],
                     Out: [{
-                        Name: "qLayout"
+                        Name: 'qLayout'
                     }]
                 },
                 ApplyPatches: {
                     In: [{
-                        Name: "qPatches",
+                        Name: 'qPatches',
                         DefaultValue: [{
                             qOp: 0,
-                            qPath: "",
-                            qValue: ""
+                            qPath: '',
+                            qValue: ''
                         }]
                     }],
                     Out: []
                 },
                 SetProperties: {
                     In: [{
-                        Name: "qProp",
+                        Name: 'qProp',
                         DefaultValue: {
                             qInfo: {
-                                qId: "",
-                                qType: ""
+                                qId: '',
+                                qType: ''
                             },
                             qDim: {
                                 qGrouping: 0,
                                 qFieldDefs: [
-                                    ""
+                                    ''
                                 ],
                                 qFieldLabels: [
-                                    ""
+                                    ''
                                 ]
                             },
                             qMetaDef: {}
@@ -1165,25 +1163,25 @@ export var enigmaConfig = {
                 GetProperties: {
                     In: [],
                     Out: [{
-                        Name: "qProp"
+                        Name: 'qProp'
                     }]
                 },
                 GetInfo: {
                     In: [],
                     Out: [{
-                        Name: "qInfo"
+                        Name: 'qInfo'
                     }]
                 },
                 GetDimension: {
                     In: [],
                     Out: [{
-                        Name: "qDim"
+                        Name: 'qDim'
                     }]
                 },
                 GetLinkedObjects: {
                     In: [],
                     Out: [{
-                        Name: "qItems"
+                        Name: 'qItems'
                     }]
                 },
                 Publish: {
@@ -1198,15 +1196,15 @@ export var enigmaConfig = {
             GenericBookmark: {
                 GetFieldValues: {
                     In: [{
-                            Name: "qField",
-                            DefaultValue: ""
+                            Name: 'qField',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qGetExcludedValues",
+                            Name: 'qGetExcludedValues',
                             DefaultValue: false
                         },
                         {
-                            Name: "qDataPage",
+                            Name: 'qDataPage',
                             DefaultValue: {
                                 qStartIndex: 0,
                                 qEndIndex: 0
@@ -1214,33 +1212,33 @@ export var enigmaConfig = {
                         }
                     ],
                     Out: [{
-                        Name: "qFieldValues"
+                        Name: 'qFieldValues'
                     }]
                 },
                 GetLayout: {
                     In: [],
                     Out: [{
-                        Name: "qLayout"
+                        Name: 'qLayout'
                     }]
                 },
                 ApplyPatches: {
                     In: [{
-                        Name: "qPatches",
+                        Name: 'qPatches',
                         DefaultValue: [{
                             qOp: 0,
-                            qPath: "",
-                            qValue: ""
+                            qPath: '',
+                            qValue: ''
                         }]
                     }],
                     Out: []
                 },
                 SetProperties: {
                     In: [{
-                        Name: "qProp",
+                        Name: 'qProp',
                         DefaultValue: {
                             qInfo: {
-                                qId: "",
-                                qType: ""
+                                qId: '',
+                                qType: ''
                             },
                             qMetaDef: {}
                         }
@@ -1250,19 +1248,19 @@ export var enigmaConfig = {
                 GetProperties: {
                     In: [],
                     Out: [{
-                        Name: "qProp"
+                        Name: 'qProp'
                     }]
                 },
                 GetInfo: {
                     In: [],
                     Out: [{
-                        Name: "qInfo"
+                        Name: 'qInfo'
                     }]
                 },
                 Apply: {
                     In: [],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 Publish: {
@@ -1278,41 +1276,41 @@ export var enigmaConfig = {
                 GetLayout: {
                     In: [],
                     Out: [{
-                        Name: "qLayout"
+                        Name: 'qLayout'
                     }]
                 },
                 ApplyPatches: {
                     In: [{
-                        Name: "qPatches",
+                        Name: 'qPatches',
                         DefaultValue: [{
                             qOp: 0,
-                            qPath: "",
-                            qValue: ""
+                            qPath: '',
+                            qValue: ''
                         }]
                     }],
                     Out: []
                 },
                 SetProperties: {
                     In: [{
-                        Name: "qProp",
+                        Name: 'qProp',
                         DefaultValue: {
                             qInfo: {
-                                qId: "",
-                                qType: ""
+                                qId: '',
+                                qType: ''
                             },
                             qMetaDef: {},
-                            qName: "",
-                            qComment: "",
+                            qName: '',
+                            qComment: '',
                             qNumberPresentation: {
                                 qType: 0,
                                 qnDec: 0,
                                 qUseThou: 0,
-                                qFmt: "",
-                                qDec: "",
-                                qThou: ""
+                                qFmt: '',
+                                qDec: '',
+                                qThou: ''
                             },
                             qIncludeInBookmark: false,
-                            qDefinition: ""
+                            qDefinition: ''
                         }
                     }],
                     Out: []
@@ -1320,36 +1318,36 @@ export var enigmaConfig = {
                 GetProperties: {
                     In: [],
                     Out: [{
-                        Name: "qProp"
+                        Name: 'qProp'
                     }]
                 },
                 GetInfo: {
                     In: [],
                     Out: [{
-                        Name: "qInfo"
+                        Name: 'qInfo'
                     }]
                 },
                 SetStringValue: {
                     In: [{
-                        Name: "qVal",
-                        DefaultValue: ""
+                        Name: 'qVal',
+                        DefaultValue: ''
                     }],
                     Out: []
                 },
                 SetNumValue: {
                     In: [{
-                        Name: "qVal",
+                        Name: 'qVal',
                         DefaultValue: 0
                     }],
                     Out: []
                 },
                 SetDualValue: {
                     In: [{
-                            Name: "qText",
-                            DefaultValue: ""
+                            Name: 'qText',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qNum",
+                            Name: 'qNum',
                             DefaultValue: 0
                         }
                     ],
@@ -1360,34 +1358,34 @@ export var enigmaConfig = {
                 GetLayout: {
                     In: [],
                     Out: [{
-                        Name: "qLayout"
+                        Name: 'qLayout'
                     }]
                 },
                 ApplyPatches: {
                     In: [{
-                        Name: "qPatches",
+                        Name: 'qPatches',
                         DefaultValue: [{
                             qOp: 0,
-                            qPath: "",
-                            qValue: ""
+                            qPath: '',
+                            qValue: ''
                         }]
                     }],
                     Out: []
                 },
                 SetProperties: {
                     In: [{
-                        Name: "qProp",
+                        Name: 'qProp',
                         DefaultValue: {
                             qInfo: {
-                                qId: "",
-                                qType: ""
+                                qId: '',
+                                qType: ''
                             },
                             qMeasure: {
-                                qLabel: "",
-                                qDef: "",
+                                qLabel: '',
+                                qDef: '',
                                 qGrouping: 0,
                                 qExpressions: [
-                                    ""
+                                    ''
                                 ],
                                 qActiveExpression: 0
                             },
@@ -1399,25 +1397,25 @@ export var enigmaConfig = {
                 GetProperties: {
                     In: [],
                     Out: [{
-                        Name: "qProp"
+                        Name: 'qProp'
                     }]
                 },
                 GetInfo: {
                     In: [],
                     Out: [{
-                        Name: "qInfo"
+                        Name: 'qInfo'
                     }]
                 },
                 GetMeasure: {
                     In: [],
                     Out: [{
-                        Name: "qMeasure"
+                        Name: 'qMeasure'
                     }]
                 },
                 GetLinkedObjects: {
                     In: [],
                     Out: [{
-                        Name: "qItems"
+                        Name: 'qItems'
                     }]
                 },
                 Publish: {
@@ -1432,15 +1430,15 @@ export var enigmaConfig = {
             GenericDerivedFields: {
                 SetProperties: {
                     In: [{
-                        Name: "qProp",
+                        Name: 'qProp',
                         DefaultValue: {
                             qInfo: {
-                                qId: "",
-                                qType: ""
+                                qId: '',
+                                qType: ''
                             },
-                            qDerivedDefinitionId: "",
+                            qDerivedDefinitionId: '',
                             qFieldName: [
-                                ""
+                                ''
                             ],
                             qMetaDef: {}
                         }
@@ -1450,58 +1448,58 @@ export var enigmaConfig = {
                 GetProperties: {
                     In: [],
                     Out: [{
-                        Name: "qProp"
+                        Name: 'qProp'
                     }]
                 },
                 GetInfo: {
                     In: [],
                     Out: [{
-                        Name: "qInfo"
+                        Name: 'qInfo'
                     }]
                 },
                 GetDerivedFieldData: {
                     In: [],
                     Out: [{
-                        Name: "qData"
+                        Name: 'qData'
                     }]
                 },
                 GetDerivedField: {
                     In: [{
-                        Name: "qId",
-                        DefaultValue: ""
+                        Name: 'qId',
+                        DefaultValue: ''
                     }],
                     Out: [{
-                        Name: "qFields"
+                        Name: 'qFields'
                     }]
                 },
                 GetListData: {
                     In: [],
                     Out: [{
-                        Name: "qListData"
+                        Name: 'qListData'
                     }]
                 },
                 GetDerivedFields: {
                     In: [],
                     Out: [{
-                        Name: "qFields"
+                        Name: 'qFields'
                     }]
                 },
                 GetDerivedGroups: {
                     In: [],
                     Out: [{
-                        Name: "qGroups"
+                        Name: 'qGroups'
                     }]
                 }
             },
             Doc: {
                 GetField: {
                     In: [{
-                            Name: "qFieldName",
-                            DefaultValue: ""
+                            Name: 'qFieldName',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qStateName",
-                            DefaultValue: "",
+                            Name: 'qStateName',
+                            DefaultValue: '',
                             Optional: true
                         }
                     ],
@@ -1509,27 +1507,27 @@ export var enigmaConfig = {
                 },
                 GetFieldDescription: {
                     In: [{
-                        Name: "qFieldName",
-                        DefaultValue: ""
+                        Name: 'qFieldName',
+                        DefaultValue: ''
                     }],
                     Out: []
                 },
                 GetVariable: {
                     In: [{
-                        Name: "qName",
-                        DefaultValue: ""
+                        Name: 'qName',
+                        DefaultValue: ''
                     }],
                     Out: []
                 },
                 GetLooselyCoupledVector: {
                     In: [],
                     Out: [{
-                        Name: "qv"
+                        Name: 'qv'
                     }]
                 },
                 SetLooselyCoupledVector: {
                     In: [{
-                        Name: "qv",
+                        Name: 'qv',
                         DefaultValue: [
                             0
                         ]
@@ -1538,29 +1536,29 @@ export var enigmaConfig = {
                 },
                 Evaluate: {
                     In: [{
-                        Name: "qExpression",
-                        DefaultValue: ""
+                        Name: 'qExpression',
+                        DefaultValue: ''
                     }],
                     Out: []
                 },
                 EvaluateEx: {
                     In: [{
-                        Name: "qExpression",
-                        DefaultValue: ""
+                        Name: 'qExpression',
+                        DefaultValue: ''
                     }],
                     Out: [{
-                        Name: "qValue"
+                        Name: 'qValue'
                     }]
                 },
                 ClearAll: {
                     In: [{
-                            Name: "qLockedAlso",
+                            Name: 'qLockedAlso',
                             DefaultValue: false,
                             Optional: true
                         },
                         {
-                            Name: "qStateName",
-                            DefaultValue: "",
+                            Name: 'qStateName',
+                            DefaultValue: '',
                             Optional: true
                         }
                     ],
@@ -1568,16 +1566,16 @@ export var enigmaConfig = {
                 },
                 LockAll: {
                     In: [{
-                        Name: "qStateName",
-                        DefaultValue: "",
+                        Name: 'qStateName',
+                        DefaultValue: '',
                         Optional: true
                     }],
                     Out: []
                 },
                 UnlockAll: {
                     In: [{
-                        Name: "qStateName",
-                        DefaultValue: "",
+                        Name: 'qStateName',
+                        DefaultValue: '',
                         Optional: true
                     }],
                     Out: []
@@ -1592,14 +1590,14 @@ export var enigmaConfig = {
                 },
                 ReduceData: {
                     In: [{
-                            Name: "qConfirm",
+                            Name: 'qConfirm',
                             DefaultValue: false,
                             Optional: true
                         },
                         {
-                            Name: "qDropFieldNames",
+                            Name: 'qDropFieldNames',
                             DefaultValue: [
-                                ""
+                                ''
                             ],
                             Optional: true
                         }
@@ -1608,7 +1606,7 @@ export var enigmaConfig = {
                 },
                 RemoveAllData: {
                     In: [{
-                        Name: "qConfirm",
+                        Name: 'qConfirm',
                         DefaultValue: false,
                         Optional: true
                     }],
@@ -1616,15 +1614,15 @@ export var enigmaConfig = {
                 },
                 CreateVariable: {
                     In: [{
-                        Name: "qName",
-                        DefaultValue: ""
+                        Name: 'qName',
+                        DefaultValue: ''
                     }],
                     Out: []
                 },
                 RemoveVariable: {
                     In: [{
-                        Name: "qName",
-                        DefaultValue: ""
+                        Name: 'qName',
+                        DefaultValue: ''
                     }],
                     Out: []
                 },
@@ -1634,37 +1632,37 @@ export var enigmaConfig = {
                 },
                 GetTablesAndKeys: {
                     In: [{
-                            Name: "qWindowSize",
+                            Name: 'qWindowSize',
                             DefaultValue: {
                                 qcx: 0,
                                 qcy: 0
                             }
                         },
                         {
-                            Name: "qNullSize",
+                            Name: 'qNullSize',
                             DefaultValue: {
                                 qcx: 0,
                                 qcy: 0
                             }
                         },
                         {
-                            Name: "qCellHeight",
+                            Name: 'qCellHeight',
                             DefaultValue: 0
                         },
                         {
-                            Name: "qSyntheticMode",
+                            Name: 'qSyntheticMode',
                             DefaultValue: false
                         },
                         {
-                            Name: "qIncludeSysVars",
+                            Name: 'qIncludeSysVars',
                             DefaultValue: false
                         }
                     ],
                     Out: [{
-                            Name: "qtr"
+                            Name: 'qtr'
                         },
                         {
-                            Name: "qk"
+                            Name: 'qk'
                         }
                     ]
                 },
@@ -1674,7 +1672,7 @@ export var enigmaConfig = {
                 },
                 SetViewDlgSaveInfo: {
                     In: [{
-                        Name: "qInfo",
+                        Name: 'qInfo',
                         DefaultValue: {
                             qPos: {
                                 qLeft: 0,
@@ -1691,16 +1689,16 @@ export var enigmaConfig = {
                                             qWidth: 0,
                                             qHeight: 0
                                         },
-                                        qCaption: ""
+                                        qCaption: ''
                                     }],
                                     qBroomPoints: [{
                                         qPos: {
                                             qx: 0,
                                             qy: 0
                                         },
-                                        qTable: "",
+                                        qTable: '',
                                         qFields: [
-                                            ""
+                                            ''
                                         ]
                                     }],
                                     qConnectionPoints: [{
@@ -1709,7 +1707,7 @@ export var enigmaConfig = {
                                             qy: 0
                                         },
                                         qFields: [
-                                            ""
+                                            ''
                                         ]
                                     }],
                                     qZoomFactor: 0
@@ -1722,16 +1720,16 @@ export var enigmaConfig = {
                                             qWidth: 0,
                                             qHeight: 0
                                         },
-                                        qCaption: ""
+                                        qCaption: ''
                                     }],
                                     qBroomPoints: [{
                                         qPos: {
                                             qx: 0,
                                             qy: 0
                                         },
-                                        qTable: "",
+                                        qTable: '',
                                         qFields: [
-                                            ""
+                                            ''
                                         ]
                                     }],
                                     qConnectionPoints: [{
@@ -1740,7 +1738,7 @@ export var enigmaConfig = {
                                             qy: 0
                                         },
                                         qFields: [
-                                            ""
+                                            ''
                                         ]
                                     }],
                                     qZoomFactor: 0
@@ -1753,25 +1751,25 @@ export var enigmaConfig = {
                 },
                 GetEmptyScript: {
                     In: [{
-                        Name: "qLocalizedMainSection",
-                        DefaultValue: "",
+                        Name: 'qLocalizedMainSection',
+                        DefaultValue: '',
                         Optional: true
                     }],
                     Out: []
                 },
                 DoReload: {
                     In: [{
-                            Name: "qMode",
+                            Name: 'qMode',
                             DefaultValue: 0,
                             Optional: true
                         },
                         {
-                            Name: "qPartial",
+                            Name: 'qPartial',
                             DefaultValue: false,
                             Optional: true
                         },
                         {
-                            Name: "qDebug",
+                            Name: 'qDebug',
                             DefaultValue: false,
                             Optional: true
                         }
@@ -1781,14 +1779,14 @@ export var enigmaConfig = {
                 GetScriptBreakpoints: {
                     In: [],
                     Out: [{
-                        Name: "qBreakpoints"
+                        Name: 'qBreakpoints'
                     }]
                 },
                 SetScriptBreakpoints: {
                     In: [{
-                        Name: "qBreakpoints",
+                        Name: 'qBreakpoints',
                         DefaultValue: [{
-                            qbufferName: "",
+                            qbufferName: '',
                             qlineIx: 0,
                             qEnabled: false
                         }]
@@ -1798,68 +1796,68 @@ export var enigmaConfig = {
                 GetScript: {
                     In: [],
                     Out: [{
-                        Name: "qScript"
+                        Name: 'qScript'
                     }]
                 },
                 GetTextMacros: {
                     In: [],
                     Out: [{
-                        Name: "qMacros"
+                        Name: 'qMacros'
                     }]
                 },
                 SetFetchLimit: {
                     In: [{
-                        Name: "qLimit",
+                        Name: 'qLimit',
                         DefaultValue: 0
                     }],
                     Out: []
                 },
                 DoSave: {
                     In: [{
-                        Name: "qFileName",
-                        DefaultValue: "",
+                        Name: 'qFileName',
+                        DefaultValue: '',
                         Optional: true
                     }],
                     Out: []
                 },
                 GetTableData: {
                     In: [{
-                            Name: "qOffset",
+                            Name: 'qOffset',
                             DefaultValue: 0
                         },
                         {
-                            Name: "qRows",
+                            Name: 'qRows',
                             DefaultValue: 0
                         },
                         {
-                            Name: "qSyntheticMode",
+                            Name: 'qSyntheticMode',
                             DefaultValue: false
                         },
                         {
-                            Name: "qTableName",
-                            DefaultValue: ""
+                            Name: 'qTableName',
+                            DefaultValue: ''
                         }
                     ],
                     Out: [{
-                        Name: "qData"
+                        Name: 'qData'
                     }]
                 },
                 GetAppLayout: {
                     In: [],
                     Out: [{
-                        Name: "qLayout"
+                        Name: 'qLayout'
                     }]
                 },
                 SetAppProperties: {
                     In: [{
-                        Name: "qProp",
+                        Name: 'qProp',
                         DefaultValue: {
-                            qTitle: "",
-                            qLastReloadTime: "",
-                            qMigrationHash: "",
-                            qSavedInProductVersion: "",
+                            qTitle: '',
+                            qLastReloadTime: '',
+                            qMigrationHash: '',
+                            qSavedInProductVersion: '',
                             qThumbnail: {
-                                qUrl: ""
+                                qUrl: ''
                             }
                         }
                     }],
@@ -1868,18 +1866,18 @@ export var enigmaConfig = {
                 GetAppProperties: {
                     In: [],
                     Out: [{
-                        Name: "qProp"
+                        Name: 'qProp'
                     }]
                 },
                 CreateSessionObject: {
                     In: [{
-                        Name: "qProp",
+                        Name: 'qProp',
                         DefaultValue: {
                             qInfo: {
-                                qId: "",
-                                qType: ""
+                                qId: '',
+                                qType: ''
                             },
-                            qExtendsId: "",
+                            qExtendsId: '',
                             qMetaDef: {}
                         }
                     }],
@@ -1887,94 +1885,94 @@ export var enigmaConfig = {
                 },
                 DestroySessionObject: {
                     In: [{
-                        Name: "qId",
-                        DefaultValue: ""
+                        Name: 'qId',
+                        DefaultValue: ''
                     }],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 CreateObject: {
                     In: [{
-                        Name: "qProp",
+                        Name: 'qProp',
                         DefaultValue: {
                             qInfo: {
-                                qId: "",
-                                qType: ""
+                                qId: '',
+                                qType: ''
                             },
-                            qExtendsId: "",
+                            qExtendsId: '',
                             qMetaDef: {}
                         }
                     }],
                     Out: [{
-                        Name: "qInfo"
+                        Name: 'qInfo'
                     }]
                 },
                 DestroyObject: {
                     In: [{
-                        Name: "qId",
-                        DefaultValue: ""
+                        Name: 'qId',
+                        DefaultValue: ''
                     }],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 GetObject: {
                     In: [{
-                        Name: "qId",
-                        DefaultValue: ""
+                        Name: 'qId',
+                        DefaultValue: ''
                     }],
                     Out: []
                 },
                 CloneObject: {
                     In: [{
-                        Name: "qId",
-                        DefaultValue: ""
+                        Name: 'qId',
+                        DefaultValue: ''
                     }],
                     Out: [{
-                        Name: "qCloneId"
+                        Name: 'qCloneId'
                     }]
                 },
                 CreateDraft: {
                     In: [{
-                        Name: "qId",
-                        DefaultValue: ""
+                        Name: 'qId',
+                        DefaultValue: ''
                     }],
                     Out: [{
-                        Name: "qDraftId"
+                        Name: 'qDraftId'
                     }]
                 },
                 CommitDraft: {
                     In: [{
-                        Name: "qId",
-                        DefaultValue: ""
+                        Name: 'qId',
+                        DefaultValue: ''
                     }],
                     Out: []
                 },
                 DestroyDraft: {
                     In: [{
-                            Name: "qId",
-                            DefaultValue: ""
+                            Name: 'qId',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qSourceId",
-                            DefaultValue: ""
+                            Name: 'qSourceId',
+                            DefaultValue: ''
                         }
                     ],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 Undo: {
                     In: [],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 Redo: {
                     In: [],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 ClearUndoBuffer: {
@@ -1983,67 +1981,67 @@ export var enigmaConfig = {
                 },
                 CreateDimension: {
                     In: [{
-                        Name: "qProp",
+                        Name: 'qProp',
                         DefaultValue: {
                             qInfo: {
-                                qId: "",
-                                qType: ""
+                                qId: '',
+                                qType: ''
                             },
                             qDim: {
                                 qGrouping: 0,
                                 qFieldDefs: [
-                                    ""
+                                    ''
                                 ],
                                 qFieldLabels: [
-                                    ""
+                                    ''
                                 ]
                             },
                             qMetaDef: {}
                         }
                     }],
                     Out: [{
-                        Name: "qInfo"
+                        Name: 'qInfo'
                     }]
                 },
                 DestroyDimension: {
                     In: [{
-                        Name: "qId",
-                        DefaultValue: ""
+                        Name: 'qId',
+                        DefaultValue: ''
                     }],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 GetDimension: {
                     In: [{
-                        Name: "qId",
-                        DefaultValue: ""
+                        Name: 'qId',
+                        DefaultValue: ''
                     }],
                     Out: []
                 },
                 CloneDimension: {
                     In: [{
-                        Name: "qId",
-                        DefaultValue: ""
+                        Name: 'qId',
+                        DefaultValue: ''
                     }],
                     Out: [{
-                        Name: "qCloneId"
+                        Name: 'qCloneId'
                     }]
                 },
                 CreateMeasure: {
                     In: [{
-                        Name: "qProp",
+                        Name: 'qProp',
                         DefaultValue: {
                             qInfo: {
-                                qId: "",
-                                qType: ""
+                                qId: '',
+                                qType: ''
                             },
                             qMeasure: {
-                                qLabel: "",
-                                qDef: "",
+                                qLabel: '',
+                                qDef: '',
                                 qGrouping: 0,
                                 qExpressions: [
-                                    ""
+                                    ''
                                 ],
                                 qActiveExpression: 0
                             },
@@ -2051,124 +2049,124 @@ export var enigmaConfig = {
                         }
                     }],
                     Out: [{
-                        Name: "qInfo"
+                        Name: 'qInfo'
                     }]
                 },
                 DestroyMeasure: {
                     In: [{
-                        Name: "qId",
-                        DefaultValue: ""
+                        Name: 'qId',
+                        DefaultValue: ''
                     }],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 GetMeasure: {
                     In: [{
-                        Name: "qId",
-                        DefaultValue: ""
+                        Name: 'qId',
+                        DefaultValue: ''
                     }],
                     Out: []
                 },
                 CloneMeasure: {
                     In: [{
-                        Name: "qId",
-                        DefaultValue: ""
+                        Name: 'qId',
+                        DefaultValue: ''
                     }],
                     Out: [{
-                        Name: "qCloneId"
+                        Name: 'qCloneId'
                     }]
                 },
                 CreateSessionVariable: {
                     In: [{
-                        Name: "qProp",
+                        Name: 'qProp',
                         DefaultValue: {
                             qInfo: {
-                                qId: "",
-                                qType: ""
+                                qId: '',
+                                qType: ''
                             },
                             qMetaDef: {},
-                            qName: "",
-                            qComment: "",
+                            qName: '',
+                            qComment: '',
                             qNumberPresentation: {
                                 qType: 0,
                                 qnDec: 0,
                                 qUseThou: 0,
-                                qFmt: "",
-                                qDec: "",
-                                qThou: ""
+                                qFmt: '',
+                                qDec: '',
+                                qThou: ''
                             },
                             qIncludeInBookmark: false,
-                            qDefinition: ""
+                            qDefinition: ''
                         }
                     }],
                     Out: []
                 },
                 DestroySessionVariable: {
                     In: [{
-                        Name: "qId",
-                        DefaultValue: ""
+                        Name: 'qId',
+                        DefaultValue: ''
                     }],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 CreateVariableEx: {
                     In: [{
-                        Name: "qProp",
+                        Name: 'qProp',
                         DefaultValue: {
                             qInfo: {
-                                qId: "",
-                                qType: ""
+                                qId: '',
+                                qType: ''
                             },
                             qMetaDef: {},
-                            qName: "",
-                            qComment: "",
+                            qName: '',
+                            qComment: '',
                             qNumberPresentation: {
                                 qType: 0,
                                 qnDec: 0,
                                 qUseThou: 0,
-                                qFmt: "",
-                                qDec: "",
-                                qThou: ""
+                                qFmt: '',
+                                qDec: '',
+                                qThou: ''
                             },
                             qIncludeInBookmark: false,
-                            qDefinition: ""
+                            qDefinition: ''
                         }
                     }],
                     Out: [{
-                        Name: "qInfo"
+                        Name: 'qInfo'
                     }]
                 },
                 DestroyVariableById: {
                     In: [{
-                        Name: "qId",
-                        DefaultValue: ""
+                        Name: 'qId',
+                        DefaultValue: ''
                     }],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 DestroyVariableByName: {
                     In: [{
-                        Name: "qName",
-                        DefaultValue: ""
+                        Name: 'qName',
+                        DefaultValue: ''
                     }],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 GetVariableById: {
                     In: [{
-                        Name: "qId",
-                        DefaultValue: ""
+                        Name: 'qId',
+                        DefaultValue: ''
                     }],
                     Out: []
                 },
                 GetVariableByName: {
                     In: [{
-                        Name: "qName",
-                        DefaultValue: ""
+                        Name: 'qName',
+                        DefaultValue: ''
                     }],
                     Out: []
                 },
@@ -2182,122 +2180,122 @@ export var enigmaConfig = {
                 },
                 CheckExpression: {
                     In: [{
-                            Name: "qExpr",
-                            DefaultValue: ""
+                            Name: 'qExpr',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qLabels",
+                            Name: 'qLabels',
                             DefaultValue: [
-                                ""
+                                ''
                             ],
                             Optional: true
                         }
                     ],
                     Out: [{
-                            Name: "qErrorMsg"
+                            Name: 'qErrorMsg'
                         },
                         {
-                            Name: "qBadFieldNames"
+                            Name: 'qBadFieldNames'
                         },
                         {
-                            Name: "qDangerousFieldNames"
+                            Name: 'qDangerousFieldNames'
                         }
                     ]
                 },
                 CheckNumberOrExpression: {
                     In: [{
-                        Name: "qExpr",
-                        DefaultValue: ""
+                        Name: 'qExpr',
+                        DefaultValue: ''
                     }],
                     Out: [{
-                            Name: "qErrorMsg"
+                            Name: 'qErrorMsg'
                         },
                         {
-                            Name: "qBadFieldNames"
+                            Name: 'qBadFieldNames'
                         }
                     ]
                 },
                 AddAlternateState: {
                     In: [{
-                        Name: "qStateName",
-                        DefaultValue: ""
+                        Name: 'qStateName',
+                        DefaultValue: ''
                     }],
                     Out: []
                 },
                 RemoveAlternateState: {
                     In: [{
-                        Name: "qStateName",
-                        DefaultValue: ""
+                        Name: 'qStateName',
+                        DefaultValue: ''
                     }],
                     Out: []
                 },
                 CreateBookmark: {
                     In: [{
-                        Name: "qProp",
+                        Name: 'qProp',
                         DefaultValue: {
                             qInfo: {
-                                qId: "",
-                                qType: ""
+                                qId: '',
+                                qType: ''
                             },
                             qMetaDef: {}
                         }
                     }],
                     Out: [{
-                        Name: "qInfo"
+                        Name: 'qInfo'
                     }]
                 },
                 DestroyBookmark: {
                     In: [{
-                        Name: "qId",
-                        DefaultValue: ""
+                        Name: 'qId',
+                        DefaultValue: ''
                     }],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 GetBookmark: {
                     In: [{
-                        Name: "qId",
-                        DefaultValue: ""
+                        Name: 'qId',
+                        DefaultValue: ''
                     }],
                     Out: []
                 },
                 ApplyBookmark: {
                     In: [{
-                        Name: "qId",
-                        DefaultValue: ""
+                        Name: 'qId',
+                        DefaultValue: ''
                     }],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 CloneBookmark: {
                     In: [{
-                        Name: "qId",
-                        DefaultValue: ""
+                        Name: 'qId',
+                        DefaultValue: ''
                     }],
                     Out: [{
-                        Name: "qCloneId"
+                        Name: 'qCloneId'
                     }]
                 },
                 AddFieldFromExpression: {
                     In: [{
-                            Name: "qName",
-                            DefaultValue: ""
+                            Name: 'qName',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qExpr",
-                            DefaultValue: ""
+                            Name: 'qExpr',
+                            DefaultValue: ''
                         }
                     ],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 GetAllInfos: {
                     In: [],
                     Out: [{
-                        Name: "qInfos"
+                        Name: 'qInfos'
                     }]
                 },
                 Resume: {
@@ -2306,19 +2304,19 @@ export var enigmaConfig = {
                 },
                 AbortModal: {
                     In: [{
-                        Name: "qAccept",
+                        Name: 'qAccept',
                         DefaultValue: false
                     }],
                     Out: []
                 },
                 Publish: {
                     In: [{
-                            Name: "qStreamId",
-                            DefaultValue: ""
+                            Name: 'qStreamId',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qName",
-                            DefaultValue: "",
+                            Name: 'qName',
+                            DefaultValue: '',
                             Optional: true
                         }
                     ],
@@ -2330,41 +2328,41 @@ export var enigmaConfig = {
                 },
                 GetMatchingFields: {
                     In: [{
-                            Name: "qTags",
+                            Name: 'qTags',
                             DefaultValue: [
-                                ""
+                                ''
                             ]
                         },
                         {
-                            Name: "qMatchingFieldMode",
+                            Name: 'qMatchingFieldMode',
                             DefaultValue: 0,
                             Optional: true
                         }
                     ],
                     Out: [{
-                        Name: "qFieldNames"
+                        Name: 'qFieldNames'
                     }]
                 },
                 FindMatchingFields: {
                     In: [{
-                            Name: "qFieldName",
-                            DefaultValue: ""
+                            Name: 'qFieldName',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qTags",
+                            Name: 'qTags',
                             DefaultValue: [
-                                ""
+                                ''
                             ]
                         }
                     ],
                     Out: [{
-                        Name: "qFieldNames"
+                        Name: 'qFieldNames'
                     }]
                 },
                 Scramble: {
                     In: [{
-                        Name: "qFieldName",
-                        DefaultValue: ""
+                        Name: 'qFieldName',
+                        DefaultValue: ''
                     }],
                     Out: []
                 },
@@ -2374,42 +2372,42 @@ export var enigmaConfig = {
                 },
                 GetAssociationScores: {
                     In: [{
-                            Name: "qTable1",
-                            DefaultValue: ""
+                            Name: 'qTable1',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qTable2",
-                            DefaultValue: ""
+                            Name: 'qTable2',
+                            DefaultValue: ''
                         }
                     ],
                     Out: [{
-                        Name: "qScore"
+                        Name: 'qScore'
                     }]
                 },
                 GetMediaList: {
                     In: [],
                     Out: [{
-                        Name: "qList"
+                        Name: 'qList'
                     }]
                 },
                 GetContentLibraries: {
                     In: [],
                     Out: [{
-                        Name: "qList"
+                        Name: 'qList'
                     }]
                 },
                 GetLibraryContent: {
                     In: [{
-                        Name: "qName",
-                        DefaultValue: ""
+                        Name: 'qName',
+                        DefaultValue: ''
                     }],
                     Out: [{
-                        Name: "qList"
+                        Name: 'qList'
                     }]
                 },
                 DoReloadEx: {
                     In: [{
-                        Name: "qParams",
+                        Name: 'qParams',
                         DefaultValue: {
                             qMode: 0,
                             qPartial: false,
@@ -2418,7 +2416,7 @@ export var enigmaConfig = {
                         Optional: true
                     }],
                     Out: [{
-                        Name: "qResult"
+                        Name: 'qResult'
                     }]
                 },
                 BackCount: {
@@ -2431,85 +2429,85 @@ export var enigmaConfig = {
                 },
                 SetScript: {
                     In: [{
-                        Name: "qScript",
-                        DefaultValue: ""
+                        Name: 'qScript',
+                        DefaultValue: ''
                     }],
                     Out: []
                 },
                 CheckScriptSyntax: {
                     In: [],
                     Out: [{
-                        Name: "qErrors"
+                        Name: 'qErrors'
                     }]
                 },
                 GetFavoriteVariables: {
                     In: [],
                     Out: [{
-                        Name: "qNames"
+                        Name: 'qNames'
                     }]
                 },
                 SetFavoriteVariables: {
                     In: [{
-                        Name: "qNames",
+                        Name: 'qNames',
                         DefaultValue: [
-                            ""
+                            ''
                         ]
                     }],
                     Out: []
                 },
                 GetIncludeFileContent: {
                     In: [{
-                        Name: "qPath",
-                        DefaultValue: ""
+                        Name: 'qPath',
+                        DefaultValue: ''
                     }],
                     Out: [{
-                        Name: "qContent"
+                        Name: 'qContent'
                     }]
                 },
                 CreateConnection: {
                     In: [{
-                        Name: "qConnection",
+                        Name: 'qConnection',
                         DefaultValue: {
-                            qId: "",
-                            qName: "",
-                            qConnectionString: "",
-                            qType: "",
-                            qUserName: "",
-                            qPassword: "",
-                            qModifiedDate: "",
+                            qId: '',
+                            qName: '',
+                            qConnectionString: '',
+                            qType: '',
+                            qUserName: '',
+                            qPassword: '',
+                            qModifiedDate: '',
                             qMeta: {
-                                qName: ""
+                                qName: ''
                             },
                             qLogOn: 0
                         }
                     }],
                     Out: [{
-                        Name: "qConnectionId"
+                        Name: 'qConnectionId'
                     }]
                 },
                 ModifyConnection: {
                     In: [{
-                            Name: "qConnectionId",
-                            DefaultValue: ""
+                            Name: 'qConnectionId',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qConnection",
+                            Name: 'qConnection',
                             DefaultValue: {
-                                qId: "",
-                                qName: "",
-                                qConnectionString: "",
-                                qType: "",
-                                qUserName: "",
-                                qPassword: "",
-                                qModifiedDate: "",
+                                qId: '',
+                                qName: '',
+                                qConnectionString: '',
+                                qType: '',
+                                qUserName: '',
+                                qPassword: '',
+                                qModifiedDate: '',
                                 qMeta: {
-                                    qName: ""
+                                    qName: ''
                                 },
                                 qLogOn: 0
                             }
                         },
                         {
-                            Name: "qOverrideCredentials",
+                            Name: 'qOverrideCredentials',
                             DefaultValue: false,
                             Optional: true
                         }
@@ -2518,177 +2516,177 @@ export var enigmaConfig = {
                 },
                 DeleteConnection: {
                     In: [{
-                        Name: "qConnectionId",
-                        DefaultValue: ""
+                        Name: 'qConnectionId',
+                        DefaultValue: ''
                     }],
                     Out: []
                 },
                 GetConnection: {
                     In: [{
-                        Name: "qConnectionId",
-                        DefaultValue: ""
+                        Name: 'qConnectionId',
+                        DefaultValue: ''
                     }],
                     Out: [{
-                        Name: "qConnection"
+                        Name: 'qConnection'
                     }]
                 },
                 GetConnections: {
                     In: [],
                     Out: [{
-                        Name: "qConnections"
+                        Name: 'qConnections'
                     }]
                 },
                 GetDatabaseInfo: {
                     In: [{
-                        Name: "qConnectionId",
-                        DefaultValue: ""
+                        Name: 'qConnectionId',
+                        DefaultValue: ''
                     }],
                     Out: [{
-                        Name: "qInfo"
+                        Name: 'qInfo'
                     }]
                 },
                 GetDatabases: {
                     In: [{
-                        Name: "qConnectionId",
-                        DefaultValue: ""
+                        Name: 'qConnectionId',
+                        DefaultValue: ''
                     }],
                     Out: [{
-                        Name: "qDatabases"
+                        Name: 'qDatabases'
                     }]
                 },
                 GetDatabaseOwners: {
                     In: [{
-                            Name: "qConnectionId",
-                            DefaultValue: ""
+                            Name: 'qConnectionId',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qDatabase",
-                            DefaultValue: "",
+                            Name: 'qDatabase',
+                            DefaultValue: '',
                             Optional: true
                         }
                     ],
                     Out: [{
-                        Name: "qOwners"
+                        Name: 'qOwners'
                     }]
                 },
                 GetDatabaseTables: {
                     In: [{
-                            Name: "qConnectionId",
-                            DefaultValue: ""
+                            Name: 'qConnectionId',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qDatabase",
-                            DefaultValue: "",
+                            Name: 'qDatabase',
+                            DefaultValue: '',
                             Optional: true
                         },
                         {
-                            Name: "qOwner",
-                            DefaultValue: "",
+                            Name: 'qOwner',
+                            DefaultValue: '',
                             Optional: true
                         }
                     ],
                     Out: [{
-                        Name: "qTables"
+                        Name: 'qTables'
                     }]
                 },
                 GetDatabaseTableFields: {
                     In: [{
-                            Name: "qConnectionId",
-                            DefaultValue: ""
+                            Name: 'qConnectionId',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qDatabase",
-                            DefaultValue: "",
+                            Name: 'qDatabase',
+                            DefaultValue: '',
                             Optional: true
                         },
                         {
-                            Name: "qOwner",
-                            DefaultValue: "",
+                            Name: 'qOwner',
+                            DefaultValue: '',
                             Optional: true
                         },
                         {
-                            Name: "qTable",
-                            DefaultValue: ""
+                            Name: 'qTable',
+                            DefaultValue: ''
                         }
                     ],
                     Out: [{
-                        Name: "qFields"
+                        Name: 'qFields'
                     }]
                 },
                 GetDatabaseTablePreview: {
                     In: [{
-                            Name: "qConnectionId",
-                            DefaultValue: ""
+                            Name: 'qConnectionId',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qDatabase",
-                            DefaultValue: "",
+                            Name: 'qDatabase',
+                            DefaultValue: '',
                             Optional: true
                         },
                         {
-                            Name: "qOwner",
-                            DefaultValue: "",
+                            Name: 'qOwner',
+                            DefaultValue: '',
                             Optional: true
                         },
                         {
-                            Name: "qTable",
-                            DefaultValue: ""
+                            Name: 'qTable',
+                            DefaultValue: ''
                         }
                     ],
                     Out: [{
-                        Name: "qPreview"
+                        Name: 'qPreview'
                     }]
                 },
                 GetFolderItemsForConnection: {
                     In: [{
-                            Name: "qConnectionId",
-                            DefaultValue: ""
+                            Name: 'qConnectionId',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qRelativePath",
-                            DefaultValue: "",
+                            Name: 'qRelativePath',
+                            DefaultValue: '',
                             Optional: true
                         }
                     ],
                     Out: [{
-                        Name: "qFolderItems"
+                        Name: 'qFolderItems'
                     }]
                 },
                 GuessFileType: {
                     In: [{
-                            Name: "qConnectionId",
-                            DefaultValue: ""
+                            Name: 'qConnectionId',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qRelativePath",
-                            DefaultValue: "",
+                            Name: 'qRelativePath',
+                            DefaultValue: '',
                             Optional: true
                         }
                     ],
                     Out: [{
-                        Name: "qDataFormat"
+                        Name: 'qDataFormat'
                     }]
                 },
                 GetFileTables: {
                     In: [{
-                            Name: "qConnectionId",
-                            DefaultValue: ""
+                            Name: 'qConnectionId',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qRelativePath",
-                            DefaultValue: "",
+                            Name: 'qRelativePath',
+                            DefaultValue: '',
                             Optional: true
                         },
                         {
-                            Name: "qDataFormat",
+                            Name: 'qDataFormat',
                             DefaultValue: {
                                 qType: 0,
-                                qLabel: "",
-                                qQuote: "",
-                                qComment: "",
+                                qLabel: '',
+                                qQuote: '',
+                                qComment: '',
                                 qDelimiter: {
-                                    qName: "",
-                                    qScriptCode: "",
+                                    qName: '',
+                                    qScriptCode: '',
                                     qNumber: 0,
                                     qIsMultiple: false
                                 },
@@ -2697,34 +2695,34 @@ export var enigmaConfig = {
                                 qRecordSize: 0,
                                 qTabSize: 0,
                                 qIgnoreEOF: false,
-                                qFixedWidthDelimiters: ""
+                                qFixedWidthDelimiters: ''
                             }
                         }
                     ],
                     Out: [{
-                        Name: "qTables"
+                        Name: 'qTables'
                     }]
                 },
                 GetFileTableFields: {
                     In: [{
-                            Name: "qConnectionId",
-                            DefaultValue: ""
+                            Name: 'qConnectionId',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qRelativePath",
-                            DefaultValue: "",
+                            Name: 'qRelativePath',
+                            DefaultValue: '',
                             Optional: true
                         },
                         {
-                            Name: "qDataFormat",
+                            Name: 'qDataFormat',
                             DefaultValue: {
                                 qType: 0,
-                                qLabel: "",
-                                qQuote: "",
-                                qComment: "",
+                                qLabel: '',
+                                qQuote: '',
+                                qComment: '',
                                 qDelimiter: {
-                                    qName: "",
-                                    qScriptCode: "",
+                                    qName: '',
+                                    qScriptCode: '',
                                     qNumber: 0,
                                     qIsMultiple: false
                                 },
@@ -2733,42 +2731,42 @@ export var enigmaConfig = {
                                 qRecordSize: 0,
                                 qTabSize: 0,
                                 qIgnoreEOF: false,
-                                qFixedWidthDelimiters: ""
+                                qFixedWidthDelimiters: ''
                             }
                         },
                         {
-                            Name: "qTable",
-                            DefaultValue: ""
+                            Name: 'qTable',
+                            DefaultValue: ''
                         }
                     ],
                     Out: [{
-                            Name: "qFields"
+                            Name: 'qFields'
                         },
                         {
-                            Name: "qFormatSpec"
+                            Name: 'qFormatSpec'
                         }
                     ]
                 },
                 GetFileTablePreview: {
                     In: [{
-                            Name: "qConnectionId",
-                            DefaultValue: ""
+                            Name: 'qConnectionId',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qRelativePath",
-                            DefaultValue: "",
+                            Name: 'qRelativePath',
+                            DefaultValue: '',
                             Optional: true
                         },
                         {
-                            Name: "qDataFormat",
+                            Name: 'qDataFormat',
                             DefaultValue: {
                                 qType: 0,
-                                qLabel: "",
-                                qQuote: "",
-                                qComment: "",
+                                qLabel: '',
+                                qQuote: '',
+                                qComment: '',
                                 qDelimiter: {
-                                    qName: "",
-                                    qScriptCode: "",
+                                    qName: '',
+                                    qScriptCode: '',
                                     qNumber: 0,
                                     qIsMultiple: false
                                 },
@@ -2777,42 +2775,42 @@ export var enigmaConfig = {
                                 qRecordSize: 0,
                                 qTabSize: 0,
                                 qIgnoreEOF: false,
-                                qFixedWidthDelimiters: ""
+                                qFixedWidthDelimiters: ''
                             }
                         },
                         {
-                            Name: "qTable",
-                            DefaultValue: ""
+                            Name: 'qTable',
+                            DefaultValue: ''
                         }
                     ],
                     Out: [{
-                            Name: "qPreview"
+                            Name: 'qPreview'
                         },
                         {
-                            Name: "qFormatSpec"
+                            Name: 'qFormatSpec'
                         }
                     ]
                 },
                 GetFileTablesEx: {
                     In: [{
-                            Name: "qConnectionId",
-                            DefaultValue: ""
+                            Name: 'qConnectionId',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qRelativePath",
-                            DefaultValue: "",
+                            Name: 'qRelativePath',
+                            DefaultValue: '',
                             Optional: true
                         },
                         {
-                            Name: "qDataFormat",
+                            Name: 'qDataFormat',
                             DefaultValue: {
                                 qType: 0,
-                                qLabel: "",
-                                qQuote: "",
-                                qComment: "",
+                                qLabel: '',
+                                qQuote: '',
+                                qComment: '',
                                 qDelimiter: {
-                                    qName: "",
-                                    qScriptCode: "",
+                                    qName: '',
+                                    qScriptCode: '',
                                     qNumber: 0,
                                     qIsMultiple: false
                                 },
@@ -2821,81 +2819,81 @@ export var enigmaConfig = {
                                 qRecordSize: 0,
                                 qTabSize: 0,
                                 qIgnoreEOF: false,
-                                qFixedWidthDelimiters: ""
+                                qFixedWidthDelimiters: ''
                             }
                         }
                     ],
                     Out: [{
-                        Name: "qTables"
+                        Name: 'qTables'
                     }]
                 },
                 SendGenericCommandToCustomConnector: {
                     In: [{
-                            Name: "qProvider",
-                            DefaultValue: ""
+                            Name: 'qProvider',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qCommand",
-                            DefaultValue: ""
+                            Name: 'qCommand',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qMethod",
-                            DefaultValue: ""
+                            Name: 'qMethod',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qParameters",
+                            Name: 'qParameters',
                             DefaultValue: [
-                                ""
+                                ''
                             ]
                         },
                         {
-                            Name: "qAppendConnection",
-                            DefaultValue: ""
+                            Name: 'qAppendConnection',
+                            DefaultValue: ''
                         }
                     ],
                     Out: [{
-                        Name: "qResult"
+                        Name: 'qResult'
                     }]
                 },
                 SearchSuggest: {
                     In: [{
-                            Name: "qOptions",
+                            Name: 'qOptions',
                             DefaultValue: {
                                 qSearchFields: [
-                                    ""
+                                    ''
                                 ],
                                 qContext: 0
                             }
                         },
                         {
-                            Name: "qTerms",
+                            Name: 'qTerms',
                             DefaultValue: [
-                                ""
+                                ''
                             ]
                         }
                     ],
                     Out: [{
-                        Name: "qResult"
+                        Name: 'qResult'
                     }]
                 },
                 SearchAssociations: {
                     In: [{
-                            Name: "qOptions",
+                            Name: 'qOptions',
                             DefaultValue: {
                                 qSearchFields: [
-                                    ""
+                                    ''
                                 ],
                                 qContext: 0
                             }
                         },
                         {
-                            Name: "qTerms",
+                            Name: 'qTerms',
                             DefaultValue: [
-                                ""
+                                ''
                             ]
                         },
                         {
-                            Name: "qPage",
+                            Name: 'qPage',
                             DefaultValue: {
                                 qOffset: 0,
                                 qCount: 0,
@@ -2914,31 +2912,31 @@ export var enigmaConfig = {
                         }
                     ],
                     Out: [{
-                        Name: "qResults"
+                        Name: 'qResults'
                     }]
                 },
                 SelectAssociations: {
                     In: [{
-                            Name: "qOptions",
+                            Name: 'qOptions',
                             DefaultValue: {
                                 qSearchFields: [
-                                    ""
+                                    ''
                                 ],
                                 qContext: 0
                             }
                         },
                         {
-                            Name: "qTerms",
+                            Name: 'qTerms',
                             DefaultValue: [
-                                ""
+                                ''
                             ]
                         },
                         {
-                            Name: "qMatchIx",
+                            Name: 'qMatchIx',
                             DefaultValue: 0
                         },
                         {
-                            Name: "qSoftLock",
+                            Name: 'qSoftLock',
                             DefaultValue: null,
                             Optional: true
                         }
@@ -2947,22 +2945,22 @@ export var enigmaConfig = {
                 },
                 SearchResults: {
                     In: [{
-                            Name: "qOptions",
+                            Name: 'qOptions',
                             DefaultValue: {
                                 qSearchFields: [
-                                    ""
+                                    ''
                                 ],
                                 qContext: 0
                             }
                         },
                         {
-                            Name: "qTerms",
+                            Name: 'qTerms',
                             DefaultValue: [
-                                ""
+                                ''
                             ]
                         },
                         {
-                            Name: "qPage",
+                            Name: 'qPage',
                             DefaultValue: {
                                 qOffset: 0,
                                 qCount: 0,
@@ -2981,26 +2979,26 @@ export var enigmaConfig = {
                         }
                     ],
                     Out: [{
-                        Name: "qResult"
+                        Name: 'qResult'
                     }]
                 },
                 SearchObjects: {
                     In: [{
-                            Name: "qOptions",
+                            Name: 'qOptions',
                             DefaultValue: {
                                 qAttributes: [
-                                    ""
+                                    ''
                                 ]
                             }
                         },
                         {
-                            Name: "qTerms",
+                            Name: 'qTerms',
                             DefaultValue: [
-                                ""
+                                ''
                             ]
                         },
                         {
-                            Name: "qPage",
+                            Name: 'qPage',
                             DefaultValue: {
                                 qOffset: 0,
                                 qCount: 0,
@@ -3019,14 +3017,14 @@ export var enigmaConfig = {
                         }
                     ],
                     Out: [{
-                        Name: "qResult"
+                        Name: 'qResult'
                     }]
                 }
             },
             Global: {
                 AbortRequest: {
                     In: [{
-                        Name: "qRequestId",
+                        Name: 'qRequestId',
                         DefaultValue: 0
                     }],
                     Out: []
@@ -3037,11 +3035,11 @@ export var enigmaConfig = {
                 },
                 GetProgress: {
                     In: [{
-                        Name: "qRequestId",
+                        Name: 'qRequestId',
                         DefaultValue: 0
                     }],
                     Out: [{
-                        Name: "qProgressData"
+                        Name: 'qProgressData'
                     }]
                 },
                 QvVersion: {
@@ -3063,37 +3061,37 @@ export var enigmaConfig = {
                 GetDocList: {
                     In: [],
                     Out: [{
-                        Name: "qDocList"
+                        Name: 'qDocList'
                     }]
                 },
                 GetInteract: {
                     In: [{
-                        Name: "qRequestId",
+                        Name: 'qRequestId',
                         DefaultValue: 0
                     }],
                     Out: [{
-                        Name: "qDef"
+                        Name: 'qDef'
                     }]
                 },
                 InteractDone: {
                     In: [{
-                            Name: "qRequestId",
+                            Name: 'qRequestId',
                             DefaultValue: 0
                         },
                         {
-                            Name: "qDef",
+                            Name: 'qDef',
                             DefaultValue: {
                                 qType: 0,
-                                qTitle: "",
-                                qMsg: "",
+                                qTitle: '',
+                                qMsg: '',
                                 qButtons: 0,
-                                qLine: "",
+                                qLine: '',
                                 qOldLineNr: 0,
                                 qNewLineNr: 0,
-                                qPath: "",
+                                qPath: '',
                                 qHidden: false,
                                 qResult: 0,
-                                qInput: ""
+                                qInput: ''
                             }
                         }
                     ],
@@ -3106,58 +3104,58 @@ export var enigmaConfig = {
                 GetStreamList: {
                     In: [],
                     Out: [{
-                        Name: "qStreamList"
+                        Name: 'qStreamList'
                     }]
                 },
                 UploadToContentService: {
                     In: [{
-                            Name: "qDirectory",
-                            DefaultValue: ""
+                            Name: 'qDirectory',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qAppId",
-                            DefaultValue: ""
+                            Name: 'qAppId',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qQrsObjects",
+                            Name: 'qQrsObjects',
                             DefaultValue: [{
-                                qEngineObjectID: "",
-                                qItemID: ""
+                                qEngineObjectID: '',
+                                qItemID: ''
                             }]
                         }
                     ],
                     Out: [{
-                        Name: "qUploadedObjects"
+                        Name: 'qUploadedObjects'
                     }]
                 },
                 CreateDocEx: {
                     In: [{
-                            Name: "qDocName",
-                            DefaultValue: ""
+                            Name: 'qDocName',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qUserName",
-                            DefaultValue: "",
+                            Name: 'qUserName',
+                            DefaultValue: '',
                             Optional: true
                         },
                         {
-                            Name: "qPassword",
-                            DefaultValue: "",
+                            Name: 'qPassword',
+                            DefaultValue: '',
                             Optional: true
                         },
                         {
-                            Name: "qSerial",
-                            DefaultValue: "",
+                            Name: 'qSerial',
+                            DefaultValue: '',
                             Optional: true
                         },
                         {
-                            Name: "qLocalizedScriptMainSection",
-                            DefaultValue: "",
+                            Name: 'qLocalizedScriptMainSection',
+                            DefaultValue: '',
                             Optional: true
                         }
                     ],
                     Out: [{
-                        Name: "qDocId"
+                        Name: 'qDocId'
                     }]
                 },
                 GetActiveDoc: {
@@ -3170,30 +3168,30 @@ export var enigmaConfig = {
                 },
                 CreateApp: {
                     In: [{
-                            Name: "qAppName",
-                            DefaultValue: ""
+                            Name: 'qAppName',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qLocalizedScriptMainSection",
-                            DefaultValue: "",
+                            Name: 'qLocalizedScriptMainSection',
+                            DefaultValue: '',
                             Optional: true
                         }
                     ],
                     Out: [{
-                            Name: "qSuccess"
+                            Name: 'qSuccess'
                         },
                         {
-                            Name: "qAppId"
+                            Name: 'qAppId'
                         }
                     ]
                 },
                 DeleteApp: {
                     In: [{
-                        Name: "qAppId",
-                        DefaultValue: ""
+                        Name: 'qAppId',
+                        DefaultValue: ''
                     }],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 IsDesktopMode: {
@@ -3203,12 +3201,12 @@ export var enigmaConfig = {
                 GetConfiguration: {
                     In: [],
                     Out: [{
-                        Name: "qConfig"
+                        Name: 'qConfig'
                     }]
                 },
                 CancelRequest: {
                     In: [{
-                        Name: "qRequestId",
+                        Name: 'qRequestId',
                         DefaultValue: 0
                     }],
                     Out: []
@@ -3223,81 +3221,81 @@ export var enigmaConfig = {
                 },
                 ReplaceAppFromID: {
                     In: [{
-                            Name: "qTargetAppId",
-                            DefaultValue: ""
+                            Name: 'qTargetAppId',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qSrcAppID",
-                            DefaultValue: ""
+                            Name: 'qSrcAppID',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qIds",
+                            Name: 'qIds',
                             DefaultValue: [
-                                ""
+                                ''
                             ]
                         }
                     ],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 CopyApp: {
                     In: [{
-                            Name: "qTargetAppId",
-                            DefaultValue: ""
+                            Name: 'qTargetAppId',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qSrcAppId",
-                            DefaultValue: ""
+                            Name: 'qSrcAppId',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qIds",
+                            Name: 'qIds',
                             DefaultValue: [
-                                ""
+                                ''
                             ]
                         }
                     ],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 ImportApp: {
                     In: [{
-                            Name: "qAppId",
-                            DefaultValue: ""
+                            Name: 'qAppId',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qSrcPath",
-                            DefaultValue: ""
+                            Name: 'qSrcPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qIds",
+                            Name: 'qIds',
                             DefaultValue: [
-                                ""
+                                ''
                             ]
                         }
                     ],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 ImportAppEx: {
                     In: [{
-                            Name: "qAppId",
-                            DefaultValue: ""
+                            Name: 'qAppId',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qSrcPath",
-                            DefaultValue: ""
+                            Name: 'qSrcPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qIds",
+                            Name: 'qIds',
                             DefaultValue: [
-                                ""
+                                ''
                             ]
                         },
                         {
-                            Name: "qExcludeConnections",
+                            Name: 'qExcludeConnections',
                             DefaultValue: false
                         }
                     ],
@@ -3305,36 +3303,36 @@ export var enigmaConfig = {
                 },
                 ExportApp: {
                     In: [{
-                            Name: "qTargetPath",
-                            DefaultValue: ""
+                            Name: 'qTargetPath',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qSrcAppId",
-                            DefaultValue: ""
+                            Name: 'qSrcAppId',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qIds",
+                            Name: 'qIds',
                             DefaultValue: [
-                                ""
+                                ''
                             ]
                         }
                     ],
                     Out: [{
-                        Name: "qSuccess"
+                        Name: 'qSuccess'
                     }]
                 },
                 PublishApp: {
                     In: [{
-                            Name: "qAppId",
-                            DefaultValue: ""
+                            Name: 'qAppId',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qName",
-                            DefaultValue: ""
+                            Name: 'qName',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qStreamId",
-                            DefaultValue: ""
+                            Name: 'qStreamId',
+                            DefaultValue: ''
                         }
                     ],
                     Out: []
@@ -3346,31 +3344,31 @@ export var enigmaConfig = {
                 GetUniqueID: {
                     In: [],
                     Out: [{
-                        Name: "qUniqueID"
+                        Name: 'qUniqueID'
                     }]
                 },
                 OpenDoc: {
                     In: [{
-                            Name: "qDocName",
-                            DefaultValue: ""
+                            Name: 'qDocName',
+                            DefaultValue: ''
                         },
                         {
-                            Name: "qUserName",
-                            DefaultValue: "",
+                            Name: 'qUserName',
+                            DefaultValue: '',
                             Optional: true
                         },
                         {
-                            Name: "qPassword",
-                            DefaultValue: "",
+                            Name: 'qPassword',
+                            DefaultValue: '',
                             Optional: true
                         },
                         {
-                            Name: "qSerial",
-                            DefaultValue: "",
+                            Name: 'qSerial',
+                            DefaultValue: '',
                             Optional: true
                         },
                         {
-                            Name: "qNoData",
+                            Name: 'qNoData',
                             DefaultValue: false,
                             Optional: true
                         }
@@ -3380,16 +3378,16 @@ export var enigmaConfig = {
                 CreateSessionApp: {
                     In: [],
                     Out: [{
-                        Name: "qSessionAppId"
+                        Name: 'qSessionAppId'
                     }]
                 },
                 CreateSessionAppFromApp: {
                     In: [{
-                        Name: "qSrcAppId",
-                        DefaultValue: ""
+                        Name: 'qSrcAppId',
+                        DefaultValue: ''
                     }],
                     Out: [{
-                        Name: "qSessionAppId"
+                        Name: 'qSessionAppId'
                     }]
                 },
                 ProductVersion: {
@@ -3398,24 +3396,24 @@ export var enigmaConfig = {
                 },
                 GetAppEntry: {
                     In: [{
-                        Name: "qAppID",
-                        DefaultValue: ""
+                        Name: 'qAppID',
+                        DefaultValue: ''
                     }],
                     Out: [{
-                        Name: "qEntry"
+                        Name: 'qEntry'
                     }]
                 },
                 ConfigureReload: {
                     In: [{
-                            Name: "qCancelOnScriptError",
+                            Name: 'qCancelOnScriptError',
                             DefaultValue: false
                         },
                         {
-                            Name: "qUseErrorData",
+                            Name: 'qUseErrorData',
                             DefaultValue: false
                         },
                         {
-                            Name: "qInteractOnError",
+                            Name: 'qInteractOnError',
                             DefaultValue: false
                         }
                     ],
@@ -3427,69 +3425,69 @@ export var enigmaConfig = {
                 },
                 GetBNF: {
                     In: [{
-                        Name: "qBnfType",
+                        Name: 'qBnfType',
                         DefaultValue: 0
                     }],
                     Out: [{
-                        Name: "qBnfDefs"
+                        Name: 'qBnfDefs'
                     }]
                 },
                 GetFunctions: {
                     In: [{
-                        Name: "qGroup",
+                        Name: 'qGroup',
                         DefaultValue: 0,
                         Optional: true
                     }],
                     Out: [{
-                        Name: "qFunctions"
+                        Name: 'qFunctions'
                     }]
                 },
                 GetOdbcDsns: {
                     In: [],
                     Out: [{
-                        Name: "qOdbcDsns"
+                        Name: 'qOdbcDsns'
                     }]
                 },
                 GetOleDbProviders: {
                     In: [],
                     Out: [{
-                        Name: "qOleDbProviders"
+                        Name: 'qOleDbProviders'
                     }]
                 },
                 GetDatabasesFromConnectionString: {
                     In: [{
-                        Name: "qConnection",
+                        Name: 'qConnection',
                         DefaultValue: {
-                            qId: "",
-                            qName: "",
-                            qConnectionString: "",
-                            qType: "",
-                            qUserName: "",
-                            qPassword: "",
-                            qModifiedDate: "",
+                            qId: '',
+                            qName: '',
+                            qConnectionString: '',
+                            qType: '',
+                            qUserName: '',
+                            qPassword: '',
+                            qModifiedDate: '',
                             qMeta: {
-                                qName: ""
+                                qName: ''
                             },
                             qLogOn: 0
                         }
                     }],
                     Out: [{
-                        Name: "qDatabases"
+                        Name: 'qDatabases'
                     }]
                 },
                 IsValidConnectionString: {
                     In: [{
-                        Name: "qConnection",
+                        Name: 'qConnection',
                         DefaultValue: {
-                            qId: "",
-                            qName: "",
-                            qConnectionString: "",
-                            qType: "",
-                            qUserName: "",
-                            qPassword: "",
-                            qModifiedDate: "",
+                            qId: '',
+                            qName: '',
+                            qConnectionString: '',
+                            qType: '',
+                            qUserName: '',
+                            qPassword: '',
+                            qModifiedDate: '',
                             qMeta: {
-                                qName: ""
+                                qName: ''
                             },
                             qLogOn: 0
                         }
@@ -3499,50 +3497,50 @@ export var enigmaConfig = {
                 GetDefaultAppFolder: {
                     In: [],
                     Out: [{
-                        Name: "qPath"
+                        Name: 'qPath'
                     }]
                 },
                 GetMyDocumentsFolder: {
                     In: [],
                     Out: [{
-                        Name: "qFolder"
+                        Name: 'qFolder'
                     }]
                 },
                 GetLogicalDriveStrings: {
                     In: [],
                     Out: [{
-                        Name: "qDrives"
+                        Name: 'qDrives'
                     }]
                 },
                 GetFolderItemsForPath: {
                     In: [{
-                        Name: "qPath",
-                        DefaultValue: ""
+                        Name: 'qPath',
+                        DefaultValue: ''
                     }],
                     Out: [{
-                        Name: "qFolderItems"
+                        Name: 'qFolderItems'
                     }]
                 },
                 GetSupportedCodePages: {
                     In: [],
                     Out: [{
-                        Name: "qCodePages"
+                        Name: 'qCodePages'
                     }]
                 },
                 GetCustomConnectors: {
                     In: [{
-                        Name: "qReloadList",
+                        Name: 'qReloadList',
                         DefaultValue: false,
                         Optional: true
                     }],
                     Out: [{
-                        Name: "qConnectors"
+                        Name: 'qConnectors'
                     }]
                 },
                 EngineVersion: {
                     In: [],
                     Out: [{
-                        Name: "qVersion"
+                        Name: 'qVersion'
                     }]
                 }
             }
@@ -3894,7 +3892,4 @@ export var enigmaConfig = {
         port: '9076',
         secure: false,
     },
-    //createSocket(url) {
-    //      return new WebSocket(url);
-    //},
 };
