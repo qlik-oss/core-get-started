@@ -1,5 +1,9 @@
 // 3.2 schema embedded for now, should really parse off of http but there are some typescript quirks....
 export var enigmaConfig = {
+    session: {
+        port: '9076',
+        secure: false,
+    },
     schema: {
         structs: {
             Field: {
@@ -3887,9 +3891,5 @@ export var enigmaConfig = {
                 NX_EXT_MSGTYPE_RETURN_ERROR: 5
             }
         }
-    },
-    session: {
-        port: '9076',
-        secure: false,
     },
 };

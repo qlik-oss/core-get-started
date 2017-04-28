@@ -1,4 +1,4 @@
-# Hello World
+# Hello Angular
 This example shows how to get the QIX Engine up and running in a docker container, and 
 how to setup a simple communication.
 
@@ -45,10 +45,10 @@ The angular 4.x typescript application consists of config files and *.ts files.
 [package.json](package.json) and [system.config.js](system.config.js) contains the relevant configs and the dependencies. 
 To connect and communicate with the QIX Engine, a JavaScript library for consuming 
 Qlik backend services, [enigma.js](https://github.com/qlik-oss/enigma.js), is used.
-enigma.js needs to be configured, see [app/enigma-config.ts](app/enigma-config.ts). The port
+enigma.js needs to be configured, see [src/app/enigma-config.ts](src/app/enigma-config.ts). The port
 number for the QIX Engine must be set in the enigma-config.ts file.
 
-[app/app.module.ts](app/app.module.ts) is the application entrypoint. It loads the components which connect to the QIX Engine and asks for the
+[src/app/app.module.ts](src/app/app.module.ts) is the application entrypoint. It loads the components which connect to the QIX Engine and asks for the
 QIX Engine version, which is printed to the browser window.
 
 Run `npm install` to download and install the node packages needed for the application (see [package.json](package.json)).
@@ -78,6 +78,6 @@ $ docker-compose down
 A connection to the QIX Engine could not be established. Most probably the QIX Engine container is not
 up and running. Bring the QIX Engine back up with `docker-compose up -d`.
 Make sure that the port in the [compose](docker-compose.yml) file is the same as in the 
-[app/enigma-config.ts](app/enigma-config.ts).
+[src/app/enigma-config.ts](src/app/enigma-config.ts).
 
 
