@@ -4,7 +4,7 @@ import { enigmaConfig } from './enigma-config';
 
 @Component({
   selector: 'qlik',
-    template: `<div>QIX Version: {{version}}<br /><br />{{der}}</div>`,
+    template: `<div>QIX Version: <span id="qix-version">{{version}}</span><br /><br />{{der}}</div>`,
 })
 export class QlikComponent  {
     version: string = 'unknown';
