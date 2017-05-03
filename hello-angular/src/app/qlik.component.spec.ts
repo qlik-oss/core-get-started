@@ -13,15 +13,15 @@ describe('QlikComponent (inline template)', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QlikComponent ], 
+      declarations: [ QlikComponent ],
     })
-    .compileComponents();  
+    .compileComponents();
   }));
-  
+
   beforeEach(() => {
     fixture = TestBed.createComponent(QlikComponent);
 
-    comp = fixture.componentInstance; 
+    comp = fixture.componentInstance;
 
     // query for the version tag
     de = fixture.debugElement.query(By.css('#qix-version'));
