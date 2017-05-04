@@ -3,12 +3,12 @@ import * as enigma from 'enigma.js';
 import { enigmaConfig } from './enigma-config';
 
 @Component({
-  selector: 'qlik',
+    selector: 'qlik',
     template: `<div>QIX Version: <span id="qix-version">{{version}}</span><br /><br />{{der}}</div>`,
 })
 export class QlikComponent  {
-    version: string = 'unknown';
-    der: string = '';
+    version = 'unknown';
+    der = '';
 
     constructor() {
         console.log('QlikComponent: constructor() called.');
