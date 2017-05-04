@@ -8,7 +8,6 @@
     "serve": "lite-server -c=bs-config.json",
     "prestart": "npm run build",
     "start": "concurrently \"npm run build:watch\" \"npm run serve\"",
-    "pree2e": "npm run build:e2e",
     "preprotractor": "webdriver-manager update",
     "protractor": "protractor protractor.config.js",
     "pretest": "npm run build",
