@@ -16,17 +16,18 @@ export class QlikComponent  {
     ngOnInit() {
         console.log('QlikComponent: ngOnInit() called.');
         console.log('Got enigmaConfig obj,', enigmaConfig);
-        enigma.getService('qix', enigmaConfig).then((qix) => {
-          console.log('Connection established');
-          return qix.global.engineVersion();
-        })
-        .then((version) => {
-            console.log(`Hello, I am QIX Engine! I am running version: ${version.qComponentVersion}`);
-            this.version = version.qComponentVersion;
-        })
-        .catch((err) => {
+        this.getVersion();
+    }
+    async getVersion() {
+        try {
+            let qix = await enigma.getService('qix', enigmaConfig);
+            let ver = await qix.global.engineVersion();
+
+            console.log(`Hello, I am QIX Engine! I am running version: ${ver.qComponentVersion}`);
+            this.version = ver.qComponentVersion;
+        } catch (err) {
             console.log(`Error when connecting to QIX Engine: ${err.message}`);
             this.der = err.message;
-        });
+        }
     }
 }
