@@ -20,8 +20,8 @@ export class QlikComponent  {
     }
     async getVersion() {
         try {
-            let qix = await enigma.getService('qix', enigmaConfig);
-            let ver = await qix.global.engineVersion();
+            const qix = await enigma.getService('qix', enigmaConfig);
+            const ver = await qix.global.engineVersion();
 
             console.log(`Hello, I am QIX Engine! I am running version: ${ver.qComponentVersion}`);
             this.version = ver.qComponentVersion;
