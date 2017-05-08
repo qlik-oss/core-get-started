@@ -2,11 +2,11 @@
  * System configuration for Angular samples
  * Adjust as necessary for your application needs.
  */
-(function (global) {
+(function(global) {
   System.config({
     paths: {
       // paths serve as alias
-      'npm:': 'node_modules/'
+      'npm:': 'node_modules/',
     },
     // map tells the System loader where to look for things
     map: {
@@ -24,10 +24,17 @@
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
 
       // other libraries
-      'rxjs':                       'npm:rxjs',
-      'angular-in-memory-web-api':  'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
-      'enigma.js':                  'npm:enigma.js/dist/enigma.js',
-      'ws':                         'npm:ws/index.js',
+      'rxjs': 'npm:rxjs',
+      'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
+      'enigma.js': 'npm:enigma.js/dist/enigma.js',
+      'enigma.js/schemas': 'npm:enigma.js/schemas',
+      'ws': 'npm:ws/index.js',
+      'systemjs-json-loader.js': 'npm:systemjs-plugin-json/json.js',
+    },
+    meta: {
+      '*.json': {
+        loader: 'systemjs-json-loader.js',
+      },
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -35,13 +42,16 @@
         defaultExtension: 'js',
         meta: {
           './*.js': {
-            loader: 'systemjs-angular-loader.js'
-          }
-        }
+            loader: 'systemjs-angular-loader.js',
+          },
+          '*.json': {
+            loader: 'systemjs-json-loader.js',
+          },
+        },
       },
       rxjs: {
-        defaultExtension: 'js'
-      }
-    }
+        defaultExtension: 'js',
+      },
+    },
   });
 })(this);
