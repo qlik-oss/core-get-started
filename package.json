@@ -10,11 +10,8 @@
     "lint-fix": "eslint . --fix"
   },
   "devDependencies": {
-    "eslint": "^3.18.0",
+    "eslint": "3.18.0",
     "eslint-config-airbnb-base": "11.1.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1"
+    "eslint-plugin-import": "2.2.0"
   }
 }
