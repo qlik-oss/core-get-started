@@ -4,21 +4,21 @@ import { enigmaConfig } from './enigma-config';
 
 @Component({
     selector: 'qlik',
-    template: `<div>QIX Version: <span id="qix-version">{{version}}</span><br /><br />{{der}}</div>`,
+    template: `<div>QIX Version: <span id="qix-version">{{version}}</span><br /><br />{{versionError}}</div>`,
 })
 export class QlikComponent  {
-    version = 'unknown';
-    der = '';
+    private version = 'unknown';
+    private versionError = '';
 
     constructor() {
         console.log('QlikComponent: constructor() called.');
     }
-    ngOnInit() {
+    public ngOnInit() {
         console.log('QlikComponent: ngOnInit() called.');
         console.log('Got enigmaConfig obj,', enigmaConfig);
         this.getVersion();
     }
-    async getVersion() {
+    private async getVersion() {
         try {
             const qix = await enigma.getService('qix', enigmaConfig);
             const ver = await qix.global.engineVersion();
@@ -27,7 +27,7 @@ export class QlikComponent  {
             this.version = ver.qComponentVersion;
         } catch (err) {
             console.log(`Error when connecting to QIX Engine: ${err.message}`);
-            this.der = err.message;
+            this.versionError = err.message;
         }
     }
 }

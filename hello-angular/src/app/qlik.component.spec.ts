@@ -5,10 +5,10 @@ import { QlikComponent } from './qlik.component';
 
 describe('QlikComponent (inline template)', () => {
 
-  let comp:    QlikComponent;
+  let comp: QlikComponent;
   let fixture: ComponentFixture<QlikComponent>;
-  let de:      DebugElement;
-  let el:      HTMLElement;
+  let de: DebugElement;
+  let el: HTMLElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
