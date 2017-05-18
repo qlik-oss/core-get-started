@@ -13,8 +13,7 @@
     "angular": "1.5.8",
     "d3": "4.2.2",
     "enigma.js": "1.1.1",
-    "halyard.js": "1.0.1",
-    "ws": "1.1.1"
+    "halyard.js": "1.1.0"
   },
   "devDependencies": {
     "babel-core": "6.24.0",

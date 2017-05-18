@@ -52,21 +52,17 @@ angular.module('app', []).component('app', {
       this.painted = true;
     };
 
-    this.generateGUID = () => 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
-      const r = Math.random() * 16 | 0;
-      const v = c === 'x' ? r : ((r & 0x3) | 0x8);
-      return v.toString(16);
-    });
 
     this.$onInit = () => {
+
       const config = {
         Promise: $q,
         schema: qixSchema,
         mixins: enigmaMixin,
         session: {
-          port: '9076',
-          secure: false,
-          identity: this.generateGUID(),
+          host: location.hostname,
+          secure: location.protocol === 'https:',
+          route: 'doc/session-doc/',
         },
       };
 
@@ -90,55 +86,56 @@ angular.module('app', []).component('app', {
           enigma.getService('qix', config).then((qix) => {
             this.connected = true;
             this.connecting = false;
-            qix.global.createSessionAppUsingHalyard(halyard).then((result) => {
-              app = result;
-              result.getAppLayout()
-                .then(() => {
-                  const scatterplotProperties = {
-                    qInfo: {
-                      qType: 'visualization',
-                      qId: '',
-                    },
-                    type: 'my-d3-scatterplot',
-                    labels: true,
-                    qHyperCubeDef: {
-                      qDimensions: [{
-                        qDef: {
-                          qFieldDefs: ['Movie'],
-                          qSortCriterias: [{
-                            qSortByAscii: 1,
-                          }],
-                        },
-                      }],
-                      qMeasures: [{
-                        qDef: {
-                          qDef: '[Adjusted Costs]',
-                          qLabel: 'Adjusted cost ($)',
-                        },
-                        qSortBy: {
-                          qSortByNumeric: -1,
-                        },
+            qix.global.getActiveDoc().then((activeDoc) => {
+              app = activeDoc;
+              app.getAppLayout()
+                .then((appLayout) => {
+                  qix.global.setScriptAndReloadWithHalyard(app, halyard, false).then((result) => {
+                    const scatterplotProperties = {
+                      qInfo: {
+                        qType: 'visualization',
+                        qId: '',
                       },
-                      {
-                        qDef: {
-                          qDef: '[imdbRating]',
-                          qLabel: 'imdb rating',
+                      type: 'my-d3-scatterplot',
+                      labels: true,
+                      qHyperCubeDef: {
+                        qDimensions: [{
+                          qDef: {
+                            qFieldDefs: ['Movie'],
+                            qSortCriterias: [{
+                              qSortByAscii: 1,
+                            }],
+                          },
+                        }],
+                        qMeasures: [{
+                          qDef: {
+                            qDef: '[Adjusted Costs]',
+                            qLabel: 'Adjusted cost ($)',
+                          },
+                          qSortBy: {
+                            qSortByNumeric: -1,
+                          },
                         },
-                      }],
-                      qInitialDataFetch: [{ qTop: 0, qHeight: 50, qLeft: 0, qWidth: 3 }],
-                      qSuppressZero: false,
-                      qSuppressMissing: true,
-                    },
-                  };
-                  result.createSessionObject(scatterplotProperties).then((model) => {
-                    object = model;
+                        {
+                          qDef: {
+                            qDef: '[imdbRating]',
+                            qLabel: 'imdb rating',
+                          },
+                        }],
+                        qInitialDataFetch: [{ qTop: 0, qHeight: 50, qLeft: 0, qWidth: 3 }],
+                        qSuppressZero: false,
+                        qSuppressMissing: true,
+                      },
+                    };
+                    result.createSessionObject(scatterplotProperties).then((model) => {
+                      object = model;
+                      const update = () => object.getLayout().then((layout) => {
+                        paintChart(layout);
+                      });
 
-                    const update = () => object.getLayout().then((layout) => {
-                      paintChart(layout);
+                      object.on('changed', update);
+                      update();
                     });
-
-                    object.on('changed', update);
-                    update();
                   });
                 });
             }, () => {
