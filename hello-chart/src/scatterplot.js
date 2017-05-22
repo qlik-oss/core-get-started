@@ -20,8 +20,8 @@ export default class Scatterplot {
       data,
       settings: {
         scales: {
-          x: { source: '/qHyperCube/qMeasureInfo/0', expand: [0.05] },
-          y: { source: '/qHyperCube/qMeasureInfo/1', expand: [0.05], invert: true }
+          x: { source: '/qHyperCube/qMeasureInfo/0', min: 180000000, max:360000000 },
+          y: { source: '/qHyperCube/qMeasureInfo/1', min: 0, max: 10, invert: true }
         },
         components:[{
           scale: 'y',
@@ -79,6 +79,7 @@ export default class Scatterplot {
             x: { scale: 'x' },
             y: { scale: 'y' },
             size: 0.4,
+            opacity: 0.8,
             fill: '#6de8c1'
           }
         }]
