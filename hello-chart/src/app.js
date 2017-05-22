@@ -47,8 +47,8 @@ angular.module('app', []).component('app', {
 
     const scatterplot = new Scatterplot(select);
 
-    const paintChart = (layout) => {
-      scatterplot.paintScatterplot(document.getElementById('chart-container'), layout, select);
+    const paintChart = (layout, model) => {
+      scatterplot.paintScatterplot(document.getElementById('chart-container'), layout, model, this.getMovieInfo);
       this.painted = true;
     };
 
@@ -130,7 +130,7 @@ angular.module('app', []).component('app', {
                     result.createSessionObject(scatterplotProperties).then((model) => {
                       object = model;
                       const update = () => object.getLayout().then((layout) => {
-                        paintChart(layout);
+                        paintChart(layout, model);
                       });
 
                       object.on('changed', update);

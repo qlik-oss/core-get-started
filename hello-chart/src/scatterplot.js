@@ -1,7 +1,7 @@
 /* eslint-env browser*/
 /* eslint import/extensions:0 */
 
-import * as d3 from 'd3';
+//import picasso from '@qlik/picasso';
 
 export default class Scatterplot {
 
@@ -9,102 +9,90 @@ export default class Scatterplot {
     this.axisPainted = false;
   }
 
-  paintScatterplot(element, layout, select) {
-    if (!(layout.qHyperCube &&
-      layout.qHyperCube.qDataPages &&
-      layout.qHyperCube.qDataPages[0] &&
-      layout.qHyperCube.qDataPages[0].qMatrix)
-    ) {
-      return;
-    }
-
-    const data = layout.qHyperCube.qDataPages[0].qMatrix.map(item => ({
-      movie: item[0].qText,
-      cost: item[1].qNum,
-      rating: item[2].qNum,
-    }));
-
-    const measureLabels = layout.qHyperCube.qMeasureInfo.map(item =>
-      item.qFallbackTitle,
-    );
-
-    const width = element.offsetWidth;
-    const height = element.offsetHeight;
-
-    const padding = 20;
-    const formatValue = d3.format('.2s');
-
-    const chart = d3.select(element.querySelector('svg'));
-    chart.attr('width', width);
-    chart.attr('height', height);
-    chart.selectAll('.dot').remove();
-
-    if (!this.axisPainted) {
-      const xScale = d3.scaleLinear();
-      xScale.range([padding, width - (padding * 2)]);
-      xScale.domain([4, 10]);
-
-      const xAxis = d3.axisBottom(xScale);
-
-      const yScale = d3.scaleLinear();
-      yScale.range([height - padding, 0]);
-      yScale.domain([d3.min(data, d => d.cost - 5000000), d3.max(data, d => d.cost) + 5000000]);
-
-      const yAxis = d3.axisRight(yScale);
-      yAxis.tickFormat(d => formatValue(d));
-
-      // x-axis
-      chart.append('g')
-        .attr('class', 'x axis')
-        .attr('transform', `translate(0,${height - padding})`)
-        .call(xAxis)
-        .append('text')
-        .attr('class', 'label')
-        .attr('x', width - (padding * 2))
-        .attr('y', -6)
-        .text(measureLabels[1]);
-
-      // y-axis
-      chart.append('g')
-        .attr('class', 'y axis')
-        .attr('transform', `translate(${padding}, 0)`)
-        .call(yAxis)
-        .append('text')
-        .attr('class', 'label')
-        .attr('transform', 'rotate(-90)')
-        .attr('y', 0)
-        .attr('dy', '-.71em')
-        .text(measureLabels[0]);
-
-      this.axisPainted = true;
-
-      const xValue = d => d.rating;
-      this.xMap = d => xScale(xValue(d));
-      const yValue = d => d.cost;
-      this.yMap = d => yScale(yValue(d));
-    }
-    chart.selectAll('.dot')
-      .data(data)
-      .enter().append('circle')
-      .attr('class', 'dot')
-      .attr('r', 5)
-      .attr('cx', this.xMap)
-      .attr('cy', this.yMap)
-      .on('mouseover', (d) => {
-        const event = d3.event;
-        const text = d.movie;
-        const point = {
-          y: event.pageY - 28,
-          x: event.pageX + 5,
-        };
-        this.showTooltip(text, point);
-      })
-      .on('mouseout', this.hideTooltip)
-      .on('click', (d) => {
-        this.hideTooltip();
-        d3.event.stopPropagation();
-        select(d.movie);
-      });
+  paintScatterplot(element, layout, model, movieInfoFn) {
+    const data = {
+      type: 'q',
+      data: layout,
+    };
+    const axisColor = '#fff';
+    const chart = picasso.chart({
+      element,
+      data,
+      settings: {
+        scales: {
+          x: { source: '/qHyperCube/qMeasureInfo/0', expand: [0.05] },
+          y: { source: '/qHyperCube/qMeasureInfo/1', expand: [0.05], invert: true }
+        },
+        components:[{
+          scale: 'y',
+          type: 'axis',
+          dock: 'left',
+          settings: {
+            line: {
+              stroke: axisColor
+            },
+            labels: {
+              fill: axisColor
+            }
+          }
+        }, {
+          type: 'axis',
+          scale: 'x',
+          dock: 'bottom',
+          settings: {
+            line: {
+              stroke: axisColor
+            },
+            labels: {
+              fill: axisColor
+            }
+          }
+        },{
+          type: 'point-marker',
+          data: {
+            mapTo: {
+              x: { source: '/qHyperCube/qMeasureInfo/0' },
+              y: { source: '/qHyperCube/qMeasureInfo/1' },
+              elemNo: { source: '/qHyperCube/qDimensionInfo/0', property: 'id' }
+            },
+            groupBy: {
+              source: '/qHyperCube/qDimensionInfo/0', attribute: '$index'
+            }
+          },
+          brush: {
+            trigger: [{
+              on: 'tap',
+              contexts: ['highlight'],
+              data: ['elemNo']
+            }],
+            consume: [{
+              context: 'highlight',
+              data: ['elemNo'],
+              style: {
+                inactive: {
+                  opacity: 0.3
+                }
+              }
+            }]
+          },
+          settings: {
+            x: { scale: 'x' },
+            y: { scale: 'y' },
+            size: 0.4,
+            fill: '#6de8c1'
+          }
+        }]
+      }
+    });
+    chart.brush('highlight').on('update', function (added, removed) {
+      if (added.length + removed.length < 1) {
+        return;
+      }
+      var selections = picassoQ.qBrushHelper(chart.brush('highlight'));
+      model[selections[0].method].apply(model, selections[0].params).then((() => {
+        movieInfoFn();
+      }));
+    });
   }
 
   showDetails(layout) {

@@ -126,6 +126,7 @@ app {
 }
 
 #chart-container {
+  position: relative;
 	height: 340px;
 	width: 960px;
 	margin-top: 40px;

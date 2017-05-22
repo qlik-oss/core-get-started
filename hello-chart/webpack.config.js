@@ -28,6 +28,8 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin([
       { from: 'index.html' },
+      { from: 'node_modules/@qlik/picasso/dist/picasso.js' },
+      { from: 'node_modules/@qlik/picasso/plugins/q/dist/picasso-q.js' },
       { from: 'src/app.html', to: 'src/' },
       { from: 'src/app.css', to: 'src/' },
       { from: 'src/resources', to: 'src/resources' },
