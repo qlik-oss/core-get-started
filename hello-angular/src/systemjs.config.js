@@ -30,6 +30,7 @@
       'enigma.js/schemas': 'npm:enigma.js/schemas',
       'ws': 'npm:ws/index.js',
       'systemjs-json-loader.js': 'npm:systemjs-plugin-json/json.js',
+      'eslint-config-airbnb':'npm:eslint-config-airbnb/index.js',
     },
     meta: {
       '*.json': {
