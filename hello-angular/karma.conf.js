@@ -1,12 +1,12 @@
 // Karma configuration
 // Generated on Fri Apr 28 2017 09:44:26 GMT-0400 (EDT)
 
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
     basePath: '',
     frameworks: ['jasmine'],
     files: [
-      'src/app/*.ts'
+      'src/app/*.ts',
     ],
     exclude: [
     ],
@@ -19,6 +19,6 @@ module.exports = function(config) {
     autoWatch: true,
     browsers: ['Chrome'],
     singleRun: false,
-    concurrency: Infinity
-  })
-}
+    concurrency: Infinity,
+  });
+};

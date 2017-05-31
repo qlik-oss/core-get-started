@@ -2,7 +2,7 @@
  * System configuration for Angular samples
  * Adjust as necessary for your application needs.
  */
-(function(global) {
+(function (global) {
   System.config({
     paths: {
       // paths serve as alias
@@ -11,7 +11,7 @@
     // map tells the System loader where to look for things
     map: {
       // our app is within the app folder
-      'app': 'app',
+      app: 'app',
 
       // angular bundles
       '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
@@ -24,13 +24,13 @@
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
 
       // other libraries
-      'rxjs': 'npm:rxjs',
+      rxjs: 'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
       'enigma.js': 'npm:enigma.js/dist/enigma.js',
       'enigma.js/schemas': 'npm:enigma.js/schemas',
-      'ws': 'npm:ws/index.js',
+      ws: 'npm:ws/index.js',
       'systemjs-json-loader.js': 'npm:systemjs-plugin-json/json.js',
-      'eslint-config-airbnb':'npm:eslint-config-airbnb/index.js',
+      'eslint-config-airbnb': 'npm:eslint-config-airbnb/index.js',
     },
     meta: {
       '*.json': {
@@ -55,4 +55,4 @@
       },
     },
   });
-})(this);
+}(this));
