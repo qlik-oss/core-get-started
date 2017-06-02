@@ -1,8 +1,5 @@
 **/node_modules/**
 **/dist/**
-hello-angular/jspm_packages
-hello-angular/npm-debug.log
-hello-angular/debug.log
 hello-angular/src/**/*.js
 hello-angular/src/systemjs.config.extras.js
 hello-angular/src/systemjs.config.js
@@ -10,5 +7,4 @@ hello-angular/src/systemjs-angular-loader.js
 hello-angular/karma.conf.js
 hello-angular/e2e/**/*.js
 hello-angular/e2e/**/*.js.map
-hello-angular/_test-output
-hello-angular/_temp
+
