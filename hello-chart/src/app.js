@@ -6,7 +6,7 @@ import Halyard from 'halyard.js';
 import angular from 'angular';
 import enigma from 'enigma.js';
 import enigmaMixin from 'halyard.js/dist/halyard-enigma-mixin';
-import qixSchema from 'json!../node_modules/enigma.js/schemas/qix/3.2/schema.json';
+import qixSchema from 'json!../node_modules/enigma.js/schemas/3.2.json';
 import template from 'raw!./app.html';
 import Scatterplot from './scatterplot';
 
@@ -63,11 +63,7 @@ angular.module('app', []).component('app', {
         Promise: $q,
         schema: qixSchema,
         mixins: enigmaMixin,
-        session: {
-          port: '9076',
-          secure: false,
-          identity: this.generateGUID(),
-        },
+        url: `ws://localhost:9076/${this.generateGUID()}`,
       };
 
       // Add local data
@@ -87,10 +83,10 @@ angular.module('app', []).component('app', {
           halyard.addTable(table);
         })
         .then(() => {
-          enigma.getService('qix', config).then((qix) => {
+          enigma.create(config).open().then((qix) => {
             this.connected = true;
             this.connecting = false;
-            qix.global.createSessionAppUsingHalyard(halyard).then((result) => {
+            qix.createSessionAppUsingHalyard(halyard).then((result) => {
               app = result;
               result.getAppLayout()
                 .then(() => {
