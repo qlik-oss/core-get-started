@@ -1,10 +1,2 @@
 **/node_modules/**
 **/dist/**
-hello-angular/src/**/*.js
-hello-angular/src/systemjs.config.extras.js
-hello-angular/src/systemjs.config.js
-hello-angular/src/systemjs-angular-loader.js
-hello-angular/karma.conf.js
-hello-angular/e2e/**/*.js
-hello-angular/e2e/**/*.js.map
-

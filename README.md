@@ -1,6 +1,6 @@
-# Qlik Elastic Tutorial
+# Getting started with the Web Platform
 
-This is the source code repository for the Qlik Elastic Tutorial, an entry point for developers that wants to get started using Qlik Elastic. The purpose of the examples is to show how quick and effortless it is to get started.
+This is the source code repository for the Getting started with the Web Platform, an entry point for developers that wants to get started using the Web Platform. The purpose of the examples is to show how quick and effortless it is to get started.
 
 
 ## Setting up your computer
@@ -13,16 +13,12 @@ $ docker login
 ```
 You must have access to the Docker hub `qlikea` organization to pull the `qlikea/engine` image from Docker hub.
 
-* Clone the [Qlik Elastic Tutorial github repo](https://github.com/qlik-ea/qlik-elastic-tutorial)
+* Clone the [Qlik Elastic Tutorial github repo](https://github.com/qlik-ea/getting-started-with-web-platform)
 
-```bash
-$ git clone https://github.com/qlik-ea/qlik-elastic-tutorial.git
-```
 
 ## Examples
 - [Hello World](hello-world/README.md)
 - [Hello Chart](hello-chart/README.md)
-- [Hello Angular](hello-angular/README.md)  
 
 ## Contributing
 Please follow the instructions in [CONTRIBUTING.md](.github/CONTRIBUTING.md).

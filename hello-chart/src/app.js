@@ -27,7 +27,7 @@ angular.module('app', []).component('app', {
     };
 
     $scope.openGithub = () => {
-      window.open('https://github.com/qlik-ea/qlik-elastic-tutorial');
+      window.open('https://github.com/qlik-ea/getting-started-with-web-platform');
     };
 
     this.connected = false;
