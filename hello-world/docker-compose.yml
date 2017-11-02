@@ -6,3 +6,7 @@ services:
     restart: always
     ports:
       - "9076:9076"
+  web:
+    build: .
+    environment:
+      URL: 'ws://engine:9076/app/'
