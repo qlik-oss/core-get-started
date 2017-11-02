@@ -1,6 +1,6 @@
-# Contributing to Getting started with web platform
+# Contributing to Getting started with Web Platform
 
-You are more than welcome to contribute to the Getting started with web platform. Follow these guidelines and you will be ready to start:
+You are more than welcome to contribute to the Getting started with Web Platform. Follow these guidelines and you will be ready to start:
 
  - [Code of conduct](#code-of-conduct)
  - [Bugs](#bugs)
@@ -41,9 +41,6 @@ Generally, development should be done directly towards the `master` branch.
 
 1\. Fork and clone the repository
 
-```sh
-git clone git@github.com:YOUR-USERNAME/getting-started-with-web-platform.git
-```
 2\. Create a branch in the fork
 
 The branch should be based on the `master` branch in the master repository.

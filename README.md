@@ -1,6 +1,6 @@
-# Getting started with the web platform
+# Getting started with the Web Platform
 
-This is the source code repository for the Getting started with the web platform, an entry point for developers that wants to get started using the web platform. The purpose of the examples is to show how quick and effortless it is to get started.
+This is the source code repository for the Getting started with the Web Platform, an entry point for developers that wants to get started using the Web Platform. The purpose of the examples is to show how quick and effortless it is to get started.
 
 
 ## Setting up your computer
@@ -15,9 +15,6 @@ You must have access to the Docker hub `qlikea` organization to pull the `qlikea
 
 * Clone the [Qlik Elastic Tutorial github repo](https://github.com/qlik-ea/getting-started-with-web-platform)
 
-```bash
-$ git clone git@github.com:qlik-ea/getting-started-with-web-platform.git
-```
 
 ## Examples
 - [Hello World](hello-world/README.md)
