@@ -1,13 +1,13 @@
 # Getting started with the Web Platform
 
 This repository contains the assets for the Getting started with the Web Platform.
-You can find insctructions for this repo [here](https://github.com/qlik-ea/info/blob/master/docs/documentation/recipes/web-platform.md).
+You can find the instructions for this repo [here](https://github.com/qlik-ea/info/blob/master/docs/documentation/recipes/web-platform.md).
 
 To get an overview of all our recipes go [here](https://github.com/qlik-ea/info)
 
 ## Contents
 
-- [Hello World](hello-world/README.md) - Folder with basic hello world example.
+- [Hello World](hello-world/README.md) - Folder with the basic hello world example.
 - [Hello Chart](hello-chart/README.md) - Folder with the hello chart example.
 
 ## Contributing
