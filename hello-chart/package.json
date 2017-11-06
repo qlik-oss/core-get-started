@@ -10,8 +10,8 @@
     "build": "webpack -p"
   },
   "dependencies": {
+    "@qlik/picasso": "./picasso-0.34.0.tgz",
     "angular": "1.5.8",
-    "d3": "4.2.2",
     "enigma.js": "2.2.0",
     "halyard.js": "1.3.0",
     "ws": "1.1.1"
