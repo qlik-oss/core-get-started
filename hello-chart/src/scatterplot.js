@@ -1,15 +1,19 @@
 /* eslint-env browser*/
 /* eslint import/extensions:0 */
 
-import * as d3 from 'd3';
+import picasso from '@qlik/picasso';
+import picassoQ from '@qlik/picasso/plugins/q';
+
+picasso.use(picassoQ);
 
 export default class Scatterplot {
 
   constructor() {
     this.axisPainted = false;
+    this.pic = null;
   }
 
-  paintScatterplot(element, layout, select) {
+  paintScatterplot(element, layout, selectionAPI) {
     if (!(layout.qHyperCube &&
       layout.qHyperCube.qDataPages &&
       layout.qHyperCube.qDataPages[0] &&
@@ -17,94 +21,138 @@ export default class Scatterplot {
     ) {
       return;
     }
-
-    const data = layout.qHyperCube.qDataPages[0].qMatrix.map(item => ({
-      movie: item[0].qText,
-      cost: item[1].qNum,
-      rating: item[2].qNum,
-    }));
-
-    const measureLabels = layout.qHyperCube.qMeasureInfo.map(item =>
-      item.qFallbackTitle,
-    );
-
-    const width = element.offsetWidth;
-    const height = element.offsetHeight;
-
-    const padding = 20;
-    const formatValue = d3.format('.2s');
-
-    const chart = d3.select(element.querySelector('svg'));
-    chart.attr('width', width);
-    chart.attr('height', height);
-    chart.selectAll('.dot').remove();
-
-    if (!this.axisPainted) {
-      const xScale = d3.scaleLinear();
-      xScale.range([padding, width - (padding * 2)]);
-      xScale.domain([4, 10]);
-
-      const xAxis = d3.axisBottom(xScale);
-
-      const yScale = d3.scaleLinear();
-      yScale.range([height - padding, 0]);
-      yScale.domain([d3.min(data, d => d.cost - 5000000), d3.max(data, d => d.cost) + 5000000]);
-
-      const yAxis = d3.axisRight(yScale);
-      yAxis.tickFormat(d => formatValue(d));
-
-      // x-axis
-      chart.append('g')
-        .attr('class', 'x axis')
-        .attr('transform', `translate(0,${height - padding})`)
-        .call(xAxis)
-        .append('text')
-        .attr('class', 'label')
-        .attr('x', width - (padding * 2))
-        .attr('y', -6)
-        .text(measureLabels[1]);
-
-      // y-axis
-      chart.append('g')
-        .attr('class', 'y axis')
-        .attr('transform', `translate(${padding}, 0)`)
-        .call(yAxis)
-        .append('text')
-        .attr('class', 'label')
-        .attr('transform', 'rotate(-90)')
-        .attr('y', 0)
-        .attr('dy', '-.71em')
-        .text(measureLabels[0]);
-
-      this.axisPainted = true;
-
-      const xValue = d => d.rating;
-      this.xMap = d => xScale(xValue(d));
-      const yValue = d => d.cost;
-      this.yMap = d => yScale(yValue(d));
+    if (selectionAPI.hasSelected) {
+      return; // keep selected chart state
     }
-    chart.selectAll('.dot')
-      .data(data)
-      .enter().append('circle')
-      .attr('class', 'dot')
-      .attr('r', 5)
-      .attr('cx', this.xMap)
-      .attr('cy', this.yMap)
-      .on('mouseover', (d) => {
-        const event = d3.event;
-        const text = d.movie;
-        const point = {
-          y: event.pageY - 28,
-          x: event.pageX + 5,
-        };
-        this.showTooltip(text, point);
-      })
-      .on('mouseout', this.hideTooltip)
-      .on('click', (d) => {
-        this.hideTooltip();
-        d3.event.stopPropagation();
-        select(d.movie);
+    const settings = {
+      collections: [
+        {
+          key: 'coll',
+          data: {
+            extract: {
+              field: 'qDimensionInfo/0',
+              props: {
+                movie: { value: v => v.qText },
+                cost: { field: 'qMeasureInfo/0' },
+                rating: { field: 'qMeasureInfo/1' }
+              }
+            }
+          }
+        }
+      ],
+      scales: {
+        x: { data: { field: 'qMeasureInfo/1' }, expand: 0.1 },
+        y: { data: { field: 'qMeasureInfo/0' }, expand: 0.1, invert: true }
+      },
+      components: [
+        { 
+          key: 'xaxis',
+          type: 'axis',
+          scale: 'x',
+          dock: 'bottom',
+          settings: { labels: { fill: '#f2f2f2' } }
+        },
+        {
+          key: 'yaxis',
+          type: 'axis',
+          scale: 'y',
+          dock: 'left',
+          settings: { labels: { fill: '#f2f2f2' } }
+        },
+        {
+          key: 'xtitle',
+          type: 'text',
+          scale: 'x',
+          dock: 'bottom',
+          settings: { style: { 'fill': '#f2f2f2' } }
+        },
+        {
+          key: 'ytitle',
+          type: 'text',
+          scale: 'y',
+          dock: 'left',
+          settings: { style: { 'fill': '#f2f2f2' } }
+        },
+        {
+          key: 'points',
+          type: 'point-marker',
+          data: { collection: 'coll' },
+          brush: {
+            trigger: [{
+              on: 'tap',
+              action: 'set',
+              data: ['movie'],
+              propagation: 'stop',
+              contexts: ['highlight']
+            }, {
+              on: 'over',
+              action: 'set',
+              data: ['movie'],
+              propagation: 'stop',
+              contexts: ['tooltip']
+            }],
+            consume: [{
+              context: 'highlight',
+              style: {
+                inactive: {
+                  fill: 'rgba(109, 232, 193, 0.3)'
+                }
+              }
+            }]
+          },
+          settings: {
+            x: { scale: 'x', ref: 'rating' },
+            y: { scale: 'y', ref: 'cost' },
+            size: 0.4,
+            opacity: 0.8,
+            fill: 'rgba(109, 232, 193, 1.0)'
+          }
+        }
+      ]
+    }
+
+    if (!this.pic) {
+      this.pic = picasso.chart({
+        element,
+        data: [{
+          type: 'q',
+          key: 'qHyperCube',
+          data: layout.qHyperCube
+        }],
+        settings
       });
+
+      this.pic.brush('highlight').on('update', (added, removed) => {
+        if (added[0]) {
+          selectionAPI.select(added[0].values[0]);
+        } else {
+          this.pic.brush('highlight').end();
+          selectionAPI.clear();
+        }
+      });
+      this.pic.brush('tooltip').on('update', (added, removed) => {
+        if (added.length) {
+          const s = this.pic.getAffectedShapes('tooltip')[0];
+          const rect = s.element.getBoundingClientRect();
+          const p = {
+            x: s.bounds.x + s.bounds.width + rect.x + 5,
+            y: s.bounds.y + s.bounds.height / 2 + rect.y - 28
+          }
+          this.showTooltip(s.data.movie.value, p);
+        } else {
+          this.hideTooltip();
+        }
+      });
+    } else {
+      this.pic.update({
+        data: [{
+          type: 'q',
+          key: 'qHyperCube',
+          data: layout.qHyperCube
+        }],
+        settings
+      });
+    }
   }
 
   showDetails(layout) {

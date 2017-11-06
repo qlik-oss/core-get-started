@@ -16,13 +16,12 @@ angular.module('app', []).component('app', {
   bindings: {},
   controller: ['$scope', '$q', '$http', function Controller($scope, $q, $http) {
     $scope.dataSelected = false;
-    $scope.showInfo = false;
+    $scope.showFooter = false;
 
     $scope.toggleFooter = () => {
-      if ($scope.dataSelected) {
+      $scope.showFooter = !$scope.showFooter;
+      if (!$scope.showFooter && $scope.dataSelected) {
         this.clearAllSelections();
-      } else {
-        $scope.dataSelected = true;
       }
     };
 
@@ -40,15 +39,22 @@ angular.module('app', []).component('app', {
     const select = (value) => {
       app.getField('Movie').then((field) => {
         field.select(value).then(() => {
-          this.getMovieInfo();
+          $scope.dataSelected = true;
+          this.getMovieInfo().then(() => {
+            $scope.showFooter = true;
+          });
         });
       });
     };
 
-    const scatterplot = new Scatterplot(select);
+    const scatterplot = new Scatterplot();
 
     const paintChart = (layout) => {
-      scatterplot.paintScatterplot(document.getElementById('chart-container'), layout, select);
+      scatterplot.paintScatterplot(document.getElementById('chart-container'), layout, {
+        select,
+        clear: () => this.clearAllSelections(),
+        hasSelected: $scope.dataSelected
+      });
       this.painted = true;
     };
 
@@ -95,7 +101,7 @@ angular.module('app', []).component('app', {
                       qType: 'visualization',
                       qId: '',
                     },
-                    type: 'my-d3-scatterplot',
+                    type: 'my-picasso-scatterplot',
                     labels: true,
                     qHyperCubeDef: {
                       qDimensions: [{
@@ -151,10 +157,10 @@ angular.module('app', []).component('app', {
 
     this.clearAllSelections = () => {
       if ($scope.dataSelected) {
-        $scope.showInfo = false;
         $scope.dataSelected = false;
         app.clearAll();
       }
+      $scope.showFooter = false;
     };
 
     this.getMovieInfo = () => {
@@ -163,7 +169,7 @@ angular.module('app', []).component('app', {
           qType: 'visualization',
           qId: '',
         },
-        type: 'my-d3-table',
+        type: 'my-info-table',
         labels: true,
         qHyperCubeDef: {
           qDimensions: [{
@@ -197,15 +203,9 @@ angular.module('app', []).component('app', {
           qSuppressMissing: true,
         },
       };
-      app.createSessionObject(tableProperties).then((model) => {
-        model.getLayout().then((layout) => {
-          if ($scope.dataSelected) {
-            this.clearAllSelections();
-          } else {
-            $scope.dataSelected = true;
-            $scope.showInfo = true;
-            scatterplot.showDetails(layout);
-          }
+      return app.createSessionObject(tableProperties).then((model) => {
+        return model.getLayout().then((layout) => {
+          scatterplot.showDetails(layout);
         });
       });
     };

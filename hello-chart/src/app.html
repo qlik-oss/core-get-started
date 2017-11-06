@@ -13,17 +13,15 @@
 		<div class="title">Top 50 most expensive movies</div>
 		<div>Comparison of top 50 most expensive movies and their imdb ratings.</div>
 
-		<div id="chart-container">
-			<svg class="chart"></svg>
-		</div>
+		<div id="chart-container" class="picasso-chart"></div>
 	</div>
 </div>
-<div class="footer" ng-class="{'expanded': dataSelected}">
+<div class="footer" ng-class="{'expanded': showFooter}">
 	<div>
-		<span class="lui-icon--top" ng-class="{'expanded': dataSelected}" ng-click="toggleFooter()"></span>
+		<span class="lui-icon--top" ng-class="{'expanded': showFooter}" ng-click="toggleFooter()"></span>
 		<span class="footer-title">Movie Information</span>
 	</div>
-	<div class="info-wrapper" ng-show="showInfo">
+	<div class="info-wrapper" ng-show="dataSelected">
 		<img class="movie-image">
 		<div class="movie-info">
 			<span class="info-title">Title</span>
@@ -36,7 +34,7 @@
 			<span class="movie-description"></span>
 		</div>
 	</div>
-	<div class="no-movie-selected" ng-show="!showInfo">No movie is selected</div>
+	<div class="no-movie-selected" ng-show="!dataSelected">No movie is selected</div>
 </div>
 
 <div class="error" ng-if="!$ctrl.connected && !$ctrl.connecting">
