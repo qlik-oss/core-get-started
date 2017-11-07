@@ -50,7 +50,7 @@ const mixins = require('halyard.js/dist/halyard-enigma-mixin');
     movies.forEach((movie) => { console.log(movie[0].qText) });
     await session.close();
   } catch (err) {
-    console.log('Woops! An error ocurred.', err);
+    console.log('Woops! An error occurred.', err);
     process.exit(1);
   }
 })();
