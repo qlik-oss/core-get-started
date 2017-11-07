@@ -11,15 +11,13 @@ const session = enigma.create({
   createSocket: url => new WebSocket(url),
 });
 
-session.open().then((qix) => {
+session.open().then(async (global) => {
   console.log('Connection established');
-  return qix.engineVersion();
-})
-.then((version) => {
-  console.log(`Hello, I am QIX Engine! I am running version: ${version.qComponentVersion}`);
-  process.exit(0);
-})
-.catch((err) => {
-  console.log(`Error when connecting to QIX Engine: ${err.message}`);
-  process.exit(1);
-});
+  try {
+    const version = await global.engineVersion();
+    console.log(`Hello, I am QIX Engine! I am running version: ${version.qComponentVersion}`);
+    process.exit(0);
+  } catch (error) {
+    console.log(`Error when connecting to QIX Engine: ${error.message}`);
+    process.exit(1);
+  }});
