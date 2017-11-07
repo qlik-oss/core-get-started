@@ -7,6 +7,7 @@ const mixins = require('halyard.js/dist/halyard-enigma-mixin');
 
 (async () => {
   try {
+    const halyard = new Halyard();
     const moviesPath = '/data/movies.csv';
     const moviesTable = new Halyard.Table(moviesPath, {
       name: 'Movies',
@@ -20,24 +21,18 @@ const mixins = require('halyard.js/dist/halyard-enigma-mixin');
       delimiter: ',',
     });
 
-    console.log(`Creating local data from ${moviesPath}`);
-    const halyard = new Halyard();
     halyard.addTable(moviesTable);
 
-    const enigmaConfig = {
+    const session = await enigma.create({
       schema,
       mixins,
       url: 'ws://localhost:9076/app/',
       createSocket(url) {
         return new WebSocket(url);
       }
-    };
-
-    console.log('Connecting to QIX Engine');
-    const session = await enigma.create(enigmaConfig);
-    const qix = await session.open();  
+    });
+    const qix = await session.open();
     const app = await qix.createSessionAppUsingHalyard(halyard);
-    console.log('Session app created');
 
     const moviesCount = 10;
     const properties = {
@@ -47,18 +42,15 @@ const mixins = require('halyard.js/dist/halyard-enigma-mixin');
         qInitialDataFetch: [{ qHeight: moviesCount, qWidth: 1 }],
       },
     };
-
     const object = await app.createSessionObject(properties);
     const layout = await object.getLayout();
     const movies = layout.qHyperCube.qDataPages[0].qMatrix;
-    console.log('Session object created');
     
     console.log(`Listing the ${moviesCount} first movies:`)
     movies.forEach((movie) => { console.log(movie[0].qText) });
-
-    process.exit(0);
+    await session.close();
   } catch (err) {
-    console.log(`Error when connecting to QIX Engine: ${err.message}`);
+    console.log('Woops! An error ocurred.', err);
     process.exit(1);
   }
 })();
