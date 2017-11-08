@@ -17,8 +17,8 @@ jobs:
           name: Login to Docker
           command: docker login -u "$DOCKER_USER" -p "$DOCKER_PASSWORD"
       - run:
-          name: Install node
-          command: curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - && sudo apt-get install -y nodejs
+          name: Change node version
+          command: nvm install 8
       - run:
           name: Run test for hello-engine
           command: |
