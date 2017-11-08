@@ -13,9 +13,9 @@ const WebSocket = require('ws');
     });
 
     const global = await session.open();
-    console.log('Connection established');
+    console.log('Connection established to the engine');
     const version = await global.engineVersion();
-    console.log(`Hello, I am QIX Engine! I am running version: ${version.qComponentVersion}`);
+    console.log(`Engine returned that it's running version: ${version.qComponentVersion}`);
     process.exit(0);
   } catch (error) {
     console.log(`Error when connecting to QIX Engine: ${error.message}`);

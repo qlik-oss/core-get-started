@@ -7,8 +7,8 @@ To get an overview of all our recipes go [here](https://github.com/qlik-ea/info)
 
 ## Contents
 
-- [hello engine](hello-engine/README.md) - Folder with the basic hello engine example.
-- [hello visualization](hello-visualization/README.md) - Folder with the hello visualization example.
+- hello-engine - Folder with the basic hello engine example.
+- hello-visualization - Folder with the hello visualization example.
 
 ## Contributing
 
