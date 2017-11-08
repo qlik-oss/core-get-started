@@ -10,3 +10,31 @@ jobs:
           name: Install dependencies
           command:
             npm install --quiet
+      - run:
+          name: Run ESLint
+          command:
+            npm run lint
+      - run:
+          name: Install Docker Compose
+          command: |
+            set -x
+            curl -L https://github.com/docker/compose/releases/download/1.11.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+            chmod +x /usr/local/bin/docker-compose
+      - setup_remote_docker
+      - run:
+          name: Go to hello engine example
+          command:
+            cd hello-engine
+      - run:
+          name: Install dependencies
+          command:
+            npm install --quiet
+      - run:
+          name: Run docker-compose
+          command:
+            docker-compose up -d
+      - run:
+          name: Run test
+          command:
+            ./test.sh
+
