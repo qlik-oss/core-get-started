@@ -1,13 +1,13 @@
 {
-  "name": "hello-world",
+  "name": "hello-engine",
   "private": true,
   "version": "0.0.1",
   "author": "QlikTech International AB",
   "description": "Communicates with the QIX Engine running in a Docker container.",
   "license": "MIT",
-  "main": "app.js",
+  "main": "hello-engine.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node hello-engine.js"
   },
   "dependencies": {
     "enigma.js": "2.2.0",
