@@ -25,4 +25,5 @@ jobs:
             cd hello-engine
             npm install --quiet
             docker-compose up -d
-            ./test.sh
+            version=$(grep "image: qlikea/engine" docker-compose.yml | cut -d':' -f3-)
+            node hello-engine.js | grep "Engine returned that it's running version: $version"
