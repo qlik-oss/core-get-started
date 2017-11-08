@@ -5,7 +5,7 @@ const schema = require('enigma.js/schemas/3.2.json');
 
 (async () => {
   try {
-    // Create and open an engine session using enigma.js.
+    console.log('Creating and opening session.');
     const session = enigma.create({
       schema,
       url: 'ws://localhost:9076/app',
@@ -13,10 +13,11 @@ const schema = require('enigma.js/schemas/3.2.json');
     });
     const global = await session.open();
 
-    // Get engine version from the "global" API and log it, then close the session.
     const version = await global.engineVersion();
-    console.log(`Engine version is: ${version.qComponentVersion}`);
+    console.log(`Engine version retrieved: ${version.qComponentVersion}`);
+
     await session.close();
+    console.log('Session closed.');
   } catch (err) {
     console.log('Woops! An error occurred.', err);
     process.exit(1);

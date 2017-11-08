@@ -7,7 +7,7 @@ const mixins = require('halyard.js/dist/halyard-enigma-mixin');
 
 (async () => {
   try {
-    // Create the data representation as a halyard.js table.
+    console.log('Creating table data representation.');
     const halyard = new Halyard();
     const moviesPath = '/data/movies.csv';
     const moviesTable = new Halyard.Table(moviesPath, {
@@ -24,7 +24,7 @@ const mixins = require('halyard.js/dist/halyard-enigma-mixin');
 
     halyard.addTable(moviesTable);
 
-    // Create and open an engine session using the enigma.js mixin.
+    console.log('Creating and opening session using mixin.');
     const session = enigma.create({
       schema,
       mixins,
@@ -34,7 +34,7 @@ const mixins = require('halyard.js/dist/halyard-enigma-mixin');
     const qix = await session.open();
     const app = await qix.createSessionAppUsingHalyard(halyard);
 
-    // Create a session object with the first movies.
+    console.log('Creating session object with movie titles.');
     const moviesCount = 10;
     const properties = {
       qInfo: { qType: 'hello-data' },
@@ -46,11 +46,12 @@ const mixins = require('halyard.js/dist/halyard-enigma-mixin');
     const object = await app.createSessionObject(properties);
     const layout = await object.getLayout();
     const movies = layout.qHyperCube.qDataPages[0].qMatrix;
-    
-    // Print the movie titles, then close the session.
+
     console.log(`Listing the ${moviesCount} first movies:`);
     movies.forEach((movie) => { console.log(movie[0].qText); });
+
     await session.close();
+    console.log('Session closed.');
   } catch (err) {
     console.log('Woops! An error occurred.', err);
     process.exit(1);
