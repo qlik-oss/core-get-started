@@ -5,4 +5,4 @@ cd "$(dirname "$0")"
 version=$(grep "image: qlikea/engine" docker-compose.yml | cut -d':' -f3-)
 
 # grep for expected string to verify correctness.
-node app.js | grep "Hello, I am QIX Engine! I am running version: $version"
+node hello-engine.js | grep "Engine returned that it's running version: $version"
