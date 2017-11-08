@@ -18,7 +18,7 @@ jobs:
           command: docker login -u "$DOCKER_USER" -p "$DOCKER_PASSWORD"
       - run:
           name: Change node version
-          command: nvm install 8
+          command: sudo nvm install 8
       - run:
           name: Run test for hello-engine
           command: |
