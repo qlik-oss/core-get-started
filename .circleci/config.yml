@@ -25,3 +25,4 @@ jobs:
             cd hello-engine
             npm install --quiet
             docker-compose up -d
+            ./test.sh
