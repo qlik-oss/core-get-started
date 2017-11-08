@@ -1,6 +1,11 @@
 #!/bin/bash
 set -e
 cd "$(dirname "$0")"
+
+npm install --quiet
+docker-compose up -d
+sleep 5
+
 # Get the current version.
 version=$(grep "image: qlikea/engine" docker-compose.yml | cut -d':' -f3-)
 
