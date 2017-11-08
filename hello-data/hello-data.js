@@ -25,7 +25,7 @@ const mixins = require('halyard.js/dist/halyard-enigma-mixin');
     halyard.addTable(moviesTable);
 
     // Create and open an engine session using the enigma.js mixin.
-    const session = await enigma.create({
+    const session = enigma.create({
       schema,
       mixins,
       url: 'ws://localhost:9076/app/',
