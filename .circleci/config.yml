@@ -15,6 +15,9 @@ jobs:
           command:
             npm run lint
       - run:
+          name: Install Docker client
+          command: ./scripts/cci2-install-docker-client.sh 17.04.0-ce
+      - run:
           name: Login to Docker
           command: docker login -u "$DOCKER_USER" -p "$DOCKER_PASSWORD"
       - run:
