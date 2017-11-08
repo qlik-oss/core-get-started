@@ -15,6 +15,9 @@ jobs:
           command:
             npm run lint
       - run:
+          name: Login to Docker
+          command: docker login -u "$DOCKER_USER" -p "$DOCKER_PASSWORD"
+      - run:
           name: Install Docker Compose
           command: |
             set -x
@@ -22,19 +25,10 @@ jobs:
             chmod +x /usr/local/bin/docker-compose
       - setup_remote_docker
       - run:
-          name: Go to hello engine example
-          command:
+          name: Run test for hello-engine
+          command: |
+            set -x
             cd hello-engine
-      - run:
-          name: Install dependencies
-          command:
             npm install --quiet
-      - run:
-          name: Run docker-compose
-          command:
             docker-compose up -d
-      - run:
-          name: Run test
-          command:
             ./test.sh
-
