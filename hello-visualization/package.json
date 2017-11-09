@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --display-error-details",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "test": "aw-webdriver-test-runner ./node_modules/after-work.js/dist/config/conf.dev.js --specs ./test/*.spec.js"
   },
   "dependencies": {
     "@qlik/picasso": "./picasso-0.34.0.tgz",
@@ -24,6 +25,8 @@
     "raw-loader": "0.5.1",
     "webpack": "1.13.2",
     "webpack-dev-server": "1.15.1",
-    "copy-webpack-plugin": "4.0.1"
+    "copy-webpack-plugin": "4.0.1",
+    "after-work.js": "3.1.4",
+    "protractor": "5.2.0"
   }
 }
