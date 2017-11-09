@@ -41,12 +41,12 @@ jobs:
       - run:
           name: hello-engine - test
           command: |
-            docker rm -f `docker container ps -qa`
+            set +e && docker rm -f `docker container ps -qa` && set -e
             cd hello-engine
             ./test-hello-engine.sh
       - run:
           name: hello-data - test
           command: |
-            docker rm -f `docker container ps -qa`
+            set +e && docker rm -f `docker container ps -qa` && set -e
             cd hello-data
             ./test-hello-data.sh
