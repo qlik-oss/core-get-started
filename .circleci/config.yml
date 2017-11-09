@@ -12,7 +12,7 @@ jobs:
       - run:
           name: Run ESLint
           command:
-            npm run lint
+            #npm run lint
       - run:
           name: Login to Docker
           command: docker login -u "$DOCKER_USER" -p "$DOCKER_PASSWORD"
