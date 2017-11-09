@@ -26,7 +26,7 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel',
         exclude: [path.resolve(__dirname, 'node_modules')],
-        query: { presets: ['es2015'] },
+        query: { presets: ['env'] },
       },
     ],
   },
