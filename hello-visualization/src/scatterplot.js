@@ -1,4 +1,4 @@
-/* eslint-env browser*/
+/* eslint-env browser */
 /* eslint import/extensions:0 */
 
 import picasso from '@qlik/picasso';
@@ -7,7 +7,6 @@ import picassoQ from '@qlik/picasso/plugins/q';
 picasso.use(picassoQ);
 
 export default class Scatterplot {
-
   constructor() {
     this.axisPainted = false;
     this.pic = null;
@@ -34,44 +33,44 @@ export default class Scatterplot {
               props: {
                 movie: { value: v => v.qText },
                 cost: { field: 'qMeasureInfo/0' },
-                rating: { field: 'qMeasureInfo/1' }
-              }
-            }
-          }
-        }
+                rating: { field: 'qMeasureInfo/1' },
+              },
+            },
+          },
+        },
       ],
       scales: {
         x: { data: { field: 'qMeasureInfo/1' }, expand: 0.1 },
-        y: { data: { field: 'qMeasureInfo/0' }, expand: 0.1, invert: true }
+        y: { data: { field: 'qMeasureInfo/0' }, expand: 0.1, invert: true },
       },
       components: [
-        { 
+        {
           key: 'xaxis',
           type: 'axis',
           scale: 'x',
           dock: 'bottom',
-          settings: { labels: { fill: '#f2f2f2' } }
+          settings: { labels: { fill: '#f2f2f2' } },
         },
         {
           key: 'yaxis',
           type: 'axis',
           scale: 'y',
           dock: 'left',
-          settings: { labels: { fill: '#f2f2f2' } }
+          settings: { labels: { fill: '#f2f2f2' } },
         },
         {
           key: 'xtitle',
           type: 'text',
           scale: 'x',
           dock: 'bottom',
-          settings: { style: { 'fill': '#f2f2f2' } }
+          settings: { style: { fill: '#f2f2f2' } },
         },
         {
           key: 'ytitle',
           type: 'text',
           scale: 'y',
           dock: 'left',
-          settings: { style: { 'fill': '#f2f2f2' } }
+          settings: { style: { fill: '#f2f2f2' } },
         },
         {
           key: 'points',
@@ -83,33 +82,33 @@ export default class Scatterplot {
               action: 'set',
               data: ['movie'],
               propagation: 'stop',
-              contexts: ['highlight']
+              contexts: ['highlight'],
             }, {
               on: 'over',
               action: 'set',
               data: ['movie'],
               propagation: 'stop',
-              contexts: ['tooltip']
+              contexts: ['tooltip'],
             }],
             consume: [{
               context: 'highlight',
               style: {
                 inactive: {
-                  fill: 'rgba(109, 232, 193, 0.3)'
-                }
-              }
-            }]
+                  fill: 'rgba(109, 232, 193, 0.3)',
+                },
+              },
+            }],
           },
           settings: {
             x: { scale: 'x', ref: 'rating' },
             y: { scale: 'y', ref: 'cost' },
             size: 0.4,
             opacity: 0.8,
-            fill: 'rgba(109, 232, 193, 1.0)'
-          }
-        }
-      ]
-    }
+            fill: 'rgba(109, 232, 193, 1.0)',
+          },
+        },
+      ],
+    };
 
     if (!this.pic) {
       this.pic = picasso.chart({
@@ -117,12 +116,12 @@ export default class Scatterplot {
         data: [{
           type: 'q',
           key: 'qHyperCube',
-          data: layout.qHyperCube
+          data: layout.qHyperCube,
         }],
-        settings
+        settings,
       });
 
-      this.pic.brush('highlight').on('update', (added, removed) => {
+      this.pic.brush('highlight').on('update', (added) => {
         if (added[0]) {
           selectionAPI.select(added[0].values[0]);
         } else {
@@ -130,14 +129,14 @@ export default class Scatterplot {
           selectionAPI.clear();
         }
       });
-      this.pic.brush('tooltip').on('update', (added, removed) => {
+      this.pic.brush('tooltip').on('update', (added) => {
         if (added.length) {
           const s = this.pic.getAffectedShapes('tooltip')[0];
           const rect = s.element.getBoundingClientRect();
           const p = {
             x: s.bounds.x + s.bounds.width + rect.x + 5,
-            y: s.bounds.y + s.bounds.height / 2 + rect.y - 28
-          }
+            y: (s.bounds.y + (s.bounds.height / 2) + rect.y) - 28,
+          };
           this.showTooltip(s.data.movie.value, p);
         } else {
           this.hideTooltip();
@@ -148,9 +147,9 @@ export default class Scatterplot {
         data: [{
           type: 'q',
           key: 'qHyperCube',
-          data: layout.qHyperCube
+          data: layout.qHyperCube,
         }],
-        settings
+        settings,
       });
     }
   }

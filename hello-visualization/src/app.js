@@ -1,4 +1,4 @@
-/* eslint-env browser*/
+/* eslint-env browser */
 /* eslint import/no-unresolved:0, import/extensions:0 */
 /* eslint no-bitwise:0 */
 
@@ -53,7 +53,7 @@ angular.module('app', []).component('app', {
       scatterplot.paintScatterplot(document.getElementById('chart-container'), layout, {
         select,
         clear: () => this.clearAllSelections(),
-        hasSelected: $scope.dataSelected
+        hasSelected: $scope.dataSelected,
       });
       this.painted = true;
     };
@@ -77,7 +77,7 @@ angular.module('app', []).component('app', {
       const tableMovie = new Halyard.Table(filePathMovie, {
         name: 'Movies',
         fields: [{ src: 'Movie', name: 'Movie' }, { src: 'Year', name: 'Year' },
-        { src: 'Adjusted Costs', name: 'Adjusted Costs' }, { src: 'Description', name: 'Description' }, { src: 'Image', name: 'Image' }],
+          { src: 'Adjusted Costs', name: 'Adjusted Costs' }, { src: 'Description', name: 'Description' }, { src: 'Image', name: 'Image' }],
         delimiter: ',',
       });
       halyard.addTable(tableMovie);
@@ -127,7 +127,9 @@ angular.module('app', []).component('app', {
                           qLabel: 'imdb rating',
                         },
                       }],
-                      qInitialDataFetch: [{ qTop: 0, qHeight: 50, qLeft: 0, qWidth: 3 }],
+                      qInitialDataFetch: [{
+                        qTop: 0, qHeight: 50, qLeft: 0, qWidth: 3,
+                      }],
                       qSuppressZero: false,
                       qSuppressMissing: true,
                     },
@@ -198,16 +200,16 @@ angular.module('app', []).component('app', {
             },
           },
           ],
-          qInitialDataFetch: [{ qTop: 0, qHeight: 50, qLeft: 0, qWidth: 50 }],
+          qInitialDataFetch: [{
+            qTop: 0, qHeight: 50, qLeft: 0, qWidth: 50,
+          }],
           qSuppressZero: false,
           qSuppressMissing: true,
         },
       };
-      return app.createSessionObject(tableProperties).then((model) => {
-        return model.getLayout().then((layout) => {
-          scatterplot.showDetails(layout);
-        });
-      });
+      return app.createSessionObject(tableProperties)
+        .then(model => model.getLayout()
+          .then((layout) => { scatterplot.showDetails(layout); }));
     };
   }],
   template,
