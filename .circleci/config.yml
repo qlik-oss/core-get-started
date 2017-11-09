@@ -41,3 +41,9 @@ jobs:
           command: |
             cd hello-data
             ./test-hello-data.sh
+      - run:
+          name: Run test for hello-visualization
+          command: |
+            cd hello-visualization
+            ./node_modules/.bin/webdriver-manager update
+            npm run test
