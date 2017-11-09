@@ -53,7 +53,7 @@ angular.module('app', []).component('app', {
       scatterplot.paintScatterplot(document.getElementById('chart-container'), layout, {
         select,
         clear: () => this.clearAllSelections(),
-        hasSelected: $scope.dataSelected
+        hasSelected: $scope.dataSelected,
       });
       this.painted = true;
     };
@@ -203,11 +203,11 @@ angular.module('app', []).component('app', {
           qSuppressMissing: true,
         },
       };
-      return app.createSessionObject(tableProperties).then((model) => {
-        return model.getLayout().then((layout) => {
-          scatterplot.showDetails(layout);
-        });
-      });
+      return app.createSessionObject(tableProperties)
+      .then(model => model.getLayout()
+      .then((layout) => {
+        scatterplot.showDetails(layout);
+      }));
     };
   }],
   template,

@@ -1,2 +1,7 @@
 # Unix line endings in all text files.
 *   text eol=lf
+
+# Binary files
+*.tgz   binary
+*.woff  binary
+*.otf   binary
