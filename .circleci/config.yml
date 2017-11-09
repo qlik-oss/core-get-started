@@ -17,8 +17,7 @@ jobs:
       - run:
           name: Run ESLint
           command:
-            echo "hello"
-            #npm run lint
+            npm run lint
       - run:
           name: Login to Docker
           command: docker login -u "$DOCKER_USER" -p "$DOCKER_PASSWORD"
@@ -48,7 +47,7 @@ jobs:
             cd hello-data
             ./test-hello-data.sh
       - run:
-          name: Run test for hello-visualization
+          name: Start webpack and serve hello-visualization
           background: true
           command: |
             cd hello-visualization
@@ -58,7 +57,7 @@ jobs:
             docker-compose up -d
             npm run start
       - run:
-          name: Run test for hello-visualization2
+          name: Run test for hello-visualization
           command: |
             sleep 35
             cd hello-visualization
