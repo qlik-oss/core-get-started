@@ -6,12 +6,22 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install dependencies
-          command:
+          name: hello-engine - install dependencies and lint
+          command: |
+            cd hello-engine
             npm install --quiet
+            npm run lint
       - run:
-          name: Run ESLint
-          command:
+          name: hello-data - install dependencies and lint
+          command: |
+            cd hello-data
+            npm install --quiet
+            npm run lint
+      - run:
+          name: hello-visualization - install dependencies and lint
+          command: |
+            cd hello-visualization
+            npm install --quiet
             npm run lint
       - run:
           name: Login to Docker
