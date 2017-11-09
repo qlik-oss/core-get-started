@@ -9,11 +9,6 @@ jobs:
           name: Install dependencies
           command:
             npm install --quiet
-      - run: 
-          name: test
-          command: |
-            wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-            sudo dpkg -i google-chrome-stable_current_amd64.deb; sudo apt-get -fy install
       - run:
           name: Run ESLint
           command:
@@ -47,9 +42,11 @@ jobs:
             cd hello-data
             ./test-hello-data.sh
       - run:
-          name: Start webpack and serve hello-visualization
+          name: Install chrome, protractor and start hello visualization
           background: true
           command: |
+            wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+            sudo dpkg -i google-chrome-stable_current_amd64.deb; sudo apt-get -fy install
             cd hello-visualization
             npm install
             ./node_modules/.bin/webdriver-manager update
