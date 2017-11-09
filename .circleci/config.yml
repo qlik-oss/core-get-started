@@ -12,6 +12,7 @@ jobs:
       - run:
           name: Run ESLint
           command:
+            echo "hello"
             #npm run lint
       - run:
           name: Login to Docker
