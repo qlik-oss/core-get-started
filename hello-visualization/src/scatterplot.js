@@ -135,7 +135,7 @@ export default class Scatterplot {
           const rect = s.element.getBoundingClientRect();
           const p = {
             x: s.bounds.x + s.bounds.width + rect.x + 5,
-            y: (s.bounds.y + (s.bounds.height / 2) + rect.y) - 28,
+            y: s.bounds.y + (s.bounds.height / 2) + (rect.y - 28),
           };
           this.showTooltip(s.data.movie.value, p);
         } else {
