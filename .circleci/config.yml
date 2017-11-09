@@ -31,8 +31,13 @@ jobs:
       - run:
           name: Run test for hello-engine
           command: |
-            set -x
             cd hello-engine
-            npm install --quiet
-            docker-compose up -d
-            ./test.sh
+            ./test-hello-engine.sh
+      - run:
+          name: Kill the engine between tests
+          command: docker rm -f `docker container ps -qa` # Kills all containers that are running
+      - run:
+          name: Run test for hello-data
+          command: |
+            cd hello-data
+            ./test-hello-data.sh
