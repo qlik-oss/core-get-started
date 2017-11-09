@@ -31,8 +31,5 @@ jobs:
       - run:
           name: Run test for hello-engine
           command: |
-            set -x
             cd hello-engine
-            npm install --quiet
-            docker-compose up -d
-            ./test.sh
+            ./test-hello-engine.sh
