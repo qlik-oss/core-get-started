@@ -33,3 +33,8 @@ jobs:
           command: |
             cd hello-engine
             ./test-hello-engine.sh
+      - run:
+          name: Run test for hello-data
+          command: |
+            cd hello-data
+            ./test-hello-data.sh
