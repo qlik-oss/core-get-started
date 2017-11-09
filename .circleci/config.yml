@@ -39,15 +39,14 @@ jobs:
             echo 'export NVM_DIR="/opt/circleci/.nvm"' >> $BASH_ENV
             echo "[ -s \"$NVM_DIR/nvm.sh\" ] && . \"$NVM_DIR/nvm.sh\"" >> $BASH_ENV
       - run:
-          name: Run test for hello-engine
+          name: hello-engine - test
           command: |
+            docker rm -f `docker container ps -qa`
             cd hello-engine
             ./test-hello-engine.sh
       - run:
-          name: Kill the engine between tests
-          command: docker rm -f `docker container ps -qa` # Kills all containers that are running
-      - run:
-          name: Run test for hello-data
+          name: hello-data - test
           command: |
+            docker rm -f `docker container ps -qa`
             cd hello-data
             ./test-hello-data.sh
