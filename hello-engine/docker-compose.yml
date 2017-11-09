@@ -2,7 +2,7 @@ version: "2"
 
 services:
   engine:
-    image: qlikea/engine:12.91.0
+    image: qlikea/engine:
     restart: always
     ports:
       - "9076:9076"
