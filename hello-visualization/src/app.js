@@ -1,13 +1,11 @@
 /* eslint-env browser */
-/* eslint import/no-unresolved:0, import/extensions:0 */
-/* eslint no-bitwise:0 */
 
 import Halyard from 'halyard.js';
 import angular from 'angular';
 import enigma from 'enigma.js';
 import enigmaMixin from 'halyard.js/dist/halyard-enigma-mixin';
-import qixSchema from 'json!../node_modules/enigma.js/schemas/3.2.json';
-import template from 'raw!./app.html';
+import qixSchema from 'enigma.js/schemas/3.2.json';
+import template from './app.html';
 import Scatterplot from './scatterplot';
 
 const halyard = new Halyard();
@@ -59,7 +57,9 @@ angular.module('app', []).component('app', {
     };
 
     this.generateGUID = () => 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+      // eslint-disable-next-line no-bitwise
       const r = Math.random() * 16 | 0;
+      // eslint-disable-next-line no-bitwise
       const v = c === 'x' ? r : ((r & 0x3) | 0x8);
       return v.toString(16);
     });
@@ -209,7 +209,7 @@ angular.module('app', []).component('app', {
       };
       return app.createSessionObject(tableProperties)
         .then(model => model.getLayout()
-          .then((layout) => { scatterplot.showDetails(layout); }));
+          .then((layout) => { Scatterplot.showDetails(layout); }));
     };
   }],
   template,

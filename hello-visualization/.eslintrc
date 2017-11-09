@@ -6,12 +6,5 @@
     "sourceType": "module"
   },
   "extends": "airbnb-base",
-  "rules": {
-      "import/no-extraneous-dependencies": 0,
-      "import/no-webpack-loader-syntax": 0,
-      "class-methods-use-this": 0,
-      "no-param-reassign": 0,
-      "import/no-unresolved": 0 // Otherwise npm install had to be executed in each example
-  },
   "root": true
 }

@@ -15,6 +15,14 @@ module.exports = {
   module: {
     loaders: [
       {
+        test: /\.json$/,
+        loader: 'json-loader',
+      },
+      {
+        test: /\.html$/,
+        loader: 'raw-loader',
+      },
+      {
         test: /\.js$/,
         loader: 'babel',
         exclude: [path.resolve(__dirname, 'node_modules')],
