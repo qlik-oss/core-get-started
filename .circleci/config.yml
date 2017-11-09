@@ -34,6 +34,9 @@ jobs:
             cd hello-engine
             ./test-hello-engine.sh
       - run:
+          name: Kill the engine between tests
+          command: docker rm -f `docker container ps -qa` # Kills all containers that are running
+      - run:
           name: Run test for hello-data
           command: |
             cd hello-data
