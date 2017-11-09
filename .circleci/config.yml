@@ -46,5 +46,9 @@ jobs:
           name: Run test for hello-visualization
           command: |
             cd hello-visualization
+            npm install
             ./node_modules/.bin/webdriver-manager update
+            docker rm -f `docker container ps -qa`
+            docker-compose up -d
+            npm run start
             npm run test
