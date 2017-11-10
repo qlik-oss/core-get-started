@@ -18,35 +18,17 @@ jobs:
             echo 'export NVM_DIR="/opt/circleci/.nvm"' >> $BASH_ENV
             echo "[ -s \"$NVM_DIR/nvm.sh\" ] && . \"$NVM_DIR/nvm.sh\"" >> $BASH_ENV
       - run:
-          name: hello-engine - install dependencies and lint
-          command: |
-            cd hello-engine
-            npm install --quiet
-            npm run lint
+          name: Install dependencies
+          command: npm install --quiet
       - run:
-          name: hello-data - install dependencies and lint
-          command: |
-            cd hello-data
-            npm install --quiet
-            npm run lint
-      - run:
-          name: hello-visualization - install dependencies and lint
-          command: |
-            cd hello-visualization
-            npm install --quiet
-            npm run lint
+          name: Lint
+          command: npm run lint
       - run:
           name: Login to Docker
           command: docker login -u "$DOCKER_USER" -p "$DOCKER_PASSWORD"
       - run:
-          name: hello-engine - test
-          command: |
-            docker rm -f `docker container ps -qa` || true
-            cd hello-engine
-            ./test-hello-engine.sh
+          name: Test of hello-engine
+          command: ./test/test-hello-engine.sh
       - run:
-          name: hello-data - test
-          command: |
-            docker rm -f `docker container ps -qa` || true
-            cd hello-data
-            ./test-hello-data.sh
+          name: Test of hello-data
+          command: ./test/test-hello-data.sh
