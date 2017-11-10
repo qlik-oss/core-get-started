@@ -1,13 +1,11 @@
-/* eslint-env browser*/
-/* eslint import/no-unresolved:0, import/extensions:0 */
-/* eslint no-bitwise:0 */
+/* eslint-env browser */
 
 import Halyard from 'halyard.js';
 import angular from 'angular';
 import enigma from 'enigma.js';
 import enigmaMixin from 'halyard.js/dist/halyard-enigma-mixin';
-import qixSchema from 'json!../node_modules/enigma.js/schemas/3.2.json';
-import template from 'raw!./app.html';
+import qixSchema from 'enigma.js/schemas/3.2.json';
+import template from './app.html';
 import Scatterplot from './scatterplot';
 
 const halyard = new Halyard();
@@ -59,7 +57,9 @@ angular.module('app', []).component('app', {
     };
 
     this.generateGUID = () => 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+      // eslint-disable-next-line no-bitwise
       const r = Math.random() * 16 | 0;
+      // eslint-disable-next-line no-bitwise
       const v = c === 'x' ? r : ((r & 0x3) | 0x8);
       return v.toString(16);
     });
@@ -77,7 +77,7 @@ angular.module('app', []).component('app', {
       const tableMovie = new Halyard.Table(filePathMovie, {
         name: 'Movies',
         fields: [{ src: 'Movie', name: 'Movie' }, { src: 'Year', name: 'Year' },
-        { src: 'Adjusted Costs', name: 'Adjusted Costs' }, { src: 'Description', name: 'Description' }, { src: 'Image', name: 'Image' }],
+          { src: 'Adjusted Costs', name: 'Adjusted Costs' }, { src: 'Description', name: 'Description' }, { src: 'Image', name: 'Image' }],
         delimiter: ',',
       });
       halyard.addTable(tableMovie);
@@ -127,7 +127,9 @@ angular.module('app', []).component('app', {
                           qLabel: 'imdb rating',
                         },
                       }],
-                      qInitialDataFetch: [{ qTop: 0, qHeight: 50, qLeft: 0, qWidth: 3 }],
+                      qInitialDataFetch: [{
+                        qTop: 0, qHeight: 50, qLeft: 0, qWidth: 3,
+                      }],
                       qSuppressZero: false,
                       qSuppressMissing: true,
                     },
@@ -198,16 +200,16 @@ angular.module('app', []).component('app', {
             },
           },
           ],
-          qInitialDataFetch: [{ qTop: 0, qHeight: 50, qLeft: 0, qWidth: 50 }],
+          qInitialDataFetch: [{
+            qTop: 0, qHeight: 50, qLeft: 0, qWidth: 50,
+          }],
           qSuppressZero: false,
           qSuppressMissing: true,
         },
       };
       return app.createSessionObject(tableProperties)
-      .then(model => model.getLayout()
-      .then((layout) => {
-        scatterplot.showDetails(layout);
-      }));
+        .then(model => model.getLayout()
+          .then((layout) => { Scatterplot.showDetails(layout); }));
     };
   }],
   template,

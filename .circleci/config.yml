@@ -6,20 +6,9 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install dependencies
-          command:
-            npm install --quiet
-      - run:
-          name: Run ESLint
-          command:
-            npm run lint
-      - run:
-          name: Login to Docker
-          command: docker login -u "$DOCKER_USER" -p "$DOCKER_PASSWORD"
-      - run:
           name: Install node
           command: |
-            set +e             
+            set +e
             curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh | bash
             export NVM_DIR="/opt/circleci/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
@@ -29,18 +18,20 @@ jobs:
             echo 'export NVM_DIR="/opt/circleci/.nvm"' >> $BASH_ENV
             echo "[ -s \"$NVM_DIR/nvm.sh\" ] && . \"$NVM_DIR/nvm.sh\"" >> $BASH_ENV
       - run:
-          name: Run test for hello-engine
-          command: |
-            cd hello-engine
-            ./test-hello-engine.sh
+          name: Install dependencies
+          command: npm install --quiet
       - run:
-          name: Kill the engine between tests
-          command: docker rm -f `docker container ps -qa` # Kills all containers that are running
+          name: Lint
+          command: npm run lint
       - run:
-          name: Run test for hello-data
-          command: |
-            cd hello-data
-            ./test-hello-data.sh
+          name: Login to Docker
+          command: docker login -u "$DOCKER_USER" -p "$DOCKER_PASSWORD"
+      - run:
+          name: Test of hello-engine
+          command: ./test/test-hello-engine.sh
+      - run:
+          name: Test of hello-data
+          command: ./test/test-hello-data.sh
       - run:
           name: Install chrome, protractor and start hello visualization
           background: true
