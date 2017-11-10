@@ -1,8 +1,0 @@
-version: "2"
-
-services:
-  engine:
-    image: qlikea/engine:12.95.0
-    restart: always
-    ports:
-      - "9076:9076"

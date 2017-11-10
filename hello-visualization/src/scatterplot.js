@@ -1,4 +1,4 @@
-/* eslint-env browser*/
+/* eslint-env browser */
 /* eslint import/extensions:0 */
 
 import picasso from '@qlik/picasso';
@@ -7,7 +7,6 @@ import picassoQ from '@qlik/picasso/plugins/q';
 picasso.use(picassoQ);
 
 export default class Scatterplot {
-
   constructor() {
     this.axisPainted = false;
     this.pic = null;
@@ -138,9 +137,9 @@ export default class Scatterplot {
             x: s.bounds.x + s.bounds.width + rect.x + 5,
             y: s.bounds.y + (s.bounds.height / 2) + (rect.y - 28),
           };
-          this.showTooltip(s.data.movie.value, p);
+          Scatterplot.showTooltip(s.data.movie.value, p);
         } else {
-          this.hideTooltip();
+          Scatterplot.hideTooltip();
         }
       });
     } else {
@@ -155,7 +154,7 @@ export default class Scatterplot {
     }
   }
 
-  showDetails(layout) {
+  static showDetails(layout) {
     if (!(layout.qHyperCube &&
       layout.qHyperCube.qDataPages &&
       layout.qHyperCube.qDataPages[0] &&
@@ -188,15 +187,15 @@ export default class Scatterplot {
     description.innerHTML = data[0].description;
   }
 
-  hideTooltip() {
+  static hideTooltip() {
     const elements = document.getElementsByClassName('tooltip');
     if (elements[0]) {
       document.body.removeChild(elements[0]);
     }
   }
 
-  showTooltip(text, point) {
-    this.hideTooltip();
+  static showTooltip(text, point) {
+    Scatterplot.hideTooltip();
     const currentTooltip = document.createElement('div');
     currentTooltip.appendChild(document.createTextNode(text));
     currentTooltip.style.position = 'absolute';

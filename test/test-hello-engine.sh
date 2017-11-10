@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 cd "$(dirname "$0")"
+cd ..
 
 docker-compose up -d
 npm install --quiet
@@ -9,7 +10,7 @@ npm install --quiet
 version=$(grep "image: qlikea/engine" docker-compose.yml | cut -d':' -f3-)
 
 # grep for expected string to verify correctness.
-if node hello-engine.js | grep "Engine version retrieved: $version"; then
+if node hello-engine/hello-engine.js | grep "Engine version retrieved: $version"; then
     echo $'\nHello Engine test succeded'
     exit 0
 else
