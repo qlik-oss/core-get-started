@@ -50,7 +50,7 @@ jobs:
       - run:
           name: Test of hello-visualization
           command: |
-            until $(curl --output /dev/null --silent --head --fail $url); do
+            until $(curl --output /dev/null --silent --head --fail http://localhost:8080); do
               printf '.'
               sleep 2
             done
