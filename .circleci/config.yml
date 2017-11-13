@@ -40,6 +40,4 @@ jobs:
             sudo dpkg -i google-chrome-stable_current_amd64.deb; sudo apt-get -fy install
       - run:
           name: Test of hello-visualization
-          command: |
-            sleep 35
-            ./test/test-hello-visualization.sh
+          command: ./test/test-hello-visualization.sh
