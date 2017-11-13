@@ -33,7 +33,7 @@ jobs:
           name: Test of hello-data
           command: ./test/test-hello-data.sh
       - run:
-          name: Install chrome, protractor and start hello visualization
+          name: Bootstrap hello-visualization test environment
           background: true
           command: |
             wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -45,8 +45,7 @@ jobs:
             docker-compose up -d
             npm run start
       - run:
-          name: Run test for hello-visualization
+          name: Test of hello-visualization
           command: |
             sleep 35
-            cd hello-visualization
-            npm run test
+            ./test/test-hello-visualization.sh
