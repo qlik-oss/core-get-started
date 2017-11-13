@@ -18,6 +18,11 @@ jobs:
             echo 'export NVM_DIR="/opt/circleci/.nvm"' >> $BASH_ENV
             echo "[ -s \"$NVM_DIR/nvm.sh\" ] && . \"$NVM_DIR/nvm.sh\"" >> $BASH_ENV
       - run:
+          name: Install Chrome
+          command: |
+            wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+            sudo dpkg -i google-chrome-stable_current_amd64.deb; sudo apt-get -fy install
+      - run:
           name: Install dependencies
           command: npm install --quiet
       - run:
@@ -27,17 +32,26 @@ jobs:
           name: Login to Docker
           command: docker login -u "$DOCKER_USER" -p "$DOCKER_PASSWORD"
       - run:
+          name: Start QIX Engine
+          command: docker-compose up -d
+      - run:
           name: Test of hello-engine
           command: ./test/test-hello-engine.sh
       - run:
           name: Test of hello-data
           command: ./test/test-hello-data.sh
       - run:
-          name: Install Chrome
+          name: Build web app
+          command: npm run build
+      - run:
+          name: Start web server
           background: true
-          command: |
-            wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-            sudo dpkg -i google-chrome-stable_current_amd64.deb; sudo apt-get -fy install
+          command: npm run hello-visualization
       - run:
           name: Test of hello-visualization
-          command: ./test/test-hello-visualization.sh
+          command: |
+            until $(curl --output /dev/null --silent --head --fail $url); do
+              printf '.'
+              sleep 2
+            done
+            ./test/test-hello-visualization.sh
