@@ -1,6 +1,12 @@
 {
   "env": {
-    "node": true
+    "node": true,
+    "mocha": true,
+    "protractor": true
+  },
+  "globals": {
+      "EC": true,
+      "expect": true
   },
   "parserOptions": {
     "sourceType": "module"
