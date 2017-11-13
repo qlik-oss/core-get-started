@@ -33,17 +33,11 @@ jobs:
           name: Test of hello-data
           command: ./test/test-hello-data.sh
       - run:
-          name: Bootstrap hello-visualization test environment
+          name: Install Chrome
           background: true
           command: |
             wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
             sudo dpkg -i google-chrome-stable_current_amd64.deb; sudo apt-get -fy install
-            cd hello-visualization
-            npm install
-            ./node_modules/.bin/webdriver-manager update
-            docker rm -f `docker container ps -qa`
-            docker-compose up -d
-            npm run start
       - run:
           name: Test of hello-visualization
           command: |
