@@ -4,9 +4,9 @@ This repository contains the source code and assets for the Hello Engine, Hello 
 
 ## Contents
 
-- [hello-engine](./hello-engine/) - Hello Engine example source code
-- [hello-data](./hello-data/) - Hello Data example source code
-- [hello-visualization](./hello-visualization/) - Hello Visualization example source code
+- [hello-engine](./src/hello-engine/) - Hello Engine example source code
+- [hello-data](./src/hello-data/) - Hello Data example source code
+- [hello-visualization](./src/hello-visualization/) - Hello Visualization example source code
 - [test](./test) - Function tests for the examples (bash scripts)
 - [picasso](./picasso) - Contains the picasso.js package used for visualization
 - [data](./data) - The Movies data, used as user data in the examples
