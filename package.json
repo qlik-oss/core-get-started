@@ -3,13 +3,13 @@
   "private": true,
   "version": "0.0.1",
   "author": "QlikTech International AB",
-  "description": "Visualizes, using a simple UI, data loaded into QIX Engine running in a Docker container.",
+  "description": "Examples on basic usage of QIX Engine running in a Docker container.",
   "license": "MIT",
   "scripts": {
-    "hello-engine": "node ./hello-engine/hello-engine.js",
-    "hello-data": "node ./hello-data/hello-data.js",
-    "hello-visualization": "webpack-dev-server --display-error-details --content-base ./hello-visualization/dist",
-    "build": "webpack -p --config ./hello-visualization/webpack.config.js",
+    "hello-engine": "node ./src/hello-engine/hello-engine.js",
+    "hello-data": "node ./src/hello-data/hello-data.js",
+    "hello-visualization": "webpack-dev-server --display-error-details --content-base ./dist",
+    "build": "webpack -p --config ./webpack.config.js",
     "lint": "eslint .",
     "lint-fix": "eslint --fix ."
   },
