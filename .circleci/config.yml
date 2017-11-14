@@ -41,10 +41,10 @@ jobs:
           name: Test of hello-data
           command: ./test/test-hello-data.sh
       - run:
-          name: Build web app
+          name: Build hello-visualization web app
           command: npm run build
       - run:
-          name: Start web server
+          name: Start hello-visualization web server
           background: true
           command: npm run hello-visualization
       - run:
