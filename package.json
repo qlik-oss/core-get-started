@@ -8,7 +8,7 @@
   "scripts": {
     "hello-engine": "node ./src/hello-engine/hello-engine.js",
     "hello-data": "node ./src/hello-data/hello-data.js",
-    "hello-visualization": "webpack-dev-server --display-error-details --content-base ./hello-visualization/dist",
+    "hello-visualization": "webpack-dev-server --display-error-details --content-base ./dist",
     "build": "webpack -p --config ./webpack.config.js",
     "lint": "eslint .",
     "lint-fix": "eslint --fix ."
