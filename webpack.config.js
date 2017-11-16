@@ -11,7 +11,12 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     publicPath: 'http://localhost:8080',
   },
-  debug: true,
+  stats: {
+    colors: true,
+    modules: true,
+    reasons: true,
+    errorDetails: true,
+  },
   devtool: 'source-map',
   module: {
     loaders: [
@@ -25,7 +30,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         exclude: [path.resolve(__dirname, 'node_modules')],
         query: { presets: ['env'] },
       },
