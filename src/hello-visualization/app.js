@@ -69,7 +69,7 @@ angular.module('app', []).component('app', {
         Promise: $q,
         schema: qixSchema,
         mixins: enigmaMixin,
-        url: `ws://localhost:9076/app/${this.generateGUID()}`,
+        url: `ws://localhost:19076/app/${this.generateGUID()}`,
       };
 
       // Add local data

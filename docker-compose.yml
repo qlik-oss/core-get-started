@@ -5,6 +5,6 @@ services:
     image: qlikea/engine:12.99.0
     restart: always
     ports:
-      - "9076:9076"
+      - "19076:9076"
     volumes: 
       - ./data:/data
