@@ -28,7 +28,7 @@ const mixins = require('halyard.js/dist/halyard-enigma-mixin');
     const session = enigma.create({
       schema,
       mixins,
-      url: 'ws://localhost:9076/app/',
+      url: 'ws://localhost:19076/app/',
       createSocket: url => new WebSocket(url),
     });
     const qix = await session.open();
