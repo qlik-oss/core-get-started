@@ -35,6 +35,28 @@ jobs:
           name: Start QIX Engine
           command: docker-compose up -d
       - run:
+          name: Check that QIX Engine is up and running
+          command: |
+            set +e
+
+            # Check that Engine is running
+            ENGINE_ID=$(docker ps -aqf "name=engine")
+            echo "Engine container id is $ENGINE_ID"
+
+            RETRIES=0
+
+            while [[ "$ENGINE_STATUS" != "running" && $RETRIES -le 30 ]]; do
+              ENGINE_STATUS=$(docker inspect -f '{{.State.Status}}' "$ENGINE_ID")
+              echo "Engine status is $ENGINE_STATUS"
+              sleep 2
+              RETRIES=$[$RETRIES+1]
+            done
+
+            if [[ "$ENGINE_STATUS" != "running"  ]]; then
+              echo "QIX Engine did not start up properly"
+              exit 1
+            fi
+      - run:
           name: Test of hello-engine
           command: ./test/test-hello-engine.sh
       - run:
