@@ -1,9 +1,9 @@
 {
   "name": "hello-visualization",
-  "private": true,
   "version": "0.0.1",
+  "description": "Examples on basic usage of QIX Engine running in a Docker container.",  
   "author": "QlikTech International AB",
-  "description": "Examples on basic usage of QIX Engine running in a Docker container.",
+  "private": true,  
   "license": "MIT",
   "scripts": {
     "hello-engine": "node ./src/hello-engine/hello-engine.js",
