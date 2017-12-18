@@ -1,5 +1,8 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto
+
 # Unix line endings in all text files.
-*   text eol=lf
+* text eol=lf
 
 # Binary files
 *.tgz   binary
