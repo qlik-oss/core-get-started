@@ -33,7 +33,7 @@ jobs:
           command: docker login -u "$DOCKER_USER" -p "$DOCKER_PASSWORD"
       - run:
           name: Start QIX Engine
-          command: docker-compose up -d
+          command: ACCEPT_EULA=yes docker-compose up -d
       - run:
           name: Check that QIX Engine is up and running
           command: |
