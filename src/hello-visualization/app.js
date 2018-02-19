@@ -24,7 +24,7 @@ angular.module('app', []).component('app', {
     };
 
     $scope.openGithub = () => {
-      window.open('https://github.com/qlik-ea/getting-started-with-web-platform');
+      window.open('https://github.com/qlik-ea/core-get-started');
     };
 
     this.connected = false;
