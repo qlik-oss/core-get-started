@@ -2,6 +2,12 @@
 
 This repository contains the source code and assets for the Hello Engine, Hello Data, and Hello Visualization examples.
 
+Note that before you deploy, you must accept the [Qlik Core EULA](https://ca.qliktive.com/docs/master/beta/) by setting the `ACCEPT_EULA` environment variable.
+
+```sh
+$ ACCEPT_EULA=yes docker-compose up -d
+```
+
 ## Contents
 
 - [hello-engine](./src/hello-engine/) - Hello Engine example source code
