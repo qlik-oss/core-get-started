@@ -1,8 +1,8 @@
 /* eslint-env browser */
 /* eslint import/extensions:0 */
 
-import picasso from '@qlik/picasso';
-import picassoQ from '@qlik/picasso/plugins/q';
+import picasso from 'picasso.js';
+import picassoQ from 'picasso-plugin-q';
 
 picasso.use(picassoQ);
 
@@ -63,18 +63,22 @@ export default class Scatterplot {
           type: 'text',
           scale: 'x',
           dock: 'bottom',
-          settings: { style: { fill: '#f2f2f2' } },
+          style: {
+            text: { fill: '#f2f2f2' },
+          },
         },
         {
           key: 'ytitle',
           type: 'text',
           scale: 'y',
           dock: 'left',
-          settings: { style: { fill: '#f2f2f2' } },
+          style: {
+            text: { fill: '#f2f2f2' },
+          },
         },
         {
           key: 'points',
-          type: 'point-marker',
+          type: 'point',
           data: { collection: 'coll' },
           brush: {
             trigger: [{
@@ -97,6 +101,8 @@ export default class Scatterplot {
                   fill: 'rgba(109, 232, 193, 0.3)',
                 },
               },
+            }, {
+              context: 'tooltip',
             }],
           },
           settings: {
