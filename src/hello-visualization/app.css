@@ -133,7 +133,6 @@ app {
 }
 
 .tooltip {
-	min-height: 28px;
 	box-sizing: border-box;
 	display: inline-block;
 	padding: 5px 10px;
