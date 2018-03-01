@@ -1,4 +1,4 @@
-# Getting started with the Web Platform
+# Get started with Qlik Core
 
 This repository contains the source code and assets for the Hello Engine, Hello Data, and Hello Visualization examples.
 
