@@ -13,7 +13,7 @@ const mixins = require('halyard.js/dist/halyard-enigma-mixin');
     const shrimpTable = new Halyard.Table(dataPath, {
       name: 'Shrimps',
       fields: [
-        { src: 'date', name: 'Date' },
+        { src: 'date', name: 'Date', type: 'date', inputFormat: 'YYYYMMDD' },
         { src: 'kilo', name: 'Kilos' },
         { src: 'boxes', name: 'Boxes' },
         { src: 'auctionprice', name: 'Auctionprice' },
@@ -39,7 +39,7 @@ const mixins = require('halyard.js/dist/halyard-enigma-mixin');
     const properties = {
       qInfo: { qType: 'hello-data' },
       qHyperCubeDef: {
-        qDimensions: [{ qDef: { qFieldDefs: ['Customerprice'] } }],
+        qDimensions: [{ qDef: { qFieldDefs: ['Date'] } }],
         qInitialDataFetch: [{ qHeight: dataCount, qWidth: 1 }],
       },
     };
