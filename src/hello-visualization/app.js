@@ -69,7 +69,7 @@ angular.module('app', []).component('app', {
         Promise: $q,
         schema: qixSchema,
         mixins: enigmaMixin,
-        url: `${location.origin.replace('http', 'ws').slice(0, -5)}:19076/app/${this.generateGUID()}`, // eslint-disable-line no-restricted-globals
+        url: `ws://${location.hostname}:19076/app/${this.generateGUID()}`, // eslint-disable-line no-restricted-globals
       };
 
       // Add local data
