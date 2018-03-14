@@ -9,8 +9,8 @@ module.exports = {
   output: {
     filename: 'app.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: 'http://localhost:8080',
   },
+  devServer: { host: '0.0.0.0', port: '8080', disableHostCheck: true },
   stats: {
     colors: true,
     modules: true,
