@@ -34,5 +34,8 @@
     "raw-loader": "0.5.1",
     "webpack": "3.8.1",
     "webpack-dev-server": "2.9.4"
+  },
+  "engines": {
+    "node": ">=8.9.3"
   }
 }
