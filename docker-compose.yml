@@ -2,7 +2,7 @@ version: "2"
 
 services:
   engine:
-    image: qlikea/engine:12.157.0
+    image: qlikea/engine:community_version
     restart: always
     command: -S AcceptEULA=${ACCEPT_EULA}
     ports:
