@@ -24,7 +24,7 @@ angular.module('app', []).component('app', {
     };
 
     $scope.openGithub = () => {
-      window.open('https://github.com/qlik-ea/core-get-started');
+      window.open('https://github.com/qlik-oss/core-get-started');
     };
 
     this.connected = false;
