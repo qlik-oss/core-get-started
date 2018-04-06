@@ -4,7 +4,7 @@ cd "$(dirname "$0")"
 cd ..
 
 # Get the current version.
-version=$(grep "image: qlikea/engine" docker-compose.yml | cut -d':' -f3-)
+version=$(grep "image: qlikcore/engine" docker-compose.yml | cut -d':' -f3-)
 
 # grep for expected string to verify correctness.
 if node src/hello-engine/hello-engine.js | grep "Engine version retrieved: $version"; then
