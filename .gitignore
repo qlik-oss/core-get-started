@@ -3,3 +3,4 @@ node_modules/
 .vscode/
 *.log
 *.orig
+test/__artifacts__/
