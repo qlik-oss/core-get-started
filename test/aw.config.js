@@ -1,7 +1,5 @@
-'use strict';
-
 const path = require('path');
-const extend = require('extend');
+const extend = require('extend'); // eslint-disable-line import/no-extraneous-dependencies
 const util = require('util');
 
 module.exports = function initConfig(baseConfig) {
