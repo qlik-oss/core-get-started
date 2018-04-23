@@ -21,7 +21,7 @@ describe('hello-visualization test', () => {
 
     const infoWrapper = $('.info-wrapper');
     const clearSelectionButton = $('.clear-selections');
-    browser.wait(EC.elementToBeClickable(clearSelectionButton));    
+    browser.wait(EC.elementToBeClickable(clearSelectionButton));
     expect(await clearSelectionButton.getAttribute('class')).to.not.contain('disabled');
     expect(await infoWrapper.getAttribute('class')).to.not.contain('ng-hide');
     clearSelectionButton.click();
