@@ -9,6 +9,7 @@
     "hello-engine": "node ./src/hello-engine/hello-engine.js",
     "hello-data": "node ./src/hello-data/hello-data.js",
     "hello-visualization": "webpack-dev-server",
+    "line-chart": "webpack-dev-server",
     "lint": "eslint .",
     "lint-fix": "eslint --fix ."
   },

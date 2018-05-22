@@ -5,8 +5,8 @@ import angular from 'angular';
 import enigma from 'enigma.js';
 import enigmaMixin from 'halyard.js/dist/halyard-enigma-mixin';
 import qixSchema from 'enigma.js/schemas/3.2.json';
-import template from './app.html';
-import Scatterplot from './scatterplot';
+import template from './app_1.html';
+import Linechart from './linechart';
 
 const halyard = new Halyard();
 
@@ -45,10 +45,10 @@ angular.module('app', []).component('app', {
       });
     };
 
-    const scatterplot = new Scatterplot();
+    const linechart = new Linechart();
 
     const paintChart = (layout) => {
-      scatterplot.paintScatterplot(document.getElementById('chart-container'), layout, {
+        linechart.paintScatterplot(document.getElementById('chart-container'), layout, {
         select,
         clear: () => this.clearAllSelections(),
         hasSelected: $scope.dataSelected,
@@ -111,13 +111,7 @@ angular.module('app', []).component('app', {
                               qType:"D"
                           }],*/
                           qSortCriterias: [{
-                            qSortByAscii: 1
-                            
-                           
-,
-                           
-                            
-
+                            qSortByAscii: 1,                       
                           }],
                         },
                       }],
