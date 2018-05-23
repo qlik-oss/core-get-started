@@ -12,7 +12,7 @@ export default class Linechart {
     this.pic = null;
   }
 
-  paintScatterplot(element, layout, selectionAPI) {
+  paintLinechart(element, layout, selectionAPI) {
     if (!(layout.qHyperCube &&
       layout.qHyperCube.qDataPages &&
       layout.qHyperCube.qDataPages[0] &&

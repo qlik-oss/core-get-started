@@ -48,7 +48,7 @@ angular.module('app', []).component('app', {
     const linechart = new Linechart();
 
     const paintChart = (layout) => {
-        linechart.paintScatterplot(document.getElementById('chart-container'), layout, {
+        linechart.paintLinechart(document.getElementById('chart-container'), layout, {
         select,
         clear: () => this.clearAllSelections(),
         hasSelected: $scope.dataSelected,
@@ -96,7 +96,7 @@ angular.module('app', []).component('app', {
               app = result;
               result.getAppLayout()
                 .then(() => {
-                  const scatterplotProperties = {
+                  const linechartProperties = {
                     qInfo: {
                       qType: 'visualization',
                       qId: '',
@@ -132,7 +132,7 @@ angular.module('app', []).component('app', {
                       qSuppressMissing: true,
                     },
                   };
-                  result.createSessionObject(scatterplotProperties).then((model) => {
+                  result.createSessionObject(linechartProperties).then((model) => {
                     object = model;
 
                     const update = () => object.getLayout().then((layout) => {
@@ -207,7 +207,7 @@ angular.module('app', []).component('app', {
       };
       return app.createSessionObject(tableProperties)
         .then(model => model.getLayout()
-          .then((layout) => { Scatterplot.showDetails(layout); }));
+          .then((layout) => { Linechart.showDetails(layout); }));
     };
   }],
   template,
