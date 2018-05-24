@@ -5,7 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   context: path.resolve(__dirname),
-  //entry: { app: './src/hello-visualization/line-chart/app_1.js' },
+  // entry: { app: './src/hello-visualization/line-chart/app_1.js' },
   entry: { app: './app_1.js' },
   output: {
     filename: 'app_1.js',

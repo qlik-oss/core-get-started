@@ -48,7 +48,7 @@ angular.module('app', []).component('app', {
     const linechart = new Linechart();
 
     const paintChart = (layout) => {
-        linechart.paintLinechart(document.getElementById('chart-container'), layout, {
+      linechart.paintLinechart(document.getElementById('chart-container'), layout, {
         select,
         clear: () => this.clearAllSelections(),
         hasSelected: $scope.dataSelected,
@@ -107,11 +107,11 @@ angular.module('app', []).component('app', {
                       qDimensions: [{
                         qDef: {
                           qFieldDefs: ['Year'],
-                          /*qNumberPresentations: [{
+                          /* qNumberPresentations: [{
                               qType:"D"
-                          }],*/
+                          }], */
                           qSortCriterias: [{
-                            qSortByAscii: 1,                       
+                            qSortByAscii: 1,
                           }],
                         },
                       }],

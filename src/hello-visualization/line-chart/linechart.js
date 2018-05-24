@@ -34,7 +34,7 @@ export default class Linechart {
               props: {
                 movie: { value: v => v.qText },
                 movieCount: { field: 'qMeasureInfo/0' },
-                //year: { field: 'qMeasInfo/1' },
+                // year: { field: 'qMeasInfo/1' },
               },
             },
           },
@@ -52,9 +52,9 @@ export default class Linechart {
           dock: 'bottom',
           formatter: {
             type: 'd3-number',
-            },
+          },
           settings: { labels: { fill: '#f2f2f2' } },
-          
+
         },
         {
           key: 'yaxis',
@@ -63,7 +63,7 @@ export default class Linechart {
           dock: 'left',
           settings: { labels: { fill: '#f2f2f2' } },
         },
-        
+
         {
           key: 'xtitle',
           type: 'text',
@@ -86,20 +86,20 @@ export default class Linechart {
           key: 'lines',
           type: 'line',
           data: { collection: 'coll' },
-          
+
           settings: {
 
-          coordinates: {
-           major: { scale: 'x' },
-           minor: { scale: 'y', ref: 'movieCount' },
+            coordinates: {
+              major: { scale: 'x' },
+              minor: { scale: 'y', ref: 'movieCount' },
+            },
+            layers: {
+              line: {},
+            },
           },
-          layers: {
-            line: {}
-          }
-        },
-      }]
-    
-      
+        }],
+
+
     };
 
     if (!this.pic) {
@@ -120,20 +120,6 @@ export default class Linechart {
           selectionAPI.clear();
         }
       });
-      this.pic.brush('tooltip').on('update', (added) => {
-        if (added.length) {
-          const s = this.pic.getAffectedShapes('tooltip')[0];
-          const rect = s.element.getBoundingClientRect();
-          const p = {
-            x: s.bounds.x + s.bounds.width + rect.x + 5,
-            y: s.bounds.y + (s.bounds.height / 2) + (rect.y - 28),
-          };
-          Scatterplot.showTooltip(s.data.movie.value, p);
-        } else {
-          Scatterplot.hideTooltip();
-        }
-      });
-      
     } else {
       this.pic.update({
         data: [{
@@ -186,7 +172,6 @@ export default class Linechart {
   }
 
   static showTooltip(text, point) {
-    Scatterplot.hideTooltip();
     const currentTooltip = document.createElement('div');
     currentTooltip.appendChild(document.createTextNode(text));
     currentTooltip.style.position = 'absolute';
@@ -200,7 +185,4 @@ export default class Linechart {
     currentTooltip.style.top = `${point.y}px`;
     currentTooltip.style.left = `${(point.x + 5)}px`;
   }
-
- 
-    
 }
