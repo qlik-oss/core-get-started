@@ -65,7 +65,7 @@ jobs:
       - run:
           name: Start hello-visualization web server
           background: true
-          command: npm run hello-visualization
+          command: npm run scatter-plot
       - run:
           name: Test of hello-visualization
           command: |
