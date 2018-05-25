@@ -130,39 +130,7 @@ export default class Linechart {
       });
     }
   }
-
-  static showDetails(layout) {
-    if (!(layout.qHyperCube &&
-      layout.qHyperCube.qDataPages &&
-      layout.qHyperCube.qDataPages[0] &&
-      layout.qHyperCube.qDataPages[0].qMatrix)
-    ) {
-      return;
-    }
-
-    const data = layout.qHyperCube.qDataPages[0].qMatrix.map(item => ({
-      movie: item[0].qText,
-      image: item[1].qText,
-      year: item[2].qText,
-      genre: item[3].qText,
-      description: item[4].qText,
-    }));
-
-    const image = document.getElementsByClassName('movie-image')[0];
-    image.src = data[0].image;
-
-    const title = document.getElementsByClassName('movie-title')[0];
-    title.innerHTML = data[0].movie;
-
-    const year = document.getElementsByClassName('movie-year')[0];
-    year.innerHTML = data[0].year;
-
-    const genre = document.getElementsByClassName('movie-genre')[0];
-    genre.innerHTML = data[0].genre;
-
-    const description = document.getElementsByClassName('movie-description')[0];
-    description.innerHTML = data[0].description;
-  }
+ 
   static hideTooltip() {
     const elements = document.getElementsByClassName('tooltip');
     if (elements[0]) {
