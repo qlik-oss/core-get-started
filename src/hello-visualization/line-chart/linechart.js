@@ -33,8 +33,7 @@ export default class Linechart {
               value: v => v.qNum,
               props: {
                 movie: { value: v => v.qText },
-                movieCount: { field: 'qMeasureInfo/0' },
-                // year: { field: 'qMeasInfo/1' },
+                movieCount: { field: 'qMeasureInfo/0' },                
               },
             },
           },
