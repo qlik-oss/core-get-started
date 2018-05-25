@@ -33,7 +33,7 @@ export default class Linechart {
               value: v => v.qNum,
               props: {
                 movie: { value: v => v.qText },
-                movieCount: { field: 'qMeasureInfo/0' },                
+                movieCount: { field: 'qMeasureInfo/0' },
               },
             },
           },
@@ -130,7 +130,7 @@ export default class Linechart {
       });
     }
   }
- 
+
   static hideTooltip() {
     const elements = document.getElementsByClassName('tooltip');
     if (elements[0]) {
