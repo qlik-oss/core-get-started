@@ -1,7 +1,9 @@
 describe('hello-visualization test', () => {
-  it('Movie title should match the movie clicked on ', async () => {
+  beforeEach(() => {
     browser.get('http://localhost:8080');
-
+    browser.driver.manage().window().maximize();
+  });
+  it('Movie title should match the movie clicked on ', async () => {
     const pointElement = $("circle[data-value='17']");
     const titleElement = $('.movie-title');
 
@@ -13,8 +15,6 @@ describe('hello-visualization test', () => {
   });
 
   it('Clear selections button should hide the info panel', async () => {
-    browser.get('http://localhost:8080');
-
     const pointElement = $("circle[data-value='17']");
     browser.wait(EC.visibilityOf(pointElement));
     pointElement.click();
