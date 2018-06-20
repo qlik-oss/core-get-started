@@ -118,7 +118,13 @@ app {
 	padding-bottom: 10px;
 }
 
-#chart-container {
+#chart-container-scatterplot {
+	height: 340px;
+	margin-top: 40px;
+	position: relative;
+}
+
+#chart-container-linechart {
 	height: 340px;
 	margin-top: 40px;
 	position: relative;

@@ -7,6 +7,7 @@ import enigmaMixin from 'halyard.js/dist/halyard-enigma-mixin';
 import qixSchema from 'enigma.js/schemas/3.2.json';
 import template from './app.html';
 import Scatterplot from './scatterplot';
+import Linechart from './linechart';
 
 const halyard = new Halyard();
 
@@ -47,8 +48,18 @@ angular.module('app', []).component('app', {
 
     const scatterplot = new Scatterplot();
 
-    const paintChart = (layout) => {
-      scatterplot.paintScatterplot(document.getElementById('chart-container'), layout, {
+    const paintScatterPlot = (layout) => {
+      scatterplot.paintScatterplot(document.getElementById('chart-container-scatterplot'), layout, {
+        select,
+        clear: () => this.clearAllSelections(),
+        hasSelected: $scope.dataSelected,
+      });
+      this.painted = true;
+    };
+
+    const linechart = new Linechart();
+    const paintLineChart = (layout) => {
+      linechart.paintLinechart(document.getElementById('chart-container-linechart'), layout, {
         select,
         clear: () => this.clearAllSelections(),
         hasSelected: $scope.dataSelected,
@@ -138,7 +149,54 @@ angular.module('app', []).component('app', {
                     object = model;
 
                     const update = () => object.getLayout().then((layout) => {
-                      paintChart(layout);
+                      paintScatterPlot(layout);
+                    });
+
+                    object.on('changed', update);
+                    update();
+                  });
+
+                  const linechartProperties = {
+                    qInfo: {
+                      qType: 'visualization',
+                      qId: '',
+                    },
+                    type: 'my-picasso-scatterplot',
+                    labels: true,
+                    qHyperCubeDef: {
+                      qDimensions: [{
+                        qDef: {
+                          qFieldDefs: ['Year'],
+                          /* qNumberPresentations: [{
+                              qType:"D"
+                          }], */
+                          qSortCriterias: [{
+                            qSortByAscii: 1,
+                          }],
+                        },
+                      }],
+                      qMeasures: [{
+                        qDef: {
+                          qDef: 'Count(Movie)',
+                          qLabel: 'Movies',
+                        },
+                        qSortBy: {
+                          qSortByNumeric: -1,
+                        },
+                      },
+                      ],
+                      qInitialDataFetch: [{
+                        qTop: 0, qHeight: 50, qLeft: 0, qWidth: 3,
+                      }],
+                      qSuppressZero: false,
+                      qSuppressMissing: true,
+                    },
+                  };
+                  result.createSessionObject(linechartProperties).then((model) => {
+                    object = model;
+
+                    const update = () => object.getLayout().then((layout) => {
+                      paintLineChart(layout);
                     });
 
                     object.on('changed', update);
@@ -209,7 +267,10 @@ angular.module('app', []).component('app', {
       };
       return app.createSessionObject(tableProperties)
         .then(model => model.getLayout()
-          .then((layout) => { Scatterplot.showDetails(layout); }));
+          .then((layout) => {
+            Scatterplot.showDetails(layout);
+            Linechart.showDetails(layout);
+          }));
     };
   }],
   template,
