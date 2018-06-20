@@ -18,7 +18,7 @@ ACCEPT_EULA=yes docker-compose up -d
 
 ## Screenshot
 
-<img src="./src/hello-visualization/resources/hello-viz.png" width="600">
+![screenshot](./src/hello-visualization/resources/hello-viz.png)
 
 ## Contributing
 
