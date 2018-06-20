@@ -7,6 +7,7 @@ import enigmaMixin from 'halyard.js/dist/halyard-enigma-mixin';
 import qixSchema from 'enigma.js/schemas/3.2.json';
 import template from './app.html';
 import Scatterplot from './scatterplot';
+import Linechart from './linechart';
 
 const halyard = new Halyard();
 
@@ -31,8 +32,9 @@ angular.module('app', []).component('app', {
     this.painted = false;
     this.connecting = true;
 
-    let object = null;
     let app = null;
+    let scatterplotObject = null;
+    let linechartObject = null;
 
     const select = (value) => {
       app.getField('Movie').then((field) => {
@@ -45,14 +47,94 @@ angular.module('app', []).component('app', {
       });
     };
 
+    const scatterplotProperties = {
+      qInfo: {
+        qType: 'visualization',
+        qId: '',
+      },
+      type: 'my-picasso-scatterplot',
+      labels: true,
+      qHyperCubeDef: {
+        qDimensions: [{
+          qDef: {
+            qFieldDefs: ['Movie'],
+            qSortCriterias: [{
+              qSortByAscii: 1,
+            }],
+          },
+        }],
+        qMeasures: [{
+          qDef: {
+            qDef: '[Adjusted Costs]',
+            qLabel: 'Adjusted cost ($)',
+          },
+          qSortBy: {
+            qSortByNumeric: -1,
+          },
+        },
+        {
+          qDef: {
+            qDef: '[imdbRating]',
+            qLabel: 'imdb rating',
+          },
+        }],
+        qInitialDataFetch: [{
+          qTop: 0, qHeight: 50, qLeft: 0, qWidth: 3,
+        }],
+        qSuppressZero: false,
+        qSuppressMissing: true,
+      },
+    };
+
     const scatterplot = new Scatterplot();
 
-    const paintChart = (layout) => {
-      scatterplot.paintScatterplot(document.getElementById('chart-container'), layout, {
+    const paintScatterPlot = (layout) => {
+      scatterplot.paintScatterplot(document.getElementById('chart-container-scatterplot'), layout, {
         select,
         clear: () => this.clearAllSelections(),
         hasSelected: $scope.dataSelected,
       });
+      this.painted = true;
+    };
+
+    const linechartProperties = {
+      qInfo: {
+        qType: 'visualization',
+        qId: '',
+      },
+      type: 'my-picasso-linechart',
+      labels: true,
+      qHyperCubeDef: {
+        qDimensions: [{
+          qDef: {
+            qFieldDefs: ['Year'],
+            qSortCriterias: [{
+              qSortByAscii: 1,
+            }],
+          },
+        }],
+        qMeasures: [{
+          qDef: {
+            qDef: 'Sum([Adjusted Costs])',
+            qLabel: 'Adjusted Costs in total ($)',
+          },
+          qSortBy: {
+            qSortByNumeric: -1,
+          },
+        },
+        ],
+        qInitialDataFetch: [{
+          qTop: 0, qHeight: 50, qLeft: 0, qWidth: 3,
+        }],
+        qSuppressZero: false,
+        qSuppressMissing: false,
+      },
+    };
+
+    const linechart = new Linechart();
+
+    const paintLineChart = (layout) => {
+      linechart.paintLinechart(document.getElementById('chart-container-linechart'), layout);
       this.painted = true;
     };
 
@@ -96,52 +178,25 @@ angular.module('app', []).component('app', {
               app = result;
               result.getAppLayout()
                 .then(() => {
-                  const scatterplotProperties = {
-                    qInfo: {
-                      qType: 'visualization',
-                      qId: '',
-                    },
-                    type: 'my-picasso-scatterplot',
-                    labels: true,
-                    qHyperCubeDef: {
-                      qDimensions: [{
-                        qDef: {
-                          qFieldDefs: ['Movie'],
-                          qSortCriterias: [{
-                            qSortByAscii: 1,
-                          }],
-                        },
-                      }],
-                      qMeasures: [{
-                        qDef: {
-                          qDef: '[Adjusted Costs]',
-                          qLabel: 'Adjusted cost ($)',
-                        },
-                        qSortBy: {
-                          qSortByNumeric: -1,
-                        },
-                      },
-                      {
-                        qDef: {
-                          qDef: '[imdbRating]',
-                          qLabel: 'imdb rating',
-                        },
-                      }],
-                      qInitialDataFetch: [{
-                        qTop: 0, qHeight: 50, qLeft: 0, qWidth: 3,
-                      }],
-                      qSuppressZero: false,
-                      qSuppressMissing: true,
-                    },
-                  };
                   result.createSessionObject(scatterplotProperties).then((model) => {
-                    object = model;
+                    scatterplotObject = model;
 
-                    const update = () => object.getLayout().then((layout) => {
-                      paintChart(layout);
+                    const update = () => scatterplotObject.getLayout().then((layout) => {
+                      paintScatterPlot(layout);
                     });
 
-                    object.on('changed', update);
+                    scatterplotObject.on('changed', update);
+                    update();
+                  });
+
+                  result.createSessionObject(linechartProperties).then((model) => {
+                    linechartObject = model;
+
+                    const update = () => linechartObject.getLayout().then((layout) => {
+                      paintLineChart(layout);
+                    });
+
+                    linechartObject.on('changed', update);
                     update();
                   });
                 });
@@ -209,7 +264,9 @@ angular.module('app', []).component('app', {
       };
       return app.createSessionObject(tableProperties)
         .then(model => model.getLayout()
-          .then((layout) => { Scatterplot.showDetails(layout); }));
+          .then((layout) => {
+            Scatterplot.showDetails(layout);
+          }));
     };
   }],
   template,

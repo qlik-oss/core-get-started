@@ -8,8 +8,7 @@
   "scripts": {
     "hello-engine": "node ./src/hello-engine/hello-engine.js",
     "hello-data": "node ./src/hello-data/hello-data.js",
-    "scatter-plot": "webpack-dev-server --config ./src/hello-visualization/scatter-plot/webpack.config.js",
-    "line-chart": "webpack-dev-server --config ./src/hello-visualization/line-chart/webpack.config.js",
+    "hello-visualization": "webpack-dev-server --config ./src/hello-visualization/webpack.config.js",
     "lint": "eslint .",
     "lint-fix": "eslint --fix ."
   },
