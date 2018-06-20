@@ -20,9 +20,9 @@ export default class Scatterplot {
     ) {
       return;
     }
-    // if (selectionAPI.hasSelected) {
-    //   return; // keep selected chart state
-    // }
+    if (selectionAPI.hasSelected) {
+      return; // keep selected chart state
+    }
     const settings = {
       collections: [
         {

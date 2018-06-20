@@ -32,11 +32,11 @@ angular.module('app', []).component('app', {
     this.painted = false;
     this.connecting = true;
 
-    let object = null;
     let app = null;
+    let scatterplotObject = null;
+    let linechartObject = null;
 
     const select = (value) => {
-      console.log("selecting value: " + value);
       app.getField('Movie').then((field) => {
         field.select(value).then(() => {
           $scope.dataSelected = true;
@@ -45,6 +45,45 @@ angular.module('app', []).component('app', {
           });
         });
       });
+    };
+
+    const scatterplotProperties = {
+      qInfo: {
+        qType: 'visualization',
+        qId: '',
+      },
+      type: 'my-picasso-scatterplot',
+      labels: true,
+      qHyperCubeDef: {
+        qDimensions: [{
+          qDef: {
+            qFieldDefs: ['Movie'],
+            qSortCriterias: [{
+              qSortByAscii: 1,
+            }],
+          },
+        }],
+        qMeasures: [{
+          qDef: {
+            qDef: '[Adjusted Costs]',
+            qLabel: 'Adjusted cost ($)',
+          },
+          qSortBy: {
+            qSortByNumeric: -1,
+          },
+        },
+        {
+          qDef: {
+            qDef: '[imdbRating]',
+            qLabel: 'imdb rating',
+          },
+        }],
+        qInitialDataFetch: [{
+          qTop: 0, qHeight: 50, qLeft: 0, qWidth: 3,
+        }],
+        qSuppressZero: false,
+        qSuppressMissing: true,
+      },
     };
 
     const scatterplot = new Scatterplot();
@@ -58,7 +97,42 @@ angular.module('app', []).component('app', {
       this.painted = true;
     };
 
+    const linechartProperties = {
+      qInfo: {
+        qType: 'visualization',
+        qId: '',
+      },
+      type: 'my-picasso-linechart',
+      labels: true,
+      qHyperCubeDef: {
+        qDimensions: [{
+          qDef: {
+            qFieldDefs: ['Year'],
+            qSortCriterias: [{
+              qSortByAscii: 1,
+            }],
+          },
+        }],
+        qMeasures: [{
+          qDef: {
+            qDef: 'Sum([Adjusted Costs])',
+            qLabel: 'Adjusted Costs in total ($)',
+          },
+          qSortBy: {
+            qSortByNumeric: -1,
+          },
+        },
+        ],
+        qInitialDataFetch: [{
+          qTop: 0, qHeight: 50, qLeft: 0, qWidth: 3,
+        }],
+        qSuppressZero: false,
+        qSuppressMissing: false,
+      },
+    };
+
     const linechart = new Linechart();
+
     const paintLineChart = (layout) => {
       linechart.paintLinechart(document.getElementById('chart-container-linechart'), layout);
       this.painted = true;
@@ -104,96 +178,25 @@ angular.module('app', []).component('app', {
               app = result;
               result.getAppLayout()
                 .then(() => {
-                  const scatterplotProperties = {
-                    qInfo: {
-                      qType: 'visualization',
-                      qId: '',
-                    },
-                    type: 'my-picasso-scatterplot',
-                    labels: true,
-                    qHyperCubeDef: {
-                      qDimensions: [{
-                        qDef: {
-                          qFieldDefs: ['Movie'],
-                          qSortCriterias: [{
-                            qSortByAscii: 1,
-                          }],
-                        },
-                      }],
-                      qMeasures: [{
-                        qDef: {
-                          qDef: '[Adjusted Costs]',
-                          qLabel: 'Adjusted cost ($)',
-                        },
-                        qSortBy: {
-                          qSortByNumeric: -1,
-                        },
-                      },
-                      {
-                        qDef: {
-                          qDef: '[imdbRating]',
-                          qLabel: 'imdb rating',
-                        },
-                      }],
-                      qInitialDataFetch: [{
-                        qTop: 0, qHeight: 50, qLeft: 0, qWidth: 3,
-                      }],
-                      qSuppressZero: false,
-                      qSuppressMissing: true,
-                    },
-                  };
                   result.createSessionObject(scatterplotProperties).then((model) => {
-                    object = model;
+                    scatterplotObject = model;
 
-                    const update = () => object.getLayout().then((layout) => {
+                    const update = () => scatterplotObject.getLayout().then((layout) => {
                       paintScatterPlot(layout);
                     });
 
-                    object.on('changed', update);
+                    scatterplotObject.on('changed', update);
                     update();
                   });
 
-                  const linechartProperties = {
-                    qInfo: {
-                      qType: 'visualization',
-                      qId: '',
-                    },
-                    type: 'my-picasso-linechart',
-                    labels: true,
-                    qHyperCubeDef: {
-                      qDimensions: [{
-                        qDef: {
-                          qFieldDefs: ['Year'],
-                          qSortCriterias: [{
-                            qSortByAscii: 1,
-                          }],
-                        },
-                      }],
-                      qMeasures: [{
-                        qDef: {
-                          qDef: 'Sum([Adjusted Costs])',
-                          qLabel: 'Adjusted Costs in total ($)',
-                        },
-                        qSortBy: {
-                          qSortByNumeric: -1,
-                        },
-                      },
-                      ],
-                      qInitialDataFetch: [{
-                        qTop: 0, qHeight: 50, qLeft: 0, qWidth: 3,
-                      }],
-                      qSuppressZero: false,
-                      qSuppressMissing: false,
-                    },
-                  };
                   result.createSessionObject(linechartProperties).then((model) => {
-                    object = model;
+                    linechartObject = model;
 
-                    const update = () => object.getLayout().then((layout) => {
+                    const update = () => linechartObject.getLayout().then((layout) => {
                       paintLineChart(layout);
                     });
 
-                    object.on('changed', update);
+                    linechartObject.on('changed', update);
                     update();
                   });
                 });
