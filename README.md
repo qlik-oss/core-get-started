@@ -12,7 +12,7 @@ $ ACCEPT_EULA=yes docker-compose up -d
 
 - [hello-engine](./src/hello-engine/) - Hello Engine example source code
 - [hello-data](./src/hello-data/) - Hello Data example source code
-- [hello-visualization](./src/hello-visualization/) - Example source code for Visualizations:- Line chart and Scatter plot.
+- [hello-visualization](./src/hello-visualization/) - Hello Visualization example source code
 - [test](./test) - Function tests for the examples (bash scripts)
 - [data](./data) - The Movies data, used as user data in the examples
 

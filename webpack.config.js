@@ -5,9 +5,9 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   context: path.resolve(__dirname),
-  entry: { app: './app_1.js' },
+  entry: { app: './src/hello-visualization/app.js' },
   output: {
-    filename: 'app_1.js',
+    filename: 'app.js',
     path: path.resolve(__dirname, 'dist'),
   },
   devServer: { host: '0.0.0.0', port: '8080', disableHostCheck: true },
@@ -38,10 +38,10 @@ module.exports = {
   },
   plugins: [
     new CopyWebpackPlugin([
-      { from: 'index.html' },
-      { from: 'app_1.html' },
-      { from: 'app_1.css' },
-      { from: 'resources/', to: 'resources/' },
+      { from: 'src/hello-visualization/index.html' },
+      { from: 'src/hello-visualization/app.html' },
+      { from: 'src/hello-visualization/app.css' },
+      { from: 'src/hello-visualization/resources/', to: 'resources/' },
     ]),
   ],
 };
