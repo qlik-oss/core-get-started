@@ -36,6 +36,7 @@ angular.module('app', []).component('app', {
     let app = null;
 
     const select = (value) => {
+      console.log("selecting value: " + value);
       app.getField('Movie').then((field) => {
         field.select(value).then(() => {
           $scope.dataSelected = true;
@@ -59,11 +60,7 @@ angular.module('app', []).component('app', {
 
     const linechart = new Linechart();
     const paintLineChart = (layout) => {
-      linechart.paintLinechart(document.getElementById('chart-container-linechart'), layout, {
-        select,
-        clear: () => this.clearAllSelections(),
-        hasSelected: $scope.dataSelected,
-      });
+      linechart.paintLinechart(document.getElementById('chart-container-linechart'), layout);
       this.painted = true;
     };
 
@@ -266,7 +263,6 @@ angular.module('app', []).component('app', {
         .then(model => model.getLayout()
           .then((layout) => {
             Scatterplot.showDetails(layout);
-            Linechart.showDetails(layout);
           }));
     };
   }],

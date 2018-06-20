@@ -12,16 +12,13 @@ export default class Linechart {
     this.pic = null;
   }
 
-  paintLinechart(element, layout, selectionAPI) {
+  paintLinechart(element, layout) {
     if (!(layout.qHyperCube &&
       layout.qHyperCube.qDataPages &&
       layout.qHyperCube.qDataPages[0] &&
       layout.qHyperCube.qDataPages[0].qMatrix)
     ) {
       return;
-    }
-    if (selectionAPI.hasSelected) {
-      return; // keep selected chart state
     }
     const settings = {
       collections: [
@@ -97,8 +94,6 @@ export default class Linechart {
             },
           },
         }],
-
-
     };
 
     if (!this.pic) {
@@ -110,14 +105,6 @@ export default class Linechart {
           data: layout.qHyperCube,
         }],
         settings,
-      });
-      this.pic.brush('highlight').on('update', (added) => {
-        if (added[0]) {
-          selectionAPI.select(added[0].values[0]);
-        } else {
-          this.pic.brush('highlight').end();
-          selectionAPI.clear();
-        }
       });
     } else {
       this.pic.update({
