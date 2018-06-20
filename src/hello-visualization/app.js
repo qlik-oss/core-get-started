@@ -161,15 +161,12 @@ angular.module('app', []).component('app', {
                       qType: 'visualization',
                       qId: '',
                     },
-                    type: 'my-picasso-scatterplot',
+                    type: 'my-picasso-linechart',
                     labels: true,
                     qHyperCubeDef: {
                       qDimensions: [{
                         qDef: {
                           qFieldDefs: ['Year'],
-                          /* qNumberPresentations: [{
-                              qType:"D"
-                          }], */
                           qSortCriterias: [{
                             qSortByAscii: 1,
                           }],
@@ -177,8 +174,8 @@ angular.module('app', []).component('app', {
                       }],
                       qMeasures: [{
                         qDef: {
-                          qDef: 'Count(Movie)',
-                          qLabel: 'Movies',
+                          qDef: 'Sum([Adjusted Costs])',
+                          qLabel: 'Adjusted Costs in total ($)',
                         },
                         qSortBy: {
                           qSortByNumeric: -1,
@@ -189,7 +186,7 @@ angular.module('app', []).component('app', {
                         qTop: 0, qHeight: 50, qLeft: 0, qWidth: 3,
                       }],
                       qSuppressZero: false,
-                      qSuppressMissing: true,
+                      qSuppressMissing: false,
                     },
                   };
                   result.createSessionObject(linechartProperties).then((model) => {

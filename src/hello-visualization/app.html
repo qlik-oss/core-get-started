@@ -11,11 +11,13 @@
 <div class="content" ng-click="$ctrl.clearAllSelections()">
   <div class="container" ng-if="$ctrl.connected">
     <div class="title">Top 50 most expensive movies</div>
-    <div>Comparison of top 50 most expensive movies and their imdb ratings.</div>
-
+    <div>Comparison of top 50 most expensive movies and their imdb ratings</div>
     <div id="chart-container-scatterplot" class="picasso-scatterplot"></div>
-
-    <div>Comparison of top 50 most expensive movies and their imdb ratings.</div>
+  </div>
+</div>
+<div class="content">
+  <div class="container" ng-if="$ctrl.connected">
+    <div>Total cost distributed over time</div>
     <div id="chart-container-linechart" class="picasso-linechart"></div>
   </div>
 </div>
