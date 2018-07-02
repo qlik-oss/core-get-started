@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "angular": "1.6.6",
-    "enigma.js": "2.2.0",
+    "enigma.js": "2.2.1",
     "halyard.js": "1.3.0",
     "picasso-plugin-q": "0.5.3",
     "picasso.js": "0.5.3",
