@@ -74,9 +74,9 @@ jobs:
             while [[ $RETRIES -lt 30 ]]; do
               curl --output /dev/null --silent --head --fail http://localhost:8080
               if [[ $? -eq 0 ]]; then
+                echo "Web server is up"
                 break
               fi
-              printf '.'
               sleep 2
               RETRIES=$[$RETRIES+1]
             done
