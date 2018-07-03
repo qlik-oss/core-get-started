@@ -13,10 +13,10 @@ export default class Linechart {
   }
 
   paintLinechart(element, layout) {
-    if (!(layout.qHyperCube &&
-      layout.qHyperCube.qDataPages &&
-      layout.qHyperCube.qDataPages[0] &&
-      layout.qHyperCube.qDataPages[0].qMatrix)
+    if (!(layout.qHyperCube
+      && layout.qHyperCube.qDataPages
+      && layout.qHyperCube.qDataPages[0]
+      && layout.qHyperCube.qDataPages[0].qMatrix)
     ) {
       return;
     }

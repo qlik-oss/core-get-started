@@ -13,10 +13,10 @@ export default class Scatterplot {
   }
 
   paintScatterplot(element, layout, selectionAPI) {
-    if (!(layout.qHyperCube &&
-      layout.qHyperCube.qDataPages &&
-      layout.qHyperCube.qDataPages[0] &&
-      layout.qHyperCube.qDataPages[0].qMatrix)
+    if (!(layout.qHyperCube
+      && layout.qHyperCube.qDataPages
+      && layout.qHyperCube.qDataPages[0]
+      && layout.qHyperCube.qDataPages[0].qMatrix)
     ) {
       return;
     }
@@ -161,10 +161,10 @@ export default class Scatterplot {
   }
 
   static showDetails(layout) {
-    if (!(layout.qHyperCube &&
-      layout.qHyperCube.qDataPages &&
-      layout.qHyperCube.qDataPages[0] &&
-      layout.qHyperCube.qDataPages[0].qMatrix)
+    if (!(layout.qHyperCube
+      && layout.qHyperCube.qDataPages
+      && layout.qHyperCube.qDataPages[0]
+      && layout.qHyperCube.qDataPages[0].qMatrix)
     ) {
       return;
     }
