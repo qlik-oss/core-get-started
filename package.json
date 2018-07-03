@@ -21,7 +21,7 @@
     "ws": "5.2.1"
   },
   "devDependencies": {
-    "after-work.js": "4.1.0",
+    "after-work.js": "4.3.2",
     "babel-core": "6.26.3",
     "babel-loader": "7.1.4",
     "babel-preset-env": "1.7.0",
