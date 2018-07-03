@@ -69,8 +69,15 @@ jobs:
       - run:
           name: Test of hello-visualization
           command: |
-            until $(curl --output /dev/null --silent --head --fail http://localhost:8080); do
-              printf '.'
+            set +e
+            RETRIES=0
+            while [[ $RETRIES -lt 30 ]]; do
+              curl --output /dev/null --silent --head --fail http://localhost:8080
+              if [[ $? -eq 0 ]]; then
+                echo "Web server is up"
+                break
+              fi
               sleep 2
+              RETRIES=$[$RETRIES+1]
             done
             ./test/test-hello-visualization.sh
