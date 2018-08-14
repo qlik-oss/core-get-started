@@ -12,20 +12,19 @@ const schema = require('enigma.js/schemas/3.2.json');
       createSocket: url => new WebSocket(url),
     });
     const qix = await session.open();
-    const app = await qix.createSessionApp()
-    
-    console.log('Creating data connection to local files.')
+    const app = await qix.createSessionApp();
+
+    console.log('Creating data connection to local files.');
     await app.createConnection({
       qName: 'data',
       qConnectionString: '/data/',
-      qType: 'folder'
-    })
+      qType: 'folder',
+    });
 
-    console.log('Running reload script.')
-    const script =
-      `Movies:
-         LOAD * FROM [lib://data/movies.csv]
-         (txt, utf8, embedded labels, delimiter is ',');`
+    console.log('Running reload script.');
+    const script = `Movies:
+                      LOAD * FROM [lib://data/movies.csv]
+                      (txt, utf8, embedded labels, delimiter is ',');`;
     await app.setScript(script);
     await app.doReload();
 

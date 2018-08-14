@@ -163,7 +163,7 @@ angular.module('app', []).component('app', {
           { src: 'Year', name: 'Year' },
           { src: 'Adjusted Costs', name: 'Adjusted Costs' },
           { src: 'Description', name: 'Description' },
-          { src: 'Image', name: 'Image' }
+          { src: 'Image', name: 'Imagse' },
         ],
         delimiter: ',',
       });
