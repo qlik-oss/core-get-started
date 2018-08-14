@@ -19,7 +19,7 @@ const schema = require('enigma.js/schemas/3.2.json');
     await session.close();
     console.log('Session closed.');
   } catch (err) {
-    console.log('Woops! An error occurred.', err);
+    console.log('Whoops! An error occurred.', err);
     process.exit(1);
   }
 })();

@@ -2,32 +2,30 @@
 const WebSocket = require('ws');
 const enigma = require('enigma.js');
 const schema = require('enigma.js/schemas/3.2.json');
+const Halyard = require('halyard.js');
+const mixins = require('halyard.js/dist/halyard-enigma-mixin');
 
 (async () => {
   try {
-    console.log('Creating session app on engine.');
+    console.log('Creating Halyard table data representation.');
+    const halyard = new Halyard();
+    const moviesPath = '/data/movies.csv';
+    const moviesTable = new Halyard.Table(moviesPath, {
+      name: 'Movies',
+      delimiter: ',',
+    });
+
+    halyard.addTable(moviesTable);
+
+    console.log('Opening session app on engine using Halyard mixin.');
     const session = enigma.create({
       schema,
-      url: 'ws://localhost:19076/app/',
+      mixins,
+      url: 'ws://localhost:19076',
       createSocket: url => new WebSocket(url),
     });
     const qix = await session.open();
-    const app = await qix.createSessionApp()
-    
-    console.log('Creating data connection to local files.')
-    await app.createConnection({
-      qName: 'data',
-      qConnectionString: '/data/',
-      qType: 'folder'
-    })
-
-    console.log('Running reload script.')
-    const script =
-      `Movies:
-         LOAD * FROM [lib://data/movies.csv]
-         (txt, utf8, embedded labels, delimiter is ',');`
-    await app.setScript(script);
-    await app.doReload();
+    const app = await qix.createSessionAppUsingHalyard(halyard);
 
     console.log('Creating session object with movie titles.');
     const moviesCount = 10;
