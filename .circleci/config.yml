@@ -60,8 +60,10 @@ jobs:
           name: Test of hello-engine
           command: ./test/test-hello-engine.sh
       - run:
-          name: Test of hello-data
-          command: ./test/test-hello-data.sh
+          name: Test of hello-data and hello-data-halyard
+          command: |
+            ./test/test-hello-data.sh
+            ./test/test-hello-data-halyard.sh
       - run:
           name: Start hello-visualization web server
           background: true
