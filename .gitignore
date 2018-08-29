@@ -4,3 +4,4 @@ node_modules/
 *.log
 *.orig
 test/__artifacts__/
+.DS_Store
