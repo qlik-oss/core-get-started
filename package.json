@@ -14,7 +14,7 @@
     "lint-fix": "eslint --fix ."
   },
   "dependencies": {
-    "angular": "1.7.3",
+    "angular": "1.7.4",
     "enigma.js": "2.3.0",
     "halyard.js": "1.3.0",
     "picasso-plugin-q": "0.12.2",
