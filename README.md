@@ -2,7 +2,7 @@
 
 This repository contains the source code and assets for the Hello Engine, Hello Data, and Hello Visualization examples.
 
-Note that before you deploy, you must accept the [Qlik Core EULA](https://qlikcore.com/beta/) by setting the `ACCEPT_EULA` environment variable.
+Note that before you deploy, you must accept the [Qlik Core EULA](https://core.qlik.com/eula/) by setting the `ACCEPT_EULA` environment variable.
 
 ```sh
 ACCEPT_EULA=yes docker-compose up -d
