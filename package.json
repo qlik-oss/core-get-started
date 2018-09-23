@@ -22,7 +22,7 @@
     "ws": "6.0.0"
   },
   "devDependencies": {
-    "@after-work.js/aw": "5.0.1",
+    "@after-work.js/aw": "5.0.2",
     "@after-work.js/transform": "5.0.2",
     "@babel/core": "7.0.1",
     "babel-loader": "8.0.2",
