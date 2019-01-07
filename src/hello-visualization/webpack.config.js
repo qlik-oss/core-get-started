@@ -4,6 +4,7 @@ const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
+  mode: 'development',
   context: path.resolve(__dirname),
   entry: { app: './app.js' },
   output: {
@@ -19,11 +20,7 @@ module.exports = {
   },
   devtool: 'source-map',
   module: {
-    loaders: [
-      {
-        test: /\.json$/,
-        loader: 'json-loader',
-      },
+    rules: [
       {
         test: /\.html$/,
         loader: 'raw-loader',
