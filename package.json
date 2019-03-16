@@ -14,22 +14,22 @@
     "lint-fix": "eslint --fix ."
   },
   "dependencies": {
-    "angular": "1.7.7",
+    "angular": "1.7.8",
     "enigma.js": "2.4.0",
     "halyard.js": "1.3.2",
-    "picasso.js": "0.20.0",
-    "picasso-plugin-q": "0.20.0",
+    "picasso.js": "0.21.0",
+    "picasso-plugin-q": "0.21.0",
     "ws": "6.2.0"
   },
   "devDependencies": {
     "@after-work.js/aw": "5.1.3",
-    "@after-work.js/transform": "5.1.1",
+    "@after-work.js/transform": "5.1.2",
     "@babel/core": "7.3.4",
     "babel-loader": "8.0.5",
     "@babel/preset-env": "7.3.4",
     "babel-plugin-istanbul": "5.1.1",
-    "copy-webpack-plugin": "5.0.0",
-    "eslint": "5.15.1",
+    "copy-webpack-plugin": "5.0.1",
+    "eslint": "5.15.2",
     "eslint-config-airbnb-base": "13.1.0",
     "eslint-plugin-import": "2.16.0",
     "json-loader": "0.5.7",
@@ -37,7 +37,7 @@
     "raw-loader": "1.0.0",
     "webpack": "4.29.6",
     "webpack-dev-server": "3.2.1",
-    "webpack-cli": "3.2.3"
+    "webpack-cli": "3.3.0"
   },
   "engines": {
     "node": ">=8.9.3"
