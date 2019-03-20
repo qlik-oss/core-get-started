@@ -1,6 +1,6 @@
 # Get started with Qlik Core
 
-This repository contains the source code and assets for the Hello Engine, Hello Data, and Hello Visualization examples.
+This repository contains the source code and assets for the Hello Engine, Hello Data, and Hello Visualization examples found [here](https://core.qlik.com/get-started/) under tutorials.
 
 Note that before you deploy, you must accept the [Qlik Core EULA](https://core.qlik.com/eula/) by setting the `ACCEPT_EULA` environment variable.
 
