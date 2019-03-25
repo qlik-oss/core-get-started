@@ -33,7 +33,7 @@
     "eslint-config-airbnb-base": "13.1.0",
     "eslint-plugin-import": "2.16.0",
     "json-loader": "0.5.7",
-    "protractor": "5.4.2",
+    "protractor": "6.0.0",
     "raw-loader": "2.0.0",
     "webpack": "4.29.6",
     "webpack-dev-server": "3.2.1",
