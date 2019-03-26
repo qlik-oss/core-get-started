@@ -1,5 +1,6 @@
 describe('hello-visualization test', () => {
   beforeEach(() => {
+    browser.waitForAngularEnabled(false);
     browser.get('http://localhost:8080');
     browser.driver.manage().window().maximize();
   });
