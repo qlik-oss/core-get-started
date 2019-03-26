@@ -1,5 +1,5 @@
 describe('hello-visualization test', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     await browser.get('http://localhost:8080');
     await browser.driver.manage().window().maximize();
   });
