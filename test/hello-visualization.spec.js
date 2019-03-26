@@ -1,7 +1,7 @@
 describe('hello-visualization test', () => {
   beforeEach(() => {
-    browser.get('http://localhost:8080');
-    browser.driver.manage().window().maximize();
+    await browser.get('http://localhost:8080');
+    await browser.driver.manage().window().maximize();
   });
   it('Movie title should match the movie clicked on ', async () => {
     const pointElement = $("circle[data-value='17']");
