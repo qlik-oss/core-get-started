@@ -25,7 +25,7 @@
     "@after-work.js/aw": "6.0.3",
     "@after-work.js/transform": "6.0.3",
     "@babel/core": "7.4.4",
-    "babel-loader": "8.0.5",
+    "babel-loader": "8.0.6",
     "@babel/preset-env": "7.4.4",
     "babel-plugin-istanbul": "5.1.4",
     "copy-webpack-plugin": "5.0.3",
