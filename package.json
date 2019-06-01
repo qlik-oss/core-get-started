@@ -36,7 +36,7 @@
     "protractor": "5.4.2",
     "raw-loader": "2.0.0",
     "webpack": "4.32.2",
-    "webpack-dev-server": "3.5.0",
+    "webpack-dev-server": "3.5.1",
     "webpack-cli": "3.3.2"
   },
   "engines": {
