@@ -17,8 +17,8 @@
     "angular": "1.7.8",
     "enigma.js": "2.4.0",
     "halyard.js": "1.3.2",
-    "picasso.js": "0.25.3",
-    "picasso-plugin-q": "0.25.3",
+    "picasso.js": "0.26.1",
+    "picasso-plugin-q": "0.26.1",
     "ws": "7.0.0"
   },
   "devDependencies": {
@@ -35,9 +35,9 @@
     "json-loader": "0.5.7",
     "protractor": "5.4.2",
     "raw-loader": "3.0.0",
-    "webpack": "4.33.0",
+    "webpack": "4.34.0",
     "webpack-dev-server": "3.7.1",
-    "webpack-cli": "3.3.3"
+    "webpack-cli": "3.3.4"
   },
   "engines": {
     "node": ">=8.9.3"
