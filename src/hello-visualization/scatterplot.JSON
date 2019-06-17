@@ -1,0 +1,39 @@
+{
+    "qInfo": {
+      "qType": "visualization",
+      "qId": "scatterplot",
+      "qTitle": "my-nice-object"
+    },
+    "type": "my-picasso-scatterplot",
+    "labels": true,
+    "qHyperCubeDef": {
+      "qDimensions": [{
+        "qDef": {
+          "qFieldDefs": ["Movie"],
+          "qSortCriterias": [{
+            "qSortByAscii": 1
+          }]
+        }
+      }],
+      "qMeasures": [{
+        "qDef": {
+          "qDef": "[Adjusted Costs]",
+          "qLabel": "Adjusted cost ($)"
+        },
+        "qSortBy": {
+          "qSortByNumeric": -1
+        }
+      },
+      {
+        "qDef": {
+          "qDef": "[imdbRating]",
+          "qLabel": "imdb rating"
+        }
+      }],
+      "qInitialDataFetch": [{
+        "qTop": 0, "qHeight": 50, "qLeft": 0, "qWidth": 3
+      }],
+      "qSuppressZero": false,
+      "qSuppressMissing": true
+    }
+  }

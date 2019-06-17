@@ -1,20 +1,20 @@
+/* eslint-disable max-len */
 /* eslint-env browser */
 
-import Halyard from 'halyard.js';
 import angular from 'angular';
 import enigma from 'enigma.js';
-import enigmaMixin from 'halyard.js/dist/halyard-enigma-mixin';
-import qixSchema from 'enigma.js/schemas/3.2.json';
+/* import enigmaMixin from 'halyard.js/dist/halyard-enigma-mixin'; */
+/* import qixSchema from 'enigma.js/schemas/3.2.json'; */
 import template from './app.html';
 import Scatterplot from './scatterplot';
-import Linechart from './linechart';
+// import Linechart from './linechart';
 import 'babel-polyfill';
 
-const halyard = new Halyard();
+const schema = require('enigma.js/schemas/3.2.json');
 
 angular.module('app', []).component('app', {
   bindings: {},
-  controller: ['$scope', '$q', '$http', function Controller($scope, $q, $http) {
+  controller: ['$scope', function Controller($scope) {
     $scope.dataSelected = false;
     $scope.showFooter = false;
 
@@ -32,10 +32,9 @@ angular.module('app', []).component('app', {
     this.connected = false;
     this.painted = false;
     this.connecting = true;
-
     let app = null;
     let scatterplotObject = null;
-    let linechartObject = null;
+    // const linechartObject = null;
 
     const select = (value) => {
       app.getField('Movie').then((field) => {
@@ -48,7 +47,7 @@ angular.module('app', []).component('app', {
       });
     };
 
-    const scatterplotProperties = {
+    /* const scatterplotProperties = {
       qInfo: {
         qType: 'visualization',
         qId: '',
@@ -86,7 +85,7 @@ angular.module('app', []).component('app', {
         qSuppressMissing: true,
       },
     };
-
+ */
     const scatterplot = new Scatterplot();
 
     const paintScatterPlot = (layout) => {
@@ -98,7 +97,7 @@ angular.module('app', []).component('app', {
       this.painted = true;
     };
 
-    const linechartProperties = {
+    /* const linechartProperties = {
       qInfo: {
         qType: 'visualization',
         qId: '',
@@ -131,13 +130,13 @@ angular.module('app', []).component('app', {
         qSuppressMissing: false,
       },
     };
-
-    const linechart = new Linechart();
+ */
+    /*  const linechart = new Linechart();
 
     const paintLineChart = (layout) => {
       linechart.paintLinechart(document.getElementById('chart-container-linechart'), layout);
       this.painted = true;
-    };
+    }; */
 
     this.generateGUID = () => 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
       // eslint-disable-next-line no-bitwise
@@ -148,14 +147,8 @@ angular.module('app', []).component('app', {
     });
 
     this.$onInit = () => {
-      const config = {
-        Promise: $q,
-        schema: qixSchema,
-        mixins: enigmaMixin,
-        url: `ws://${window.location.hostname}:19076/app/${this.generateGUID()}`,
-      };
-
       // Add local data
+      /*
       const filePathMovie = '/data/movies.csv';
       const tableMovie = new Halyard.Table(filePathMovie, {
         name: 'Movies',
@@ -169,32 +162,45 @@ angular.module('app', []).component('app', {
         delimiter: ',',
       });
       halyard.addTable(tableMovie);
+      */
 
       // Add web data
       (async () => {
+        try {
+          /*
         const data = await $http.get('https://gist.githubusercontent.com/carlioth/b86ede12e75b5756c9f34c0d65a22bb3/raw/e733b74c7c1c5494669b36893a31de5427b7b4fc/MovieInfo.csv');
         const table = new Halyard.Table(data.data, { name: 'MoviesInfo', delimiter: ';', characterSet: 'utf8' });
         halyard.addTable(table);
 
-        const qix = await enigma.create(config).open(); // läg till try cath
+       const qix = await enigma.create(config).open(); // läg till try cath
         this.connected = true;
         this.connecting = false;
         const result = await qix.createSessionAppUsingHalyard(halyard); // lägg till try t
         app = result;
         await result.getAppLayout();
+        scatterplotObject = await result.createSessionObject(scatterplotProperties); */
+          const session = enigma.create({
+            schema,
+            url: 'ws://localhost:19076/app/testscript',
+            createSocket: url => new WebSocket(url),
+          });
+          const qix = await session.open();
+          const result = await qix.openDoc('testscript.qvf');
+          app = result;
+          await result.getAppLayout();
+          console.log();
+          scatterplotObject = await result.getObject('scatterplot');
+          console.log(scatterplot);
+          const updateScatterPlot = (async () => {
+            const layout = await scatterplotObject.getLayout();
+            paintScatterPlot(layout);
+          });
 
-        scatterplotObject = await result.createSessionObject(scatterplotProperties);
+          scatterplotObject.on('changed', updateScatterPlot);
+          updateScatterPlot();
 
-        const updateScatterPlot = (async () => {
-          const layout = await scatterplotObject.getLayout();
-          paintScatterPlot(layout);
-        });
 
-        scatterplotObject.on('changed', updateScatterPlot);
-        updateScatterPlot();
-
-/* 
-        linechartObject = await result.createSessionObject(linechartProperties);
+        /* linechartObject = await result.createSessionObject(linechartProperties);
         const linechartUpdate = (async () => {
           const layout = await linechartObject.getLayout();
           paintLineChart(layout);
@@ -202,6 +208,9 @@ angular.module('app', []).component('app', {
 
         linechartObject.on('changed', linechartUpdate);
         linechartUpdate(); */
+        } catch (err) {
+          alert(err); // TypeError: failed to fetch
+        }
       })();
     };
 
