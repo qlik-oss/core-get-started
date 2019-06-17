@@ -8,6 +8,7 @@ import qixSchema from 'enigma.js/schemas/3.2.json';
 import template from './app.html';
 import Scatterplot from './scatterplot';
 import Linechart from './linechart';
+import 'babel-polyfill';
 
 const halyard = new Halyard();
 
@@ -170,51 +171,38 @@ angular.module('app', []).component('app', {
       halyard.addTable(tableMovie);
 
       // Add web data
-      $http.get('https://gist.githubusercontent.com/carlioth/b86ede12e75b5756c9f34c0d65a22bb3/raw/e733b74c7c1c5494669b36893a31de5427b7b4fc/MovieInfo.csv')
-        .then((data) => {
-          const table = new Halyard.Table(data.data, { name: 'MoviesInfo', delimiter: ';', characterSet: 'utf8' });
-          halyard.addTable(table);
-        })
-        .then(() => {
-          enigma.create(config).open().then((qix) => {
-            this.connected = true;
-            this.connecting = false;
-            qix.createSessionAppUsingHalyard(halyard).then((result) => {
-              app = result;
-              result.getAppLayout()
-                .then(() => {
-                  result.createSessionObject(scatterplotProperties).then((model) => {
-                    scatterplotObject = model;
+      (async () => {
+        const data = await $http.get('https://gist.githubusercontent.com/carlioth/b86ede12e75b5756c9f34c0d65a22bb3/raw/e733b74c7c1c5494669b36893a31de5427b7b4fc/MovieInfo.csv');
+        const table = new Halyard.Table(data.data, { name: 'MoviesInfo', delimiter: ';', characterSet: 'utf8' });
+        halyard.addTable(table);
 
-                    const update = () => scatterplotObject.getLayout().then((layout) => {
-                      paintScatterPlot(layout);
-                    });
+        const qix = await enigma.create(config).open(); // läg till try cath
+        this.connected = true;
+        this.connecting = false;
+        const result = await qix.createSessionAppUsingHalyard(halyard); // lägg till try t
+        app = result;
+        await result.getAppLayout();
 
-                    scatterplotObject.on('changed', update);
-                    update();
-                  });
+        scatterplotObject = await result.createSessionObject(scatterplotProperties);
 
-                  result.createSessionObject(linechartProperties).then((model) => {
-                    linechartObject = model;
-
-                    const update = () => linechartObject.getLayout().then((layout) => {
-                      paintLineChart(layout);
-                    });
-
-                    linechartObject.on('changed', update);
-                    update();
-                  });
-                });
-            }, () => {
-              this.error = 'Could not create session app';
-              this.connected = false;
-              this.connecting = false;
-            });
-          }, () => {
-            this.error = 'Could not connect to QIX Engine';
-            this.connecting = false;
-          });
+        const updateScatterPlot = (async () => {
+          const layout = await scatterplotObject.getLayout();
+          paintScatterPlot(layout);
         });
+
+        scatterplotObject.on('changed', updateScatterPlot);
+        updateScatterPlot();
+
+/* 
+        linechartObject = await result.createSessionObject(linechartProperties);
+        const linechartUpdate = (async () => {
+          const layout = await linechartObject.getLayout();
+          paintLineChart(layout);
+        });
+
+        linechartObject.on('changed', linechartUpdate);
+        linechartUpdate(); */
+      })();
     };
 
     this.clearAllSelections = () => {

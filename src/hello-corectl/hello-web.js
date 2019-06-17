@@ -47,11 +47,11 @@ const schema = require('enigma.js/schemas/3.2.json');
 
     // const object = await app.getObject("hello-data");
   //  const layout = await object.getLayout();
-    const movies = layout.qHyperCube.qDataPages[0].qMatrix;
+    const movies = layout.qHyperCube.qDataPages[2].qMatrix;
 
 
-    console.log(`Listing the ${20} first movies:`);
-    movies.forEach((movie) => { console.log(movie[0].qText); });
+    console.log(`Listing the ${10} first movies:`);
+    movies.forEach((movie) => { console.log(movie[2].qText); });
 
      await session.close();
     console.log('Session closed.');

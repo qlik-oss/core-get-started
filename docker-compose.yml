@@ -4,8 +4,8 @@ services:
   engine:
     image: qlikcore/engine:12.387.0
     restart: always
-    command: -S AcceptEULA=${ACCEPT_EULA}
+    command: -S AcceptEULA=yes
     ports:
       - "19076:9076"
-    volumes: 
+    volumes:
       - ./data:/data
