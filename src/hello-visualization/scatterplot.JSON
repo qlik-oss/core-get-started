@@ -1,8 +1,7 @@
 {
     "qInfo": {
       "qType": "visualization",
-      "qId": "scatterplot",
-      "qTitle": "my-nice-object"
+      "qId": "scatterplot"
     },
     "type": "my-picasso-scatterplot",
     "labels": true,

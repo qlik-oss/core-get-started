@@ -19,7 +19,7 @@
     "enigma.js": "2.4.0",
     "halyard.js": "1.3.2",
     "picasso-plugin-q": "0.25.3",
-    "picasso.js": "0.25.3",
+    "picasso.js": "^0.25.3",
     "ws": "7.0.0"
   },
   "devDependencies": {

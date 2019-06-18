@@ -53,7 +53,7 @@ const schema = require('enigma.js/schemas/3.2.json');
     console.log(`Listing the ${20} first movies:`);
     movies.forEach((movie) => { console.log(movie[0].qText); });
 
-     await session.close();
+    await session.close();
     console.log('Session closed.');
   } catch (err) {
     console.log('Whoops! An error occurred.', err);

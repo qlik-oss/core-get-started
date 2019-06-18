@@ -6552,7 +6552,7 @@ picasso-plugin-q@0.25.3:
   resolved "https://registry.yarnpkg.com/picasso-plugin-q/-/picasso-plugin-q-0.25.3.tgz#8677a94df28d6be731066ffac4d5229c18e0f06f"
   integrity sha512-WBgVKI0MJ6OA+QI4r95088bUVWtFL3wVnNmrRHmnFNzWApkTES9liJJP3riqO1wVcT7Rxkip1HsLucKxKjWzcw==
 
-picasso.js@0.25.3:
+picasso.js@^0.25.3:
   version "0.25.3"
   resolved "https://registry.yarnpkg.com/picasso.js/-/picasso.js-0.25.3.tgz#943860f1f92e8f74cb15920ac129b9ad91cb353a"
   integrity sha512-PozUlLk2SmKa3XBFD5aapVtR7VgvuyQDWPj7qDEcWR/LfWvlr0CxIEwMLW82ttq493RNIEn5rroUFS/aGWYr0Q==
