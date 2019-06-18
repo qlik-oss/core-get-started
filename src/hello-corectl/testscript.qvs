@@ -1,8 +1,4 @@
-MoviesWeb:
-LOAD *
-FROM lib://webdata
-(html, utf8, delimiter is ';');
-MoviesLocal:
+Movies:
 LOAD *
 FROM [lib://testdata/movies.csv]
 (txt, utf8, embedded labels, delimiter is ',');

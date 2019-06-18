@@ -8,6 +8,7 @@
   "scripts": {
     "hello-engine": "node ./src/hello-engine/hello-engine.js",
     "hello-data": "node ./src/hello-data/hello-data.js",
+    "hello-corectl": "node ./src/hello-corectl/hello-corectl.js",
     "hello-data-halyard": "node ./src/hello-data/hello-data-halyard.js",
     "hello-visualization": "webpack-dev-server --config ./src/hello-visualization/webpack.config.js",
     "lint": "eslint .",
