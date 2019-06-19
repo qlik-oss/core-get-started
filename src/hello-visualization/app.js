@@ -8,6 +8,8 @@ import qixSchema from 'enigma.js/schemas/3.2.json';
 import template from './app.html';
 import Scatterplot from './scatterplot';
 import Linechart from './linechart';
+import 'babel-polyfill';
+import { async } from 'q';
 
 const halyard = new Halyard();
 
@@ -36,15 +38,12 @@ angular.module('app', []).component('app', {
     let scatterplotObject = null;
     let linechartObject = null;
 
-    const select = (value) => {
-      app.getField('Movie').then((field) => {
-        field.select(value).then(() => {
-          $scope.dataSelected = true;
-          this.getMovieInfo().then(() => {
-            $scope.showFooter = true;
-          });
-        });
-      });
+    const select = async (value) => {
+      const field = await app.getField('Movie');
+      await field.select(value);
+      $scope.dataSelected = true;
+      $scope.showFooter = true;
+      await this.getMovieInfo();
     };
 
     const scatterplotProperties = {
@@ -169,23 +168,25 @@ angular.module('app', []).component('app', {
       });
       halyard.addTable(tableMovie);
 
+      // Add web data
       (async () => {
         const data = await $http.get('https://gist.githubusercontent.com/carlioth/b86ede12e75b5756c9f34c0d65a22bb3/raw/e733b74c7c1c5494669b36893a31de5427b7b4fc/MovieInfo.csv');
         const table = new Halyard.Table(data.data, { name: 'MoviesInfo', delimiter: ';', characterSet: 'utf8' });
         halyard.addTable(table);
         let qix;
         try {
-          qix = await enigma.create(config).open();
+          qix = await enigma.create(config).open(); // lägg till try t
+          this.connected = true;
+          this.connecting = false;
         } catch (error) {
           this.error = 'Could not connect to QIX Engine';
           this.connecting = false;
         }
+        // läg till try cath
 
-        this.connected = true;
-        this.connecting = false;
         let result;
         try {
-          result = await qix.createSessionAppUsingHalyard(halyard);
+          result = await qix.createSessionAppUsingHalyard(halyard); // lägg till try t
         } catch (error) {
           this.error = 'Could not create session app';
           this.connected = false;
@@ -193,13 +194,18 @@ angular.module('app', []).component('app', {
         }
         app = result;
         await result.getAppLayout();
+
         scatterplotObject = await result.createSessionObject(scatterplotProperties);
+
         const updateScatterPlot = (async () => {
           const layout = await scatterplotObject.getLayout();
           paintScatterPlot(layout);
         });
+
         scatterplotObject.on('changed', updateScatterPlot);
         updateScatterPlot();
+
+
         linechartObject = await result.createSessionObject(linechartProperties);
         const linechartUpdate = (async () => {
           const layout = await linechartObject.getLayout();
