@@ -9,7 +9,7 @@ import template from './app.html';
 import Scatterplot from './scatterplot';
 import Linechart from './linechart';
 import 'babel-polyfill';
-import { async } from 'q';
+
 
 const halyard = new Halyard();
 
