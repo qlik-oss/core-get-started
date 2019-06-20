@@ -10,7 +10,6 @@ import Scatterplot from './scatterplot';
 import Linechart from './linechart';
 import 'babel-polyfill';
 
-
 const halyard = new Halyard();
 
 angular.module('app', []).component('app', {
@@ -40,10 +39,11 @@ angular.module('app', []).component('app', {
 
     const select = async (value) => {
       const field = await app.getField('Movie');
-      await field.select(value);
+      field.select(value);
       $scope.dataSelected = true;
       $scope.showFooter = true;
-      await this.getMovieInfo();
+      const layout = await this.getMovieInfo();
+      Scatterplot.showDetails(layout);
     };
 
     const scatterplotProperties = {
@@ -175,27 +175,24 @@ angular.module('app', []).component('app', {
         halyard.addTable(table);
         let qix;
         try {
-          qix = await enigma.create(config).open(); // lägg till try t
+          qix = await enigma.create(config).open();
           this.connected = true;
           this.connecting = false;
         } catch (error) {
           this.error = 'Could not connect to QIX Engine';
           this.connecting = false;
         }
-        // läg till try cath
 
-        let result;
         try {
-          result = await qix.createSessionAppUsingHalyard(halyard); // lägg till try t
+          app = await qix.createSessionAppUsingHalyard(halyard);
         } catch (error) {
           this.error = 'Could not create session app';
           this.connected = false;
           this.connecting = false;
         }
-        app = result;
-        await result.getAppLayout();
+        await app.getAppLayout();
 
-        scatterplotObject = await result.createSessionObject(scatterplotProperties);
+        scatterplotObject = await app.createSessionObject(scatterplotProperties);
 
         const updateScatterPlot = (async () => {
           const layout = await scatterplotObject.getLayout();
@@ -205,8 +202,7 @@ angular.module('app', []).component('app', {
         scatterplotObject.on('changed', updateScatterPlot);
         updateScatterPlot();
 
-
-        linechartObject = await result.createSessionObject(linechartProperties);
+        linechartObject = await app.createSessionObject(linechartProperties);
         const linechartUpdate = (async () => {
           const layout = await linechartObject.getLayout();
           paintLineChart(layout);
@@ -268,8 +264,7 @@ angular.module('app', []).component('app', {
         },
       };
       const model = await app.createSessionObject(tableProperties);
-      const layout = await model.getLayout();
-      return Scatterplot.showDetails(layout);
+      return model.getLayout();
     };
   }],
   template,
