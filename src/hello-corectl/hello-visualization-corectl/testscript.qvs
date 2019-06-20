@@ -1,0 +1,8 @@
+Movies:
+LOAD *
+FROM lib://webdata
+(html, utf8, delimiter is ';');
+MoviesInfo:
+LOAD *
+FROM [lib://testdata/movies.csv]
+(txt, utf8, embedded labels, delimiter is ',');

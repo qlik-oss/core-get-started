@@ -1,0 +1,4 @@
+Movies:
+LOAD *
+FROM [lib://testdata/movies.csv]
+(txt, utf8, embedded labels, delimiter is ',');

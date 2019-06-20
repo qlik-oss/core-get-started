@@ -1,0 +1,12 @@
+engine: localhost:19076 # URL and port to running Qlik Associative Engine instance
+app: /testscript.qvf   # App name that the tool should open a session against.
+script: /testscript.qvs # Path to a script that should be set in the app
+connections: # Connections that should be created in the app
+  webdata: # Name of the connection
+    connectionstring: "https://gist.githubusercontent.com/carlioth/b86ede12e75b5756c9f34c0d65a22bb3/raw/e733b74c7c1c5494669b36893a31de5427b7b4fc/MovieInfo.csv" # Connectionstring (qConnectionString) of the connection. For a folder connector this is an absolute or relative path inside of the engine docker container.
+    type: internet # Type of connection
+  testdata:
+      connectionstring: /data # Connectionstring (qConnectionString) of the connection. For a folder connector this is an absolute or relative path inside of the engine docker container.
+      type: folder # Type of connection
+objects:
+  - ./object-*.JSON # Path to objects that should be created from a json file. Accepts wildcards.

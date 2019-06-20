@@ -10,6 +10,8 @@
     "hello-data": "node ./src/hello-data/hello-data.js",
     "hello-data-halyard": "node ./src/hello-data/hello-data-halyard.js",
     "hello-visualization": "webpack-dev-server --config ./src/hello-visualization/webpack.config.js",
+    "hello-visualization-corectl": "webpack-dev-server --config ./src/hello-corectl/hello-visualization-corectl/webpack.config.js",
+    "hello-data-corectl": "node ./src/hello-corectl/hello-data-corectl/hello-data-corectl",
     "lint": "eslint .",
     "lint-fix": "eslint --fix ."
   },

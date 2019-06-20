@@ -1,0 +1,41 @@
+ {
+        "qInfo": {
+            "qType": "visualization",
+            "qId": "tableProperties"
+          },
+          "type": "my-info-table",
+          "labels": true,
+          "qHyperCubeDef": {
+            "qDimensions": [{
+              "qDef": {
+                "qFieldDefs": ["Movie"]
+              }
+            },
+            {
+              "qDef": {
+                "qFieldDefs": ["Image"]
+              }
+            },
+            {
+                "qDef": {
+                    "qFieldDefs": ["Year"]
+              }
+            },
+            {
+                "qDef": {
+                    "qFieldDefs": ["Genre"]
+              }
+            },
+            {
+                "qDef": {
+                    "qFieldDefs": ["Description"]
+              }
+            }
+            ],
+            "qInitialDataFetch": [{
+                "qTop": 0, "qHeight": 50, "qLeft": 0, "qWidth": 50
+            }],
+            "qSuppressZero": false,
+            "qSuppressMissing": true
+          }
+        }

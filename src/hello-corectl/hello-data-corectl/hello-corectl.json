@@ -1,0 +1,7 @@
+{
+      "qInfo": { "qType": "hello-data", "qId": "hello-corectl" },
+      "qHyperCubeDef": {
+        "qDimensions": [{ "qDef": { "qFieldDefs": ["Movie", "Year", "Adjusted Costs", "Description", "Image"] } }],
+        "qInitialDataFetch": [{ "qHeight": 10, "qWidth": 5 }]
+   }
+}

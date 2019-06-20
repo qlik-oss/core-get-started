@@ -1,0 +1,296 @@
+@font-face {
+  font-family: quicksand-light;
+  src: url(resources/Quicksand-Light.otf);
+}
+
+@font-face {
+  font-family: quicksand-regular;
+  src: url(resources/Quicksand-Regular.otf);
+}
+
+@font-face {
+  font-family: lui-icons;
+  src: url(resources/LUI-icons.woff);
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  font-family: quicksand-regular;
+  font-size: 14px;
+  color: white;
+  background: #4d4d4d;
+  user-select: none;
+  overflow: hidden;
+}
+
+app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  height: 80px;
+  background: linear-gradient(
+    to right,
+    rgba(135, 203, 172, 0.82),
+    rgba(119, 199, 193, 0.82)
+  );
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 250px;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+}
+
+.content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 496px;
+  padding-bottom: 50px;
+  overflow-y: auto;
+}
+
+.left-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.qliktive {
+  font-size: 14px;
+  font-weight: bold;
+  padding-bottom: 7px;
+}
+
+.hello-visualization {
+  font-size: 22px;
+  font-family: quicksand-light;
+}
+
+.right-content {
+  display: flex;
+  align-items: center;
+}
+
+.clear-selections {
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.11);
+  border: 1px solid rgba(0, 0, 0, 0.11);
+  border-radius: 16px;
+  padding: 7px 13px;
+  cursor: pointer;
+}
+
+.clear-selections:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.clear-selections:active {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.disabled,
+.disabled:hover,
+.disabled:active {
+  cursor: default;
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.07);
+}
+
+.git-hub-icon {
+  height: 36px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.container {
+  width: 960px;
+  text-align: center;
+  padding: 20px;
+  border-radius: 11px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 22px;
+  padding-bottom: 10px;
+}
+
+#chart-container-scatterplot {
+  height: 340px;
+  margin-top: 40px;
+  position: relative;
+}
+
+#chart-container-linechart {
+  height: 340px;
+  margin-top: 40px;
+  position: relative;
+}
+
+.picasso-chart circle {
+  cursor: pointer;
+}
+
+.picasso-chart circle:hover {
+  fill: #f2f2f2;
+}
+
+.tooltip {
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 13px;
+  position: relative;
+  transition: opacity 50ms ease-out;
+  opacity: 1;
+  z-index: 1021;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.footer {
+  font-size: 13px;
+  position: absolute;
+  width: 100%;
+  transition: height 0.5s;
+  height: 50px;
+  background: linear-gradient(
+    to right,
+    rgba(135, 203, 172, 0.82),
+    rgba(119, 199, 193, 0.82)
+  );
+  bottom: 0;
+  padding: 10px 250px;
+  box-sizing: border-box;
+}
+
+.footer.expanded {
+  transition: height 0.5s;
+  height: 290px;
+}
+
+.lui-icon--top {
+  background: rgba(0, 0, 0, 0.11);
+  border: 1px solid rgba(0, 0, 0, 0.11);
+  border-radius: 4px;
+  padding: 6px 9px 7px 9px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.lui-icon--top:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.lui-icon--top:active {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.lui-icon--top:before {
+  font-family: lui-icons;
+  content: "\2D9";
+}
+
+.lui-icon--top.expanded {
+  display: inline-block;
+  transform: rotate(180deg);
+}
+
+.footer-title {
+  font-size: 15px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+.info-wrapper {
+  margin: 15px 0;
+  display: flex;
+}
+
+.movie-image {
+  height: 219px;
+  border-radius: 3px;
+}
+
+.movie-info {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-title {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.info-title {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.info-title:not(:first-child) {
+  padding-top: 7px;
+}
+
+.movie-description {
+  max-height: 85px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.no-movie-selected {
+  text-align: center;
+  line-height: 240px;
+  font-size: 18px;
+}
+
+.error {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(115, 115, 115, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lui-icon--warning:before {
+  font-family: lui-icons;
+  font-size: 56px;
+  content: "\E8";
+}
+
+.error-title {
+  font-size: 25px;
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
+@media screen and (max-width: 1200px) {
+  .header {
+    padding: 15px 25px;
+  }
+
+  .footer {
+    padding: 10px 25px;
+  }
+}

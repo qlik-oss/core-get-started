@@ -1,0 +1,33 @@
+{
+  "qInfo": {
+    "qType": "visualization",
+    "qId": "lineChart"
+  },
+  "type": "my-picasso-linechart",
+  "labels": true,
+  "qHyperCubeDef": {
+    "qDimensions": [{
+      "qDef": {
+        "qFieldDefs": ["Year"],
+        "qSortCriterias": [{
+          "qSortByAscii": 1
+        }]
+      }
+    }],
+    "qMeasures": [{
+      "qDef": {
+        "qDef": "Sum([Adjusted Costs])",
+        "qLabel": "Adjusted Costs in total ($)"
+      },
+      "qSortBy": {
+        "qSortByNumeric": -1
+      }
+    }
+    ],
+    "qInitialDataFetch": [{
+      "qTop": 0, "qHeight": 50, "qLeft": 0, "qWidth": 3
+    }],
+    "qSuppressZero": false,
+    "qSuppressMissing": false
+  }
+}
