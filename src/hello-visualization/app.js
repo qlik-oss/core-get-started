@@ -8,6 +8,7 @@ import qixSchema from 'enigma.js/schemas/3.2.json';
 import template from './app.html';
 import Scatterplot from './scatterplot';
 import Linechart from './linechart';
+import 'babel-polyfill';
 
 const halyard = new Halyard();
 
@@ -36,15 +37,14 @@ angular.module('app', []).component('app', {
     let scatterplotObject = null;
     let linechartObject = null;
 
-    const select = (value) => {
-      app.getField('Movie').then((field) => {
-        field.select(value).then(() => {
-          $scope.dataSelected = true;
-          this.getMovieInfo().then(() => {
-            $scope.showFooter = true;
-          });
-        });
-      });
+    const select = async (value) => {
+      const field = await app.getField('Movie');
+      field.select(value);
+      $scope.dataSelected = true;
+      const layout = await this.getMovieInfo();
+      Scatterplot.showDetails(layout);
+      $scope.showFooter = true;
+      $scope.$digest();
     };
 
     const scatterplotProperties = {
@@ -170,51 +170,48 @@ angular.module('app', []).component('app', {
       halyard.addTable(tableMovie);
 
       // Add web data
-      $http.get('https://gist.githubusercontent.com/carlioth/b86ede12e75b5756c9f34c0d65a22bb3/raw/e733b74c7c1c5494669b36893a31de5427b7b4fc/MovieInfo.csv')
-        .then((data) => {
-          const table = new Halyard.Table(data.data, { name: 'MoviesInfo', delimiter: ';', characterSet: 'utf8' });
-          halyard.addTable(table);
-        })
-        .then(() => {
-          enigma.create(config).open().then((qix) => {
-            this.connected = true;
-            this.connecting = false;
-            qix.createSessionAppUsingHalyard(halyard).then((result) => {
-              app = result;
-              result.getAppLayout()
-                .then(() => {
-                  result.createSessionObject(scatterplotProperties).then((model) => {
-                    scatterplotObject = model;
+      (async () => {
+        const data = await $http.get('https://gist.githubusercontent.com/carlioth/b86ede12e75b5756c9f34c0d65a22bb3/raw/e733b74c7c1c5494669b36893a31de5427b7b4fc/MovieInfo.csv');
+        const table = new Halyard.Table(data.data, { name: 'MoviesInfo', delimiter: ';', characterSet: 'utf8' });
+        halyard.addTable(table);
+        let qix;
+        try {
+          qix = await enigma.create(config).open();
+          this.connected = true;
+          this.connecting = false;
+        } catch (error) {
+          this.error = 'Could not connect to QIX Engine';
+          this.connecting = false;
+        }
 
-                    const update = () => scatterplotObject.getLayout().then((layout) => {
-                      paintScatterPlot(layout);
-                    });
+        try {
+          app = await qix.createSessionAppUsingHalyard(halyard);
+        } catch (error) {
+          this.error = 'Could not create session app';
+          this.connected = false;
+          this.connecting = false;
+        }
+        await app.getAppLayout();
 
-                    scatterplotObject.on('changed', update);
-                    update();
-                  });
+        scatterplotObject = await app.createSessionObject(scatterplotProperties);
 
-                  result.createSessionObject(linechartProperties).then((model) => {
-                    linechartObject = model;
-
-                    const update = () => linechartObject.getLayout().then((layout) => {
-                      paintLineChart(layout);
-                    });
-
-                    linechartObject.on('changed', update);
-                    update();
-                  });
-                });
-            }, () => {
-              this.error = 'Could not create session app';
-              this.connected = false;
-              this.connecting = false;
-            });
-          }, () => {
-            this.error = 'Could not connect to QIX Engine';
-            this.connecting = false;
-          });
+        const updateScatterPlot = (async () => {
+          const layout = await scatterplotObject.getLayout();
+          paintScatterPlot(layout);
         });
+
+        scatterplotObject.on('changed', updateScatterPlot);
+        updateScatterPlot();
+
+        linechartObject = await app.createSessionObject(linechartProperties);
+        const linechartUpdate = (async () => {
+          const layout = await linechartObject.getLayout();
+          paintLineChart(layout);
+        });
+
+        linechartObject.on('changed', linechartUpdate);
+        linechartUpdate();
+      })();
     };
 
     this.clearAllSelections = () => {
@@ -225,7 +222,7 @@ angular.module('app', []).component('app', {
       $scope.showFooter = false;
     };
 
-    this.getMovieInfo = () => {
+    this.getMovieInfo = async () => {
       const tableProperties = {
         qInfo: {
           qType: 'visualization',
@@ -267,11 +264,8 @@ angular.module('app', []).component('app', {
           qSuppressMissing: true,
         },
       };
-      return app.createSessionObject(tableProperties)
-        .then(model => model.getLayout()
-          .then((layout) => {
-            Scatterplot.showDetails(layout);
-          }));
+      const model = await app.createSessionObject(tableProperties);
+      return model.getLayout();
     };
   }],
   template,
