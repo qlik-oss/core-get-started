@@ -41,9 +41,10 @@ angular.module('app', []).component('app', {
       const field = await app.getField('Movie');
       field.select(value);
       $scope.dataSelected = true;
-      $scope.showFooter = true;
       const layout = await this.getMovieInfo();
       Scatterplot.showDetails(layout);
+      $scope.showFooter = true;
+      $scope.$digest();
     };
 
     const scatterplotProperties = {
