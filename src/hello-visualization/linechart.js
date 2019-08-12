@@ -27,9 +27,9 @@ export default class Linechart {
           data: {
             extract: {
               field: 'qDimensionInfo/0',
-              value: v => v.qNum,
+              value: (v) => v.qNum,
               props: {
-                movie: { value: v => v.qText },
+                movie: { value: (v) => v.qText },
                 movieCount: { field: 'qMeasureInfo/0' },
               },
             },
