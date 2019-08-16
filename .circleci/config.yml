@@ -29,9 +29,6 @@ jobs:
           name: Lint
           command: npm run lint
       - run:
-          name: Login to Docker
-          command: docker login -u "$DOCKER_USER" -p "$DOCKER_PASSWORD"
-      - run:
           name: Start QIX Engine
           command: ACCEPT_EULA=yes docker-compose up -d
       - run:
