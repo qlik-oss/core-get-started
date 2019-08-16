@@ -9,7 +9,7 @@ const schema = require('enigma.js/schemas/3.2.json');
     const session = enigma.create({
       schema,
       url: 'ws://localhost:19076/app',
-      createSocket: url => new WebSocket(url),
+      createSocket: (url) => new WebSocket(url),
     });
     const global = await session.open();
 

@@ -31,7 +31,7 @@ export default class Scatterplot {
             extract: {
               field: 'qDimensionInfo/0',
               props: {
-                movie: { value: v => v.qText },
+                movie: { value: (v) => v.qText },
                 cost: { field: 'qMeasureInfo/0' },
                 rating: { field: 'qMeasureInfo/1' },
               },
@@ -169,7 +169,7 @@ export default class Scatterplot {
       return;
     }
 
-    const data = layout.qHyperCube.qDataPages[0].qMatrix.map(item => ({
+    const data = layout.qHyperCube.qDataPages[0].qMatrix.map((item) => ({
       movie: item[0].qText,
       image: item[1].qText,
       year: item[2].qText,
