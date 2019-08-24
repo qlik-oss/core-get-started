@@ -23,14 +23,14 @@
     "ws": "7.1.2"
   },
   "devDependencies": {
-    "@after-work.js/aw": "6.0.6",
-    "@after-work.js/transform": "6.0.6",
+    "@after-work.js/aw": "6.0.8",
+    "@after-work.js/transform": "6.0.8",
     "@babel/core": "7.5.5",
     "@babel/preset-env": "7.5.5",
     "babel-loader": "8.0.6",
     "babel-plugin-istanbul": "5.2.0",
     "copy-webpack-plugin": "5.0.4",
-    "eslint": "6.2.0",
+    "eslint": "6.2.1",
     "eslint-config-airbnb-base": "14.0.0",
     "eslint-plugin-import": "2.18.2",
     "json-loader": "0.5.7",
