@@ -20,7 +20,7 @@
     "halyard.js": "1.3.2",
     "picasso-plugin-q": "0.29.1",
     "picasso.js": "0.29.1",
-    "ws": "7.2.0"
+    "ws": "7.2.1"
   },
   "devDependencies": {
     "@after-work.js/aw": "6.0.10",
