@@ -25,21 +25,21 @@
   "devDependencies": {
     "@after-work.js/aw": "6.0.10",
     "@after-work.js/transform": "6.0.10",
-    "@babel/core": "7.7.5",
-    "@babel/preset-env": "7.7.6",
+    "@babel/core": "7.7.7",
+    "@babel/preset-env": "7.7.7",
     "babel-loader": "8.0.6",
     "babel-plugin-istanbul": "5.2.0",
     "copy-webpack-plugin": "5.1.1",
-    "eslint": "6.7.2",
+    "eslint": "6.8.0",
     "eslint-config-airbnb-base": "14.0.0",
     "eslint-plugin-import": "2.19.1",
     "json-loader": "0.5.7",
     "protractor": "5.4.2",
     "raw-loader": "4.0.0",
     "webdriver-manager": "12.1.7",
-    "webpack": "4.41.2",
+    "webpack": "4.41.4",
     "webpack-cli": "3.3.10",
-    "webpack-dev-server": "3.9.0"
+    "webpack-dev-server": "3.10.1"
   },
   "engines": {
     "node": ">=8.9.3"
