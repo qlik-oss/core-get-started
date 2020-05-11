@@ -6,7 +6,7 @@ module.exports = function initConfig(baseConfig) {
   const config = {
     baseUrl: 'http://localhost:1337/',
     artifactsPath: 'test/__artifacts__',
-    chromeDriver: `${process.cwd()}/node_modules/webdriver-manager/selenium/chromedriver_81.0.4044.69`,
+    // chromeDriver: `${process.cwd()}/node_modules/webdriver-manager/selenium/chromedriver_81.0.4044.69`,
     directConnect: true,
     capabilities: {
       browserName: 'chrome',
