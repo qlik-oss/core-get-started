@@ -12,16 +12,17 @@ jobs:
             curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh | bash
             export NVM_DIR="/opt/circleci/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-            nvm install v8
-            nvm alias default v8
+            nvm install v12
+            nvm alias default v12
             # Each step uses the same `$BASH_ENV`, so need to modify it
             echo 'export NVM_DIR="/opt/circleci/.nvm"' >> $BASH_ENV
             echo "[ -s \"$NVM_DIR/nvm.sh\" ] && . \"$NVM_DIR/nvm.sh\"" >> $BASH_ENV
       - run:
           name: Install Chrome
           command: |
+            sudo apt-get clean
             sudo apt-get update
-            sudo apt-get install libgbm1
+            sudo apt-get install libgbm1 dpkg
             wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
             sudo dpkg -i google-chrome-stable_current_amd64.deb
             sudo apt-get -fy install
