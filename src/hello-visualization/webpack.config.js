@@ -34,11 +34,13 @@ module.exports = {
     ],
   },
   plugins: [
-    new CopyWebpackPlugin([
-      { from: 'index.html' },
-      { from: 'app.html' },
-      { from: 'app.css' },
-      { from: 'resources/', to: 'resources/' },
-    ]),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'index.html' },
+        { from: 'app.html' },
+        { from: 'app.css' },
+        { from: 'resources/', to: 'resources/' },
+      ],
+    }),
   ],
 };
