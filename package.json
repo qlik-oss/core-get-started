@@ -16,7 +16,7 @@
   "dependencies": {
     "angular": "1.8.0",
     "babel-polyfill": "6.26.0",
-    "enigma.js": "2.7.1",
+    "enigma.js": "2.7.2",
     "halyard.js": "1.3.2",
     "picasso-plugin-q": "0.34.0",
     "picasso.js": "0.34.0",
