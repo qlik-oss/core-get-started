@@ -23,13 +23,13 @@
     "ws": "7.3.1"
   },
   "devDependencies": {
-    "@after-work.js/aw": "6.0.13",
-    "@after-work.js/transform": "6.0.13",
+    "@after-work.js/aw": "6.0.14",
+    "@after-work.js/transform": "6.0.14",
     "@babel/core": "7.11.6",
     "@babel/preset-env": "7.11.5",
     "babel-loader": "8.1.0",
     "babel-plugin-istanbul": "6.0.0",
-    "copy-webpack-plugin": "6.1.0",
+    "copy-webpack-plugin": "6.1.1",
     "eslint": "7.9.0",
     "eslint-config-airbnb-base": "14.2.0",
     "eslint-plugin-import": "2.22.0",
@@ -37,7 +37,7 @@
     "protractor": "7.0.0",
     "raw-loader": "4.0.1",
     "webdriver-manager": "12.1.7",
-    "webpack": "4.44.1",
+    "webpack": "4.44.2",
     "webpack-cli": "3.3.12",
     "webpack-dev-server": "3.11.0"
   },
